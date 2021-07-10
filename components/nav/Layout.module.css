@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+}
+
+.container main {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}

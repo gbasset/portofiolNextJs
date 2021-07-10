@@ -1,0 +1,116 @@
+.titleLanguage {
+    height: 20vh;
+    color: aliceblue;
+    width: 100%;
+}
+
+.containerLanguage {
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.box {
+    background-color: #EBB876;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    height: 500px;
+    margin: 25px auto;
+    transform: translateX(900%);
+    transition: transform 0.7s ease opacity 0.7s ease-in;
+}
+
+.box:nth-of-type(even) {
+    transform: translateX(900%);
+    box-shadow: -11px -10px 0px #d5dcf9;
+}
+
+.box:nth-of-type(odd) {
+    transform: translateX(-900%);
+    box-shadow: 11px 10px 1px #d5dcf9;
+}
+
+.box.show {
+    transform: translateX(0);
+    transition: transform 0.7s ease;
+}
+
+.box h2 {
+    color: black;
+    font-size: 5rem;
+}
+
+.containerBoxe {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.FirstLanguage {
+    font-size: var(--size-8);
+    background-color: #f1e7dc;
+    color: var( --color-grey-900);
+    font-weight: bold;
+    text-align: center;
+    padding: 0.3em;
+}
+
+.containerLangages {
+    position: absolute;
+    height: auto;
+    width: 100%;
+}
+
+.SecondLangage {
+    font-size: var(--size-8);
+    background-color: #f1e7dc;
+    color: var( --color-grey-900);
+    font-weight: bold;
+    text-align: center;
+    padding: 0.3em;
+    position: absolute;
+    left: -7%;
+    top: -2em;
+}
+
+.ThirdLangage {
+    font-size: var(--size-8);
+    background-color: #f1e7dc;
+    color: var( --color-grey-900);
+    font-weight: bold;
+    text-align: center;
+    padding: 0.3em;
+    position: absolute;
+    left: -12%;
+    top: 2em;
+}
+
+.FourthLangage {
+    font-size: var(--size-8);
+    background-color: #f1e7dc;
+    color: var( --color-grey-900);
+    font-weight: bold;
+    text-align: center;
+    padding: 0.3em;
+    position: absolute;
+    right: -9%;
+    top: 0em;
+}
+
+.FithLangage {
+    font-size: var(--size-8);
+    background-color: #f1e7dc;
+    color: var( --color-grey-900);
+    font-weight: bold;
+    text-align: center;
+    padding: 0.3em;
+    position: absolute;
+    right: -5%;
+    top: 3em;
+}
