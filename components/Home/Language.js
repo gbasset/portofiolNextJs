@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import classes from './Languages.module.css'
 export default function Language({ language }) {
-    console.log("language", language);
+
     const ref = useRef(null);
 
     const [lastScrollTop, setLastScrollTop] = useState(0);
@@ -10,12 +10,14 @@ export default function Language({ language }) {
 
     const listener = e => {
         const triggerBottom = window.innerHeight / 1.5;
-        const boxTop = ref.current.getBoundingClientRect().top;
-        setLastScrollTop(document.body.scrollTop);
-        if (boxTop < triggerBottom) {
-            setShow(true);
-        } else {
-            setShow(false);
+        if (ref.current) {
+            const boxTop = ref.current.getBoundingClientRect().top;
+            setLastScrollTop(document.body.scrollTop);
+            if (boxTop < triggerBottom) {
+                setShow(true);
+            } else {
+                setShow(false);
+            }
         }
     };
     useEffect(() => {
@@ -28,15 +30,17 @@ export default function Language({ language }) {
     return (
         <div className={show ? `${classes.box} ${classes.show}` : classes.box} ref={ref}>
             <div className={classes.containerBoxe}>
-                <Image src={language.image} alt="github" width={200} height={200} />
-                <h2>  {language.language}</h2>
-                <p className={classes.FirstLanguage}>{language.technos[0]}</p>
+                <Image className={show ? `${classes.imageShow}` : ` ${classes.imageDisable}`}
+                    src={language.image} alt="github" width={200} height={200} />
+                <h2 className={show ? `${classes.mainTitleShow}` : ` ${classes.mainTitleDisable}`}>
+                    {language.language}</h2>
+                <p className={show ? `${classes.FirstLanguage} ${classes.mainTitleShow}` : `${classes.FirstLanguage}`} >{language.technos[0]}</p>
             </div>
-            <div className={classes.containerLangages}>
-                <p className={classes.SecondLangage}>sdsdsd </p>
-                <p className={classes.ThirdLangage}>ddddsds </p>
-                <p className={classes.FourthLangage}>kiki </p>
-                <p className={classes.FithLangage}>Yolo </p>
+            <div className={show ? `${classes.containerLangage} ${classes.containerLanguageShow}` : `${classes.containerLangage}`}>
+                <p className={classes.SecondLangage}>{language.technos[1]} </p>
+                <p className={classes.ThirdLangage}> {language.technos[2]}</p>
+                <p className={classes.FourthLangage}>{language.technos[3]} </p>
+                <p className={classes.FithLangage}> {language.technos[4]}</p>
             </div>
 
         </div>

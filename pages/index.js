@@ -1,66 +1,51 @@
 import Head from 'next/head';
-import Image from 'next/image'
 import React, { useEffect } from 'react'
 import withTransition from "../components/HOC/WitchTransition";
 import Language from '../components/Home/Language';
 
 function Home() {
-  // const getData = async () => {
-  //   const response = await fetch('https://enigmatic-taiga-55729.herokuapp.com/projects', {
-  //     method: 'get',
-  //     headers: { 'Content-Type': 'application/json' }
-  //   })
-  //   const data = await response.json();
-  //   console.log(data);
-  //   if (!response.ok) {
-  //     throw new Error(data.message || 'Quelque chose manque')
-  //   }
-  // }
-  // useEffect(() => {
-  //   getData()
-  // }, [])
+
   const lang = [
     {
-      language: 'bdd',
-      technos: ['sql', 'mongodb'],
+      language: 'JavaScript',
+      technos: ['EcmaScript 6', 'Fetch', 'Async/Await', 'Gestion du Dom', 'Librairies JavaScript'],
+      image: '/logos/icons8-javascript-logo.svg'
+    },
+    {
+      language: 'ReactJs',
+      technos: ['Context', 'Classes', 'Hooks', 'NextJs', 'Custom Hook',],
       image: '/logos/icons8-react.svg'
     },
     {
-      language: 'bdd',
-      technos: ['sql', 'mongodb'],
+      language: 'Bdd',
+      technos: ['Sql', 'Mongodb', 'Firebase', 'GraphQl', 'PhpMyAdmin'],
+      image: '/logos/database.svg'
+    },
+    {
+      language: 'NodeJs',
+      technos: ['JWT', 'Express', 'Passport', 'SocketIo', 'Handlebars'],
       image: '/logos/icons8-react.svg'
     },
     {
-      language: 'bdd',
-      technos: ['sql', 'mongodb'],
-      image: '/logos/icons8-react.svg'
-    },
-    {
-      language: 'bdd',
-      technos: ['sql', 'mongodb'],
+      language: 'Intégration',
+      technos: ['Html 5', 'Css 3', 'Flexbox', 'Css Grid', 'Librairies Css'],
       image: '/logos/icons8-html-5.svg'
     },
 
   ]
   return (
-    <div style={{ width: '100%', marginLeft: '160px', overflowX: 'hidden' }} className={""}>
+    <div style={{ marginLeft: '160px', overflowX: 'hidden' }} className={""}>
       <Head>
         <title>Accueil du portfolio de Basset Gaëtan </title>
         <meta name="description" content="Accueil du portfolio de Gaëtan Basset Developpeur web. ReactJs , NodeJs et Css." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main
-        className={''}>
-        <div style={{ height: '80vh' }}>
-
-        </div>
+      <main>
         <div className="text-home">
           <h2 >Bienvenue sur mon portfolio</h2>
           <blockquote>
-
             “ Ce site recense quelques projets personnels que j'ai entrepris seul mais également avec d'autres developpeurs. Je vous invite donc à les parcourir sur la page " Mes projets" et à me faire vos retours si vous le souhaitez . ”
-
           </blockquote>
         </div>
         <div className="container-lang ">
@@ -69,9 +54,6 @@ function Home() {
               language={language}
             />
           )}
-          {/* <Language
-            language={lang}
-          /> */}
         </div>
       </main>
     </div>
