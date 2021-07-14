@@ -13,13 +13,18 @@
     -webkit-transition: all 800ms ease-in;
 }
 
+.container {
+    display: flex;
+    width: 100%;
+}
+
 .pannel button {
     position: relative;
     opacity: 0;
     top: 50%;
 }
 
-.pannel.active button {
+.pannelActive button {
     opacity: 1;
     transition: opacity 0.8s ease 1.3s;
 }
@@ -37,11 +42,11 @@
     background-color: #1F2235;
 }
 
-.pannel.active {
+.pannelActive {
     flex: 5;
 }
 
-.pannel.active h3 {
+.pannelActive h3 {
     opacity: 1;
     transition: opacity 0.5s ease-in 0.7s;
 }
@@ -49,4 +54,9 @@
 .input-custom {
     padding: 2px;
     background-color: rgb(238, 238, 238);
+}
+
+.h1 {
+    font-size: 3rem;
+    padding: 1em;
 }

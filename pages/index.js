@@ -2,8 +2,11 @@ import Head from 'next/head';
 import React, { useEffect } from 'react'
 import withTransition from "../components/HOC/WitchTransition";
 import Language from '../components/Home/Language';
-
-function Home() {
+import ProjectAcordeon from '../components/Home/ProjectAcordeon';
+import axios from 'axios';
+import { apiProjects } from '../utils/data';
+import Typewriter from 'typewriter-effect';
+function Home(props) {
 
   const lang = [
     {
@@ -24,7 +27,7 @@ function Home() {
     {
       language: 'NodeJs',
       technos: ['JWT', 'Express', 'Passport', 'SocketIo', 'Handlebars'],
-      image: '/logos/icons8-react.svg'
+      image: '/logos/nodejs-svg.svg'
     },
     {
       language: 'Intégration',
@@ -37,26 +40,65 @@ function Home() {
     <div style={{ marginLeft: '160px', overflowX: 'hidden' }} className={""}>
       <Head>
         <title>Accueil du portfolio de Basset Gaëtan </title>
-        <meta name="description" content="Accueil du portfolio de Gaëtan Basset Developpeur web. ReactJs , NodeJs et Css." />
+        <meta name="description" content="Accueil du portfolio de Gaëtan Basset Developpeur web,. ReactJs , NodeJs et Css. Création de site web, site vitrine et e-commerce et application web. " />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <div className="text-home">
-          <h2 >Bienvenue sur mon portfolio</h2>
+          <div className="typeWriter">
+            <Typewriter
+              options={{
+                autoStart: true,
+                loop: true,
+                deleteSpeed: 5,
+                changeDelay: 2
+              }}
+              onInit={(typewriter) => {
+                typewriter.typeString(`Bonjour,moi c'est Gaëtan.`)
+                  .pauseFor(500)
+                  .deleteChars(25)
+                  .typeString('Bienvenue sur mon site !')
+                  // .deleteAll()
+                  .pauseFor(500)
+                  .deleteChars(54)
+                  .start();
+              }}
+            />
+          </div>
           <blockquote>
             “ Ce site recense quelques projets personnels que j'ai entrepris seul mais également avec d'autres developpeurs. Je vous invite donc à les parcourir sur la page " Mes projets" et à me faire vos retours si vous le souhaitez . ”
           </blockquote>
         </div>
         <div className="container-lang ">
+          <h1>Compétences techniques</h1>
           {lang.map(language =>
             <Language
               language={language}
             />
           )}
         </div>
+        <div>
+          <ProjectAcordeon mainProjects={props.projects} />
+        </div>
       </main>
     </div>
   )
 }
-export default withTransition(Home);
+export async function getStaticProps() {
+
+  const mainProject = await axios.get(`${apiProjects}projectMain`)
+    .then(res => {
+      return res.data
+    })
+    .catch(error => {
+      console.error('Une erreur est survenue pendant la récupération des languages');
+    })
+
+  return {
+    props: {
+      projects: mainProject,
+    }
+  }
+}
+export default Home;

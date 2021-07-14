@@ -113,7 +113,7 @@ table {
   left: 0;
   height: 100vh;
   width: 100%;
-  background: var( --color-secondary-700);
+  background: #D5DCF9;
   transform-origin: left;
 }
 
@@ -136,6 +136,11 @@ table {
   overflow-x: hidden;
 }
 
+.container-lang h1 {
+  font-size: 3rem;
+  padding: 1em;
+}
+
 .text-home {
   padding: 15px 25px;
   width: 60%;
@@ -148,13 +153,22 @@ table {
   height: 80vh;
 }
 
-.text-home h2 {
+.text-home h1 {
   margin-top: var( --size-13);
-  font-size: var( --size-16);
+  font-size: 4rem;
   line-height: var(--size-16);
   font-style: normal;
+  text-align: center;
 }
 
 .text-home blockquote {
   margin: 5rem;
+}
+
+.typeWriter {
+  padding: 2em;
+  text-align: center;
+  margin: auto;
+  color: var(--color-primary-200);
+  font-size: 3rem;
 }

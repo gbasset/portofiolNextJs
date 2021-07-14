@@ -26,7 +26,6 @@ export default function Language({ language }) {
             window.removeEventListener("scroll", listener);
         };
     }, [lastScrollTop]);
-    console.log("show", show);
     return (
         <div className={show ? `${classes.box} ${classes.show}` : classes.box} ref={ref}>
             <div className={classes.containerBoxe}>

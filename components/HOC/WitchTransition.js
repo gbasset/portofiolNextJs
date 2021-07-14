@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-
-const withTransition = (OriginalComponent) => {
+import Router from 'next/router'
+const withTransition = (OriginalComponent, props) => {
     return () => (
         <>
-            <OriginalComponent />
+            <OriginalComponent {...props} />
             <motion.div
                 className="slide-in"
                 initial={{ scaleX: 0 }}
