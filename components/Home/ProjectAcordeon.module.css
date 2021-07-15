@@ -1,14 +1,10 @@
 .pannel {
-    background-size: auto 100%;
-    background-position: center;
-    background-repeat: no-repeat;
     height: 80vh;
     border-radius: 15px;
     color: #fff;
     cursor: pointer;
     flex: 0.5;
     margin: 10px;
-    position: relative;
     transition: flex 800ms ease-in;
     -webkit-transition: all 800ms ease-in;
 }
@@ -21,17 +17,17 @@
 .pannel button {
     position: relative;
     opacity: 0;
-    top: 50%;
 }
 
 .pannelActive button {
+    position: relative;
+    top: -80%;
     opacity: 1;
     transition: opacity 0.8s ease 1.3s;
 }
 
 .pannel h3 {
     font-size: 24px;
-    position: relative;
     text-align: center;
     max-width: 50%;
     width: auto;
@@ -40,15 +36,48 @@
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #1F2235;
     background-color: #1F2235;
+    padding: 1em;
+    border-radius: 10px;
+    opacity: 0;
+}
+
+.pannelActive h3 {
+    font-size: 24px;
+    text-align: center;
+    max-width: 50%;
+    width: auto;
+    margin: 0 auto;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #1F2235;
+    background-color: #1F2235;
+    opacity: 1;
+    transition: opacity 0.5s ease-in 0.7s;
+    position: relative;
+    top: -95%;
+    padding: 1em;
+    border-radius: 10px;
+    color: var(--color-secondary-700);
+    font-weight: bold;
 }
 
 .pannelActive {
     flex: 5;
 }
 
-.pannelActive h3 {
+.pannel p {
+    opacity: 0;
+}
+
+.description {
+    position: relative;
+    top: -87%;
+    background-color: var( --color-primary-700);
+    padding: 2em;
+    text-align: justify;
+    transition: opacity 0.7s ease-in 0.7s;
+    margin: auto 10px;
+    line-height: 1.3em;
     opacity: 1;
-    transition: opacity 0.5s ease-in 0.7s;
 }
 
 .input-custom {
@@ -59,4 +88,35 @@
 .h1 {
     font-size: 3rem;
     padding: 1em;
+}
+
+.container section {
+    width: 100%;
+    height: 100%;
+    /* On applique le filtre CSS3 pour flouter l'image (avec ici les variantes pour les différents moteurs de rendu) */
+    /* Safari */
+    -webkit-filter: blur(2px);
+    /* Firefox */
+    -moz-filter: blur(2px);
+    /* Opera */
+    -o-filter: blur(2px);
+    /* Internet Explorer */
+    -ms-filter: blur(2px);
+    /* Filtre de floutage CSS3 standard */
+    filter: blur(2px);
+}
+
+.isNotActive button {
+    opacity: 0;
+}
+
+.IsActive button {
+    opacity: 1;
+    position: relative;
+    top: -338px
+}
+
+.icon {
+    display: flex;
+    align-items: center;
 }

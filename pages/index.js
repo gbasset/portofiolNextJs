@@ -37,7 +37,7 @@ function Home(props) {
 
   ]
   return (
-    <div style={{ marginLeft: '160px', overflowX: 'hidden' }} className={""}>
+    <div style={{ marginLeft: '160px' }} className={""}>
       <Head>
         <title>Accueil du portfolio de Basset Gaëtan </title>
         <meta name="description" content="Accueil du portfolio de Gaëtan Basset Developpeur web,. ReactJs , NodeJs et Css. Création de site web, site vitrine et e-commerce et application web. " />
@@ -72,8 +72,9 @@ function Home(props) {
         </div>
         <div className="container-lang ">
           <h1>Compétences techniques</h1>
-          {lang.map(language =>
+          {lang.map((language, key) =>
             <Language
+              key={key}
               language={language}
             />
           )}
