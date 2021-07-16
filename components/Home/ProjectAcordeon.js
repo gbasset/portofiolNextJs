@@ -9,7 +9,7 @@ export default function ProjectAcordeon(props) {
         setImagesToMap(props.mainProjects);
         setImageActive(props.mainProjects[0]._id)
     }, [])
-    console.log("props", props);
+
     return (
         <div>
             <h1 className={classes.h1}>Séléction de projets</h1>

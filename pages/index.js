@@ -6,6 +6,7 @@ import ProjectAcordeon from '../components/Home/ProjectAcordeon';
 import axios from 'axios';
 import { apiProjects } from '../utils/data';
 import Typewriter from 'typewriter-effect';
+import { motion } from "framer-motion";
 function Home(props) {
 
   const lang = [
@@ -37,53 +38,69 @@ function Home(props) {
 
   ]
   return (
-    <div style={{ marginLeft: '160px' }} className={""}>
-      <Head>
-        <title>Accueil du portfolio de Basset Gaëtan </title>
-        <meta name="description" content="Accueil du portfolio de Gaëtan Basset Developpeur web,. ReactJs , NodeJs et Css. Création de site web, site vitrine et e-commerce et application web. " />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
+      <div style={{ marginLeft: '160px' }} className={""}>
+        <Head>
+          <title>Accueil du portfolio de Basset Gaëtan </title>
+          <meta name="description" content="Accueil du portfolio de Gaëtan Basset Developpeur web,. ReactJs , NodeJs et Css. Création de site web, site vitrine et e-commerce et application web. " />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <main>
-        <div className="text-home">
-          <div className="typeWriter">
-            <Typewriter
-              options={{
-                autoStart: true,
-                loop: true,
-                deleteSpeed: 5,
-                changeDelay: 2
-              }}
-              onInit={(typewriter) => {
-                typewriter.typeString(`Bonjour,moi c'est Gaëtan.`)
-                  .pauseFor(500)
-                  .deleteChars(25)
-                  .typeString('Bienvenue sur mon site !')
-                  // .deleteAll()
-                  .pauseFor(500)
-                  .deleteChars(54)
-                  .start();
-              }}
-            />
+        <main>
+          <div className="text-home">
+            <div className="typeWriter">
+              <Typewriter
+                options={{
+                  autoStart: true,
+                  loop: true,
+                  deleteSpeed: 5,
+                  changeDelay: 2
+                }}
+                onInit={(typewriter) => {
+                  typewriter.typeString(`Bonjour,moi c'est Gaëtan.`)
+                    .pauseFor(500)
+                    .deleteChars(25)
+                    .typeString('Bienvenue sur mon site !')
+                    // .deleteAll()
+                    .pauseFor(500)
+                    .deleteChars(54)
+                    .start();
+                }}
+              />
+            </div>
+            <blockquote>
+              “ Ce site recense quelques projets personnels que j'ai entrepris seul mais également avec d'autres developpeurs. Je vous invite donc à les parcourir sur la page " Mes projets" et à me faire vos retours si vous le souhaitez . ”
+            </blockquote>
           </div>
-          <blockquote>
-            “ Ce site recense quelques projets personnels que j'ai entrepris seul mais également avec d'autres developpeurs. Je vous invite donc à les parcourir sur la page " Mes projets" et à me faire vos retours si vous le souhaitez . ”
-          </blockquote>
-        </div>
-        <div className="container-lang ">
-          <h1>Compétences techniques</h1>
-          {lang.map((language, key) =>
-            <Language
-              key={key}
-              language={language}
-            />
-          )}
-        </div>
-        <div>
-          <ProjectAcordeon mainProjects={props.projects} />
-        </div>
-      </main>
-    </div>
+          <div className="container-lang ">
+            <h1>Compétences techniques</h1>
+            {lang.map((language, key) =>
+              <Language
+                key={key}
+                language={language}
+              />
+            )}
+          </div>
+          <div>
+            <ProjectAcordeon mainProjects={props.projects} />
+          </div>
+        </main>
+      </div>
+      <motion.div
+        className="slide-in"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 0 }}
+        exit={{ scaleX: 1 }}
+        transition={{ duration: 0.9, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="slide-out"
+        initial={{ scaleX: 1 }}
+        animate={{ scaleX: 0 }}
+        exit={{ scaleX: 0 }}
+        transition={{ duration: 0.9, ease: "easeInOut" }}
+      />
+    </>
   )
 }
 export async function getStaticProps() {
