@@ -129,7 +129,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    margin: 20px 0px;
+    margin: 20px 7px;
+    padding: 1rem;
+    border: 1px solid #f2d1a6;
 }
 
 .nameProject {

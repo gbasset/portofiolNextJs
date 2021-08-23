@@ -99,7 +99,7 @@ function Home(props) {
         initial={{ scaleX: 1 }}
         animate={{ scaleX: 0 }}
         exit={{ scaleX: 0 }}
-        transition={{ duration: 0.9, ease: "easeInOut" }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
       />
     </>
   )
