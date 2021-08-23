@@ -73,7 +73,7 @@ function About() {
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 0 }}
                 exit={{ scaleX: 1 }}
-                transition={{ duration: 0.9, ease: "easeInOut" }}
+                transition={{ duration: 0.2, ease: "easeInOut" }}
             />
             <motion.div
                 className="slide-out"
