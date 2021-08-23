@@ -11,7 +11,6 @@
 
 .container {
     display: flex;
-    width: 100%;
 }
 
 .pannel button {
@@ -79,6 +78,9 @@
     line-height: 1.3em;
     font-size: 1rem;
     opacity: 1;
+    max-height: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .input-custom {
@@ -91,7 +93,7 @@
     padding: 1em;
 }
 
-.container section {
+.container article {
     width: 100%;
     height: 100%;
     /* On applique le filtre CSS3 pour flouter l'image (avec ici les variantes pour les différents moteurs de rendu) */
@@ -120,4 +122,56 @@
 .icon {
     display: flex;
     align-items: center;
+}
+
+.mobileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px 0px;
+}
+
+.nameProject {
+    font-size: 2rem;
+    color: var(--color-secondary-700);
+}
+
+.mobileContainer .desc {
+    color: blanchedalmond;
+    margin: 4px 0px;
+    height: auto;
+    background-color: var( --color-primary-700);
+    padding: 1em 2em 1em 2em;
+    text-align: justify;
+    transition: opacity 0.7s ease-in 0.7s;
+    margin-bottom: 10px;
+    line-height: 1.3em;
+    font-size: 1rem;
+    opacity: 1;
+}
+
+.mobileContainer img {
+    max-width: 300px;
+    height: auto;
+    margin: 3px 0px 0px 0px;
+}
+
+@media (max-width: 900px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 300px;
+    }
+    .container article {
+        min-width: 300px;
+        height: 100px;
+    }
+    .h1 {
+        font-size: 2rem;
+        padding: 1em;
+        text-align: center;
+    }
 }

@@ -1,5 +1,6 @@
 import React from 'react'
-// import '../../styles/globals.css'
+
+import Link from 'next/link'
 export default function Btn({
     children,
     onClickFunction,
@@ -10,7 +11,8 @@ export default function Btn({
     size = '',
     icon,
     iconPosition = 'before',
-    disabledBtn
+    disabledBtn,
+    link
 }) {
 
     const cssClass = ['btnUi'];
@@ -35,22 +37,28 @@ export default function Btn({
     }
 
     return (
-        <button
-            disabled={disabledBtn ? disabledBtn : false}
-            className={cssClass.join(' ')}
-            onClick={(e) => onClickFunction(e)}>
-            {icon && iconPosition !== 'after' &&
-                <i className={`${icon}`}></i>
-            }
-            {message &&
-                <span className="btn_txt">{message}</span>
-            }
-            {children &&
-                <span className="btn_txt">{children}</span>
-            }
-            {icon && iconPosition === 'after' &&
-                <i className={`${icon}`}></i>
-            }
-        </button>
+        <>
+            {link &&
+                <Link href={link}>
+                    <a className={cssClass.join(' ')}>{message}</a>
+                </Link>}
+            {!link && <button
+                disabled={disabledBtn ? disabledBtn : false}
+                className={cssClass.join(' ')}
+                onClick={(e) => onClickFunction(e)}>
+                {icon && iconPosition !== 'after' &&
+                    <i className={`${icon}`}></i>
+                }
+                {message &&
+                    <span className="btn_txt">{message}</span>
+                }
+                {children &&
+                    <span className="btn_txt">{children}</span>
+                }
+                {icon && iconPosition === 'after' &&
+                    <i className={`${icon}`}></i>
+                }
+            </button>}
+        </>
     )
 }

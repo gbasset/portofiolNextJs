@@ -26,8 +26,15 @@ export default function Language({ language }) {
             window.removeEventListener("scroll", listener);
         };
     }, [lastScrollTop]);
+    useEffect(() => {
+        listener()
+    }, []);
     return (
         <div className={show ? `${classes.box} ${classes.show}` : classes.box} ref={ref}>
+            <div className={show ? `${classes.containerLangage} ${classes.containerLanguageShow}` : `${classes.containerLangage}`}>
+                <p className={classes.SecondLangage}>{language.technos[1]} </p>
+                <p className={classes.ThirdLangage}> {language.technos[2]}</p>
+            </div>
             <div className={classes.containerBoxe}>
                 <Image className={show ? `${classes.imageShow}` : ` ${classes.imageDisable}`}
                     src={language.image} alt="github" width={200} height={200} />
@@ -36,12 +43,9 @@ export default function Language({ language }) {
                 <p className={show ? `${classes.FirstLanguage} ${classes.mainTitleShow}` : `${classes.FirstLanguage}`} >{language.technos[0]}</p>
             </div>
             <div className={show ? `${classes.containerLangage} ${classes.containerLanguageShow}` : `${classes.containerLangage}`}>
-                <p className={classes.SecondLangage}>{language.technos[1]} </p>
-                <p className={classes.ThirdLangage}> {language.technos[2]}</p>
                 <p className={classes.FourthLangage}>{language.technos[3]} </p>
                 <p className={classes.FithLangage}> {language.technos[4]}</p>
             </div>
-
         </div>
     )
 }

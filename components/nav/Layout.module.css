@@ -1,10 +1,17 @@
 .container {
     display: flex;
+    width: 100%;
+}
+
+.container nav {
+    width: 15%;
 }
 
 .container main {
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 100%;
+    width: 85%;
 }
+
+.container.small {}

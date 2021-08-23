@@ -3,7 +3,7 @@
     height: 100vh;
     font-size: var(--size-5);
     position: fixed;
-    background-color: #333556;
+    overflow: hidden;
 }
 
 .nav ul {
@@ -23,4 +23,47 @@
 
 .isCurrentNavActive {
     color: var(--color-secondary-700);
+}
+
+.menuResBtn {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    margin: 0px 0px 4px 0px;
+    cursor: pointer;
+    z-index: 1001;
+    color: var(--color-secondary-700);
+}
+
+.menuIco {
+    width: 25px;
+}
+
+.smallMen {
+    overflow: hidden;
+    position: fixed;
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+    background-color: var( --color-primary-700);
+    display: flex;
+    align-items: center;
+}
+
+.smallMen ul {
+    height: 70%;
+    width: 100%;
+    position: relative;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    font-size: 2rem;
+}
+
+.noOverflow {
+    overflow: hidden;
 }

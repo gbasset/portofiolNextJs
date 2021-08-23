@@ -6,46 +6,74 @@ import { motion } from "framer-motion";
 import { apiProjects } from '../../utils/data';
 import SelectProject from '../../components/Project/SelectProject';
 import ListOfProjects from '../../components/Project/ListOfProjects';
+import Head from 'next/head';
 function Projects({ projects, tags, languages }) {
     const [projectsWithLabels, setprojectsWithLables] = useState();
     const [projectsFilter, setprojectsFilter] = useState([]);
 
     useEffect(() => {
-        if (tags) {
-            setprojectsWithLables(tags);
+        if (tags && languages) {
+            let languagesPlusTags = [...tags, ...languages];
+            setprojectsWithLables(languagesPlusTags);
             setprojectsFilter(projects);
         }
-    }, [tags]);
+    }, [tags, languages]);
     useEffect(() => {
         if (projects) {
             setprojectsFilter(projects);
         }
     }, [projects]);
-
+    useEffect(() => {
+        document.documentElement.scrollTop = 0
+    }, [])
     const getFilteredProject = (listProjectSelected) => {
         const nameTagsSelect = listProjectSelected.map(tag => tag.value);
         if (nameTagsSelect.length === 0) {
             setprojectsFilter(projects);
         } else {
             const listProjectSelect = () => {
-                let newArrayOfProjectsSelected = [];
-                projects.forEach(p => {
-                    const listTagsProject = p.tags;
-                    listTagsProject.forEach(element => {
-                        if (nameTagsSelect.includes(element)) {
-                            newArrayOfProjectsSelected.push(p);
-                        }
-                    });
-                })
-                const nonUnique = [...new Set(newArrayOfProjectsSelected)];
-                return nonUnique;
+                const filterTags = () => {
+                    const res = projects.reduce((acc, curr) => {
+                        const listTagsProject = curr.tags;
+                        listTagsProject.forEach(element => {
+                            if (nameTagsSelect.includes(element)) {
+                                acc.push(curr);
+                            }
+                        });
+                        return acc;
+                    }, [])
+                    return res;
+                }
+                const filterLanguages = () => {
+                    const res = projects.reduce((acc, curr) => {
+                        const listLanguageProject = curr.language;
+                        listLanguageProject.forEach(element => {
+                            if (nameTagsSelect.includes(element)) {
+                                acc.push(curr);
+                            }
+                        });
+                        return acc;
+                    }, [])
+                    return res;
+                }
+                let nonUnique = [...filterLanguages(), ...filterTags()];
+                nonUnique = [...new Set(nonUnique)];
+                const sortByAsc = (a, b) => {
+                    if (a._id < b._id) return -1
+                    if (a._id > b._id) return 1
+                    return 0
+                }
+                return nonUnique.sort(sortByAsc);
             }
             setprojectsFilter(listProjectSelect());
         }
     }
     return (<>
+        <Head>
+            <title>Projets de Bassett Gaëtan</title>
+            <meta name="description" content="liste des projets de Gaëtan basset" />
+        </Head>
         <div className={classes.containerProject}>
-            <h1>Projects</h1>
             <SelectProject
                 listProject={projectsWithLabels}
                 filteredProjects={(listProjectSelected) => getFilteredProject(listProjectSelected)}

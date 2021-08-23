@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import React, { useEffect } from 'react'
-import withTransition from "../components/HOC/WitchTransition";
 import Language from '../components/Home/Language';
 import ProjectAcordeon from '../components/Home/ProjectAcordeon';
 import axios from 'axios';
@@ -8,11 +7,13 @@ import { apiProjects } from '../utils/data';
 import Typewriter from 'typewriter-effect';
 import { motion } from "framer-motion";
 function Home(props) {
-
+  useEffect(() => {
+    document.documentElement.scrollTop = 0
+  }, [])
   const lang = [
     {
       language: 'JavaScript',
-      technos: ['EcmaScript 6', 'Fetch', 'Async/Await', 'Gestion du Dom', 'Librairies JavaScript'],
+      technos: ['EcmaScript 6', 'Fetch', 'Async/Await', 'Gestion du Dom', 'Librairies'],
       image: '/logos/icons8-javascript-logo.svg'
     },
     {
@@ -39,14 +40,14 @@ function Home(props) {
   ]
   return (
     <>
-      <div style={{ marginLeft: '160px' }} className={""}>
+      <>
         <Head>
           <title>Accueil du portfolio de Basset Gaëtan </title>
           <meta name="description" content="Accueil du portfolio de Gaëtan Basset Developpeur web,. ReactJs , NodeJs et Css. Création de site web, site vitrine et e-commerce et application web. " />
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <main>
+        <div>
           <div className="text-home">
             <div className="typeWriter">
               <Typewriter
@@ -61,10 +62,10 @@ function Home(props) {
                     .pauseFor(500)
                     .deleteChars(25)
                     .typeString('Bienvenue sur mon site !')
-                    // .deleteAll()
+                    .deleteAll()
                     .pauseFor(500)
                     .deleteChars(54)
-                    .start();
+                    .start()
                 }}
               />
             </div>
@@ -84,8 +85,8 @@ function Home(props) {
           <div>
             <ProjectAcordeon mainProjects={props.projects} />
           </div>
-        </main>
-      </div>
+        </div>
+      </>
       <motion.div
         className="slide-in"
         initial={{ scaleX: 0 }}
