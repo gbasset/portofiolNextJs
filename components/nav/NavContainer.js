@@ -125,7 +125,9 @@ export default function NavContainer() {
             {(!smallScreen) && (
                 <>
                     <nav className={classes.nav}>
-                        <Logo />
+                        <Logo
+                            setlinkNavigationCurrent={() => setlinkNavigationCurrent('/home')}
+                        />
                         <ul>
                             {navigation.map((link, id) =>
                                 <li key={id}
