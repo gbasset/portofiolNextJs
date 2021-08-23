@@ -101,7 +101,7 @@ export default function NavContainer() {
                 {smallScreen &&
                     <div className={classes.menuResBtn}>
                         <img onClick={toggleNavRes}
-                            src={!menu ? '/logos/Menuico.svg' : 'logos/Croix.svg'}
+                            src={!menu ? '/logos/Menuico.svg' : '/logos/Croix.svg'}
                             alt="icone menu responsive"
                             className={classes.menuIco} />
 
