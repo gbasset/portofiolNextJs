@@ -7,6 +7,7 @@ import { apiProjects } from '../../utils/data';
 import SelectProject from '../../components/Project/SelectProject';
 import ListOfProjects from '../../components/Project/ListOfProjects';
 import Head from 'next/head';
+import Footer from '../../components/Footer/Footer'
 function Projects({ projects, tags, languages }) {
     const [projectsWithLabels, setprojectsWithLables] = useState();
     const [projectsFilter, setprojectsFilter] = useState([]);

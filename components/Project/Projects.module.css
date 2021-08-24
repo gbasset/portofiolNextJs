@@ -86,9 +86,9 @@
 .projectContainerMobile .nameProjects {
     color: rgba(255, 203, 132, 0.9);
     visibility: visible;
-    font-size: 25px;
+    font-size: 28px;
     position: relative;
-    bottom: 145px;
+    bottom: -145px;
     text-decoration: none;
     text-align: center;
 }

@@ -23,3 +23,14 @@
     font-size: var(--size-3);
     text-align: center;
 }
+
+@media (max-width: 900px) {
+    .footer {
+        height: 100px;
+        display: block;
+    }
+    .copy {
+        font-size: var(--size-3);
+        text-align: center;
+    }
+}

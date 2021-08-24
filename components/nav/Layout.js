@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import NavContainer from './NavContainer';
 import classes from './Layout.module.css';
+import Footer from '../Footer/Footer'
 export default function Layout(props) {
     const [smallS, setSmallS] = useState(false);
 
@@ -27,6 +28,9 @@ export default function Layout(props) {
         <div className={!smallS ? classes.container : classes.container + classes.small}>
             <nav> <NavContainer /></nav>
             <main>{props.children}</main>
+            {smallS &&
+                <Footer />
+            }
         </div >
     )
 }

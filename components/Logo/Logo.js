@@ -14,7 +14,6 @@ export default function Logo({ setlinkNavigationCurrent }) {
             onClick={() => handleChangeNavigation()}
         >
             <div className={classes.logo}
-
             >
                 GB
             </div>
