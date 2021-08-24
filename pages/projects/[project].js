@@ -22,7 +22,9 @@ function Project({ project }) {
     useEffect(() => {
         document.documentElement.scrollTop = 0
     }, [])
-    console.log(project);
+    const clickLink = (url) => {
+        window.open(url, "_blank");
+    }
     return (
         <div>
             <Head>
@@ -66,11 +68,15 @@ function Project({ project }) {
                 <>
                     {proj.links.map(link =>
                         link.name === 'code' ?
-                            (<div className={classes.btnContainer}>
+                            (<div className={classes.btnContainer}
+                                onClick={() => clickLink(link.url)}
+                            >
                                 <a className={classes.btnMore} href={`${link.url}`} target="_blank" rel="noopener noreferrer">Voir le code</a>
                             </div>)
                             :
-                            (<div className={classes.btnContainer}>
+                            (<div className={classes.btnContainer}
+                                onClick={() => clickLink(link.url)}
+                            >
                                 <a className={classes.btnMore} href={`${link.url}`} target="_blank" rel="noopener noreferrer">Visiter le site</a>
                             </div>)
                     )

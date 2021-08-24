@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import Head from 'next/head';
 import { motion } from "framer-motion";
-import { SiJavascript, SiCss3, SiHtml5, SiNodeDotJs, SiReact, SiBootstrap, SiNetlify } from 'react-icons/si'
+import { SiJavascript, SiCss3, SiHtml5, SiNodeDotJs, SiReact, SiBootstrap, SiNetlify, SiNextDotJs, SiGraphql } from 'react-icons/si'
 import { FaDatabase } from 'react-icons/fa'
 import { IoLogoGithub } from 'react-icons/io'
 
@@ -40,8 +40,10 @@ function About() {
                     <li>JavaScript <SiJavascript /></li>
                     <li>Node JS <SiNodeDotJs /></li>
                     <li>ReactJS <SiReact /></li>
-                    <li>Bootstrap <SiBootstrap /></li>
+                    <li>Next JS <SiNextDotJs /></li>
+                    <li>GraphQl <SiGraphql /></li>
                     <li>Sql <FaDatabase /></li>
+                    <li>Bootstrap <SiBootstrap /></li>
                     <li>Netlify <SiNetlify /></li>
                     <li>Git <IoLogoGithub /></li>
                     <li>Vs Code <img src="https://img.icons8.com/ios-filled/500/000000/visual-studio-logo.png" alt="visual studio icon" />
@@ -51,7 +53,7 @@ function About() {
             <div>
                 <h2 className="titleAbout">Formations</h2>
                 <ul className="list-tags-format">
-                    <li>Développeur Web et Web Mobile - Wild Code School Paris <img className="wild" src="https://res.cloudinary.com/wildcodeschool/image/upload/c_fill,h_50/v1/static/irjoy97aq0eol8bf6959" alt="wild code school logo" /></li>
+                    <li> Titre Professionnel : Développeur Web et Web Mobile - Wild Code School Paris <img className="wild" src="https://res.cloudinary.com/wildcodeschool/image/upload/c_fill,h_50/v1/static/irjoy97aq0eol8bf6959" alt="wild code school logo" /></li>
                     <li>Apprenez à créer votre site web avec HTML5 et CSS3 - OpenClassRooms <img className="openClass" src="/logos/Logo_OpenClassrooms.png" alt="openClassroom logo" /></li>
                     <li>JavaScript : ES6  <img className="udemy" src="/logos/udemy_logo_icon_144775.png" alt="udemy logo" /></li>
                     <li>Apprenez à résoudre des algorithmes en JavaScript  <img className="udemy" src="/logos/udemy_logo_icon_144775.png" alt="udemy logo" /></li>

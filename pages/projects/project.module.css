@@ -91,6 +91,7 @@
     border: 1px solid rgba(255, 203, 132, 0.9);
     color: rgba(255, 203, 132, 0.9);
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .btnContainer a {
