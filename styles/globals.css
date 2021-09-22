@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 * {
   box-sizing: border-box;
-  font-family: 'Bayon', 'Roboto';
 }
 
 body {
@@ -79,7 +78,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 body {
   line-height: 1;
-  font-family: 'Bayon', 'Roboto';
+  font-family: 'Roboto';
 }
 
 ol, ul {

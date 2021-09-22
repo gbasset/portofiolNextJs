@@ -24,7 +24,7 @@ export default function Footer() {
             setSmallS(false);
         }
     }
-    console.log(smallS);
+
     return (
         <>
             {smallS ?
