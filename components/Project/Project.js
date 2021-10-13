@@ -36,7 +36,7 @@ export default function Project({ project }) {
                 className={classes.boxes}
             >
                 {!smallScreen ?
-                    <div className={classes.projectContainer}>
+                    <div className={classes.projectContainer} onClick={() => goToLink()}>
                         <h2 className={classes.nameProjects}>{project.name}</h2>
                         <img className={classes.pictureProject} src={project.imageHome.url} alt="" />
                         <div className={classes.btn}

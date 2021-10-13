@@ -95,7 +95,7 @@ function Contact() {
                             typewriter.typeString(`Laissez un message ! `)
                                 .pauseFor(500)
                                 .deleteChars(25)
-                                .typeString('Je vous repondrait dès que possible .')
+                                .typeString('Je vous repondrai dès que possible .')
                                 .deleteAll()
                                 .pauseFor(500)
                                 .deleteChars(54)

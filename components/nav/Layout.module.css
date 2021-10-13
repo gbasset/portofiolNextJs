@@ -5,6 +5,7 @@
 
 .container nav {
     width: 15%;
+    border-right: 1px solid #393d55;
 }
 
 .container main {
