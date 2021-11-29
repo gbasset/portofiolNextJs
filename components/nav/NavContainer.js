@@ -113,7 +113,7 @@ export default function NavContainer() {
                         <ul>
                             {navigation.map((link, id) =>
                                 <li key={id}
-                                    className={link.key === linkNavigationCurrent ? classes.isCurrentNavActive : ''}
+                                    className={link.key === linkNavigationCurrent ? classes.isCurrentNavActive : classes.notActive}
                                     onClick={() => handleChangeNavigation(link)}>
                                     {link.label}
                                 </li>
@@ -131,7 +131,7 @@ export default function NavContainer() {
                         <ul>
                             {navigation.map((link, id) =>
                                 <li key={id}
-                                    className={link.key === linkNavigationCurrent ? classes.isCurrentNavActive : ''}
+                                    className={link.key === linkNavigationCurrent ? classes.isCurrentNavActive : classes.notActive}
                                     onClick={() => handleChangeNavigation(link)}>
                                     {link.label}
                                 </li>
