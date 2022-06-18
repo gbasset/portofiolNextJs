@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import NavContainer from './NavContainer';
 import classes from './Layout.module.css';
 import Footer from '../Footer/Footer'
-export default function Layout(props) {
+const Layout: React.FC<Props> = (props) => {
     const [smallS, setSmallS] = useState(false);
 
     useEffect(() => {
@@ -17,7 +17,7 @@ export default function Layout(props) {
 
     })
 
-    const handleMediaQueryChange = mediaQuery => {
+    const handleMediaQueryChange = (mediaQuery: any) => {
         if (mediaQuery.matches) {
             setSmallS(true);
         } else {
@@ -34,3 +34,4 @@ export default function Layout(props) {
         </div >
     )
 }
+export default Layout;

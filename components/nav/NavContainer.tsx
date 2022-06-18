@@ -4,7 +4,7 @@ import Footer from '../Footer/Footer';
 import classes from './Nav.module.css';
 
 import { useRouter } from 'next/router';
-
+import { linkNavigation } from '../../utils/schem'
 export default function NavContainer() {
     const router = useRouter();
     const [linkNavigationCurrent, setlinkNavigationCurrent] = useState('');
@@ -18,7 +18,7 @@ export default function NavContainer() {
     }, [])
 
     useEffect(() => {
-        const handleRouteChange = (url) => {
+        const handleRouteChange = (url: string) => {
             if (url.includes('/projects/')) {
                 setlinkNavigationCurrent("")
             }
@@ -30,29 +30,30 @@ export default function NavContainer() {
             router.events.off('routeChangeStart', handleRouteChange)
         }
     }, [])
-    const navigation = [
+    const navigation: linkNavigation[] = [
         {
-            link: '/',
             key: '/home',
-            label: 'Accueil'
+            label: 'Accueil',
+            link: '/',
         },
         {
             link: '/projects',
+            label: 'Projets',
             key: '/projects',
-            label: 'Projets'
         },
         {
             link: '/about',
+            label: 'Á propos',
             key: '/about',
-            label: 'Á propos'
         },
         {
             link: '/contact',
+            label: 'Contact',
             key: '/contact',
-            label: 'Contact'
         },
     ];
-    const handleChangeNavigation = (link) => {
+
+    const handleChangeNavigation = (link: linkNavigation) => {
         if (linkNavigationCurrent === link.key) {
             return;
         }
@@ -75,7 +76,7 @@ export default function NavContainer() {
 
     })
 
-    const handleMediaQueryChange = mediaQuery => {
+    const handleMediaQueryChange = (mediaQuery: any) => {
         if (mediaQuery.matches) {
             setSmallScreen(true);
         } else {
