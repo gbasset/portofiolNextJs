@@ -156,15 +156,25 @@ table {
 }
 
 .text-home h1 {
-  margin-top: var( --size-13);
+  margin-top: 2rem;
   font-size: 4rem;
   line-height: var(--size-16);
   font-style: normal;
   text-align: center;
 }
-
-.text-home blockquote {
-  margin: 5rem;
+ .blockquote {
+  width: 80%;
+  padding: 4rem;
+  display: block;
+  margin: 2rem auto ;
+}
+.blockquote span {
+  color: #fefff6;
+cursor: pointer;
+}
+.blockquote span:hover {
+  color: #ffce0b;
+cursor: pointer;
 }
 
 .typeWriter {
@@ -580,10 +590,20 @@ table {
     overflow-x: hidden;
     width: 100%;
   }
-  .text-home blockquote {
-    margin: 1rem;
+  .text-home h1 {
+    margin-top: 1rem;
+    font-size: 3rem;
+    line-height: var(--size-16);
+    font-style: normal;
+    text-align: center;
+  }
+  
+  .text-home .blockquote {
+    width: 60%;
+    margin: 1rem auto ;
     font-size: 1rem;
   }
+
   .propos {
     display: flex;
     flex-direction: column;

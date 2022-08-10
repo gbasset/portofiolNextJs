@@ -6,6 +6,9 @@ import axios from 'axios';
 import { apiProjects } from '../utils/data';
 import Typewriter from 'typewriter-effect';
 import { motion } from "framer-motion";
+import { useRouter } from 'next/router';
+
+
 function Home(props) {
   useEffect(() => {
     document.documentElement.scrollTop = 0
@@ -38,6 +41,7 @@ function Home(props) {
     },
 
   ]
+  const router = useRouter();
   return (
     <>
       <>
@@ -49,29 +53,15 @@ function Home(props) {
 
         <div>
           <div className="text-home">
-            <div className="typeWriter">
-              <Typewriter
-                options={{
-                  autoStart: true,
-                  loop: true,
-                  deleteSpeed: 5,
-                  changeDelay: 2
-                }}
-                onInit={(typewriter) => {
-                  typewriter.typeString(`Bonjour,moi c'est Gaëtan.`)
-                    .pauseFor(500)
-                    .deleteChars(25)
-                    .typeString('Bienvenue sur mon site !')
-                    .deleteAll()
-                    .pauseFor(500)
-                    .deleteChars(54)
-                    .start()
-                }}
-              />
-            </div>
-            <blockquote>
-              “ Ce site recense quelques projets personnels que j'ai entrepris seul mais également avec d'autres developpeurs. Je vous invite donc à les parcourir sur la page " Mes projets" et à me faire vos retours si vous le souhaitez . ”
-            </blockquote>
+            <h1>Bienvenue sur mon portefolio</h1>
+            <p className='blockquote' >
+              “ Ce site recense quelques projets que j'ai entrepris seul mais également avec d'autres developpeurs.
+              Je vous invite donc à les parcourirs
+              <span className='notActive' onClick={() => router.replace('/projects')}
+              > ici </span> et à me faire vos retours si vous le souhaitez .
+              Je vous souhaite une bonne visite !
+              ”
+            </p>
           </div>
           <div className="container-lang ">
             <h1>Compétences techniques</h1>

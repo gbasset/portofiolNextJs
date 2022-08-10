@@ -19,9 +19,15 @@ export default function NavContainer() {
 
     useEffect(() => {
         const handleRouteChange = (url: string) => {
+            console.log(url);
+
+            if (url === ('/projects')) {
+                setlinkNavigationCurrent("/projects")
+            }
             if (url.includes('/projects/')) {
                 setlinkNavigationCurrent("")
             }
+
         }
         router.events.on('routeChangeStart', handleRouteChange)
         // If the component is unmounted, unsubscribe
