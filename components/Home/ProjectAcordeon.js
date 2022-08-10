@@ -39,7 +39,7 @@ export default function ProjectAcordeon(props) {
     return (
         <>
             <h1 className={classes.h1}>Séléction de projets</h1>
-            {!smallScreen &&
+            {/* {!smallScreen &&
                 <div className={classes.container}>
                     {imagesToMap && imagesToMap.map(img =>
                         <div
@@ -87,8 +87,9 @@ export default function ProjectAcordeon(props) {
                             </>
                         </div>
                     )}
-                </div>}
-            {smallScreen &&
+                </div>} */}
+            {
+                // smallScreen &&
                 <div >
                     {imagesToMap && imagesToMap.map(img =>
                         <div key={img._id} className={classes.mobileContainer}

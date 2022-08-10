@@ -392,7 +392,7 @@ cursor: pointer;
   height: 240px;
   border-radius: 50%;
   padding-top: 1rem;
-  background: url("../public/images/téléchargement.png");
+  background: url("/images/téléchargement.png");
   background-repeat: no-repeat;
   background-position: 43% 0px;
   background-size: cover;
@@ -592,15 +592,16 @@ cursor: pointer;
   }
   .text-home h1 {
     margin-top: 1rem;
-    font-size: 3rem;
+    font-size: 2rem;
     line-height: var(--size-16);
     font-style: normal;
     text-align: center;
   }
   
   .text-home .blockquote {
-    width: 60%;
-    margin: 1rem auto ;
+    width: 100%;
+    margin:  2px ;
+    padding: 1rem;
     font-size: 1rem;
   }
 
