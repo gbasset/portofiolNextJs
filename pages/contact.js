@@ -60,7 +60,6 @@ function Contact() {
                         toast.dismiss(toastId);
                         toast.success('Votre message à été transmis, merci !', {
                             icon: '🥳',
-                            // https://react-hot-toast.com/docs/toast
                         });
                     }, 500);
                     setInformations({
