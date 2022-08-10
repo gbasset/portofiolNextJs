@@ -11,10 +11,10 @@
     padding: 20px;
 }
 
-.formControl textarea {
+.labelContainer textarea {
     margin: auto;
     height: 250px;
-    width: 80%;
+    width: 50%;
     padding: 10px;
     font-size: 14px;
     margin: 10px auto;
@@ -22,25 +22,29 @@
     border-radius: 4px;
 }
 
-.formControl textarea:focus {
+.labelContainer textarea:focus {
     outline: 0;
     border: 5px solid;
     border-color: rgba(255, 203, 132, 0.9);
 }
-
-.formControl label {
-    color: rgb(255, 255, 255);
-    display: block;
+.labelContainer{
+    width: 70%;
+    margin: auto;
+}
+.labelContainer  label {
+    color:rgba(255, 203, 132, 0.9);
+    width: 50%;
+    text-align: left;
     margin-bottom: 5px;
-    margin: 10px auto;
     font-size: 20px;
+    margin: 10px auto;
 }
 
 .formControl input {
     border: 5px solid #f0f0f0;
     border-radius: 4px;
     display: block;
-    width: 80%;
+    width: 50%;
     padding: 10px;
     font-size: 14px;
     margin: 10px auto;
@@ -109,16 +113,29 @@
         display: flex;
         flex-direction: column;
         margin: 20px auto;
-        padding: 20px;
     }
-    .formControl textarea {
+    .labelContainer{
+        width: 100%;
+        margin: auto;
+    }
+    .labelContainer  label {
+        width: 100%;
+    }
+    
+    .labelContainer textarea {
         margin: auto;
         height: 150px;
-        width: 80%;
+        width: 100%;
         padding: 10px;
         font-size: 14px;
         margin: 10px auto;
         border: 5px solid rgba(255, 255, 255, 0);
         border-radius: 4px;
+    }
+    .formControl input {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        margin: 10px auto;
     }
 }

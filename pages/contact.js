@@ -53,7 +53,7 @@ function Contact() {
             toast.error('Il manque des informations pour envoyer le message.')
         }
         if (!error) {
-            const toastId = toast.loading('Chargement ...');
+            const toastId = toast.loading('Traitement de l/envoi en cours ...');
             await axios.post(`${apiProjects}message`, informations)
                 .then(val => {
                     setTimeout(() => {
@@ -79,7 +79,8 @@ function Contact() {
         <div className={classes.containerForm}>
             <Head>
                 <title>Contacter Basset Gaëtan</title>
-                <meta name="description" content="contacter gaëtan basset par mail" />
+                <meta name="description"
+                    content="contacter gaëtan basset par mail" />
             </Head>
             <Toaster />
             <form className={classes.formControl}>
@@ -92,45 +93,50 @@ function Contact() {
                             changeDelay: 2
                         }}
                         onInit={(typewriter) => {
-                            typewriter.typeString(`Laissez un message ! `)
+                            typewriter.typeString(`Laissez moi un e-mail ! `)
                                 .pauseFor(500)
                                 .deleteChars(25)
                                 .typeString('Je vous repondrai dès que possible .')
                                 .deleteAll()
-                                .pauseFor(500)
+                                .pauseFor(800)
                                 .deleteChars(54)
                                 .start()
                         }}
                     />
                 </h1>
+                <div className={classes.labelContainer}>
+                    <label htmlFor="from">Votre Mail </label>
+                    <input
+                        type="email"
+                        id="from"
+                        name="from"
+                        onChange={handleInput}
+                        value={informations.from}
+                        placeholder="jean_de-florette@gmail.com" />
+                    {errorsForm.hasOwnProperty("from") &&
+                        <p className="information_error_message">{errorsForm.from}</p>}
+                </div>
+                <div className={classes.labelContainer}>
+                    <label htmlFor="subject">Sujet </label>
+                    <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        onChange={handleInput}
+                        value={informations.subject}
+                        placeholder="Collaboration" />
+                </div>
+                <div className={classes.labelContainer}>
+                    <label htmlFor="subject">Message </label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        onChange={handleInput}
+                        placeholder="Votre message ..."
+                        value={informations.message}
 
-                <label htmlFor="from">Votre Mail </label>
-                <input
-                    type="email"
-                    id="from"
-                    name="from"
-                    onChange={handleInput}
-                    value={informations.from}
-                    placeholder="Votre email" />
-                {errorsForm.hasOwnProperty("from") && <p className="information_error_message">{errorsForm.from}</p>}
-
-                <label htmlFor="subject">Sujet </label>
-                <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    onChange={handleInput}
-                    value={informations.subject}
-                    placeholder="Sujet" />
-
-                <textarea
-                    id="message"
-                    name="message"
-                    onChange={handleInput}
-                    placeholder="Votre message ..."
-                    value={informations.message}
-
-                />
+                    />
+                </div>
                 {errorsForm.hasOwnProperty("message") && <p className="information_error_message">{errorsForm.message}</p>}
                 <div className={classes.btnContainer}>
                     <button
