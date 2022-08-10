@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import NavContainer from './NavContainer';
 import classes from './Layout.module.css';
 import Footer from '../Footer/Footer'
-const Layout: React.FC<Props> = (props) => {
+const Layout = (props) => {
     const [smallS, setSmallS] = useState(false);
 
     useEffect(() => {
