@@ -21,7 +21,7 @@ function Home(props) {
     },
     {
       language: 'ReactJs',
-      technos: ['Context', 'Classes', 'Hooks', 'NextJs', 'Custom Hook',],
+      technos: ['Context', 'Classes', 'Hooks', 'NextJs', 'Redux',],
       image: '/logos/icons8-react.svg'
     },
     {
@@ -73,7 +73,7 @@ function Home(props) {
             )}
           </div>
           <div>
-            <ProjectAcordeon mainProjects={props.projects} />
+          {props.projects &&<ProjectAcordeon mainProjects={props.projects} />}
           </div>
         </div>
       </>
@@ -101,12 +101,13 @@ export async function getStaticProps() {
       return res.data
     })
     .catch(error => {
+      console.log("🚀 ~ file: index.js:104 ~ getStaticProps ~ error", error)
       console.error('Une erreur est survenue pendant la récupération des languages');
     })
 
   return {
     props: {
-      projects: mainProject,
+      projects: mainProject || null,
     }
   }
 }

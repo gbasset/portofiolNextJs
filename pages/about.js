@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import Head from 'next/head';
 import { motion } from "framer-motion";
-import { SiJavascript, SiCss3, SiHtml5, SiNodeDotJs, SiReact, SiBootstrap, SiNetlify, SiNextDotJs, SiGraphql } from 'react-icons/si'
+import { SiJavascript, SiCss3, SiHtml5, SiNodeDotJs, SiReact, SiBootstrap, SiNetlify, SiNextDotJs, SiGraphql,SiRedux,SiAzuredevops,SiEslint } from 'react-icons/si'
 import { FaDatabase } from 'react-icons/fa'
 import { IoLogoGithub } from 'react-icons/io'
 
@@ -28,8 +28,11 @@ function About() {
             <div className="propos">
                 <div className="photoProfil" />
                 <div className="rightContainer">
-                    <p>Bonjour à tous, je suis développeur web, je réalise des tâches diverses liées aux différentes parties qui composent la création d'un site web et d'une application web. Reflexion autour de la conception de la base de donnée, création d'une Api pour faire intéragir les données avec le front-end et le back-end. Passioné par les nouvelles technologies,
-                        j'ai entrepris en 2019 une reconversion dans le web en suivant une formation à la Wild Code School de Paris. Depuis je pratique mes acquis au sein de projet personnels et au sein de l'entreprise qui m'emploi 'Beyable' dans laquelle j'effectue différentes tâches comme de l'intégration et du developpement de nouvelles fonctionnalitées au sein du back office. </p>
+                    <p>Bonjour à tous, je suis développeur web, je réalise des tâches diverses liées aux différentes parties qui composent la création d'un site web et d'une application web.
+                        Reflexion autour de la conception de la base de donnée, création d'une Api pour faire intéragir les données avec le front-end et le back-end. Passioné par les nouvelles technologies,
+                        j'ai entrepris en 2019 une reconversion dans le web en suivant une formation à la Wild Code School de Paris. Depuis je pratique mes acquis au sein de projet personnels et au sein de l'entreprise qui m'emploi Beyable dans laquelle j'effectue différentes tâches comme de l'intégration et du developpement de nouvelles fonctionnalitées au sein du back office.J'interviens aussi sur la création des outils de la société pour faliciter le travail des intégrateur avec la création du Beyable Studio.
+                        J'accorde beaucoup d'importance à la veille et à l'auto-formation qui ponctue mon parcours de développeur, ce pourquoi je me forme régulièrement sur des sujets divers liés aux enjeux du métier de développeur web.
+                    </p>
                 </div>
             </div>
             <div>
@@ -42,9 +45,12 @@ function About() {
                     <li>ReactJS <SiReact /></li>
                     <li>Next JS <SiNextDotJs /></li>
                     <li>GraphQl <SiGraphql /></li>
+                    <li>Redux <SiRedux/></li> 
                     <li>Sql <FaDatabase /></li>
                     <li>Bootstrap <SiBootstrap /></li>
                     <li>Netlify <SiNetlify /></li>
+                    <li>Azure Devops <SiAzuredevops /></li>
+                    <li>Es Lint <SiEslint /></li>
                     <li>Git <IoLogoGithub /></li>
                     <li>Vs Code <img src="https://img.icons8.com/ios-filled/500/000000/visual-studio-logo.png" alt="visual studio icon" />
                     </li>

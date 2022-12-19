@@ -19,8 +19,6 @@ export default function NavContainer() {
 
     useEffect(() => {
         const handleRouteChange = (url) => {
-            console.log(url);
-
             if (url === ('/projects')) {
                 setlinkNavigationCurrent("/projects")
             }
