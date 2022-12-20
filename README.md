@@ -2,6 +2,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+See the Figma project :
+https://www.figma.com/file/KlhUBswiD554PQB3GzSNk4/portfolio?node-id=1%3A28&t=330IcDmC8cYCHqDg-1
+
 First, run the development server:
 
 ```bash
