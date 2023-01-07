@@ -69,13 +69,13 @@ function About() {
                     <li>Comprendre le web - OpenClassRooms  <img className="openClass" src="/logos/Logo_OpenClassrooms.png" alt="openClassroom logo" /></li>
                 </ul>
             </div>
-            <div className='btn-container'
+            {/* <div className='btn-container'
                 onClick={oppenCv}
             >
                 <a
                     ref={reference}
                     className="btn-more" target="_blank" src="/gaetancv.pdf" download="/gaetancv.pdf" >Telecharger mon CV</a>
-            </div>
+            </div> */}
             <motion.div
                 className="slide-in"
                 initial={{ scaleX: 0 }}
