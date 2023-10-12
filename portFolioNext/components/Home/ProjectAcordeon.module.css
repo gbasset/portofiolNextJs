@@ -1,0 +1,184 @@
+.pannel {
+    height: 80vh;
+    border-radius: 15px;
+    color: #fff;
+    cursor: pointer;
+    flex: 0.5;
+    margin: 10px;
+    transition: flex 800ms ease-in;
+    -webkit-transition: all 800ms ease-in;
+}
+
+.container {
+    display: flex;
+}
+
+.pannel button {
+    position: relative;
+    opacity: 0;
+}
+
+.pannelActive button {
+    position: relative;
+    top: -80%;
+    opacity: 1;
+    transition: opacity 0.8s ease 1.3s;
+}
+
+.pannel h3 {
+    font-size: 24px;
+    text-align: center;
+    max-width: 50%;
+    width: auto;
+    margin: 0 auto;
+    opacity: 0;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #1F2235;
+    background-color: #1F2235;
+    padding: 1em;
+    border-radius: 10px;
+    opacity: 0;
+}
+
+.pannelActive h3 {
+    font-size: 24px;
+    text-align: center;
+    max-width: 50%;
+    width: auto;
+    margin: 0 auto;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #1F2235;
+    background-color: #1F2235;
+    opacity: 1;
+    transition: opacity 0.5s ease-in 0.7s;
+    position: relative;
+    top: -95%;
+    padding: 1em;
+    border-radius: 10px;
+    color: var(--color-secondary-700);
+    font-weight: bold;
+}
+
+.pannelActive {
+    flex: 5;
+}
+
+.pannel p {
+    opacity: 0;
+}
+
+.description {
+    position: relative;
+    top: -87%;
+    background-color: var( --color-primary-700);
+    padding: 2em;
+    text-align: justify;
+    transition: opacity 0.7s ease-in 0.7s;
+    margin: auto 10px;
+    line-height: 1.3em;
+    font-size: 1rem;
+    opacity: 1;
+    max-height: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.input-custom {
+    padding: 2px;
+    background-color: rgb(238, 238, 238);
+}
+
+.h1 {
+    font-size: 3rem;
+    padding: 1em;
+}
+
+.container article {
+    width: 100%;
+    height: 100%;
+    /* On applique le filtre CSS3 pour flouter l'image (avec ici les variantes pour les différents moteurs de rendu) */
+    /* Safari */
+    -webkit-filter: blur(2px);
+    /* Firefox */
+    -moz-filter: blur(2px);
+    /* Opera */
+    -o-filter: blur(2px);
+    /* Internet Explorer */
+    -ms-filter: blur(2px);
+    /* Filtre de floutage CSS3 standard */
+    filter: blur(2px);
+}
+
+.isNotActive button {
+    opacity: 0;
+}
+
+.IsActive button {
+    opacity: 1;
+    position: relative;
+    top: -338px
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+}
+
+.mobileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px auto;
+    padding: 1rem;
+    width: 50%;
+    border: 1px solid #f2d1a6;
+}
+
+.nameProject {
+    font-size: 2rem;
+    color: var(--color-secondary-700);
+}
+
+.mobileContainer .desc {
+    color: rgb(243, 242, 241);
+    margin: 4px 0px;
+    height: auto;
+    background-color: var( --color-primary-700);
+    padding: 1em 2em 1em 2em;
+    text-align: justify;
+    transition: opacity 0.7s ease-in 0.7s;
+    margin-bottom: 10px;
+    line-height: 1.3em;
+    font-size: 1.3rem;
+    opacity: 1;
+}
+
+.mobileContainer img {
+    max-width: 80%;
+    height: auto;
+    margin: 3px 0px 0px 0px;
+}
+
+@media (max-width: 900px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 300px;
+    }
+    .container article {
+        min-width: 300px;
+        height: 100px;
+    }
+    .mobileContainer{
+        width: 90%;
+        margin: 20px auto;
+    }
+    .h1 {
+        font-size: 2rem;
+        padding: 1em;
+        text-align: center;
+    }
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
+
 import classes from './Languages.module.css'
 export default function Language({ language }) {
 
@@ -36,7 +36,7 @@ export default function Language({ language }) {
                 <p className={classes.ThirdLangage}> {language.technos[2]}</p>
             </div>
             <div className={classes.containerBoxe}>
-                <Image className={show ? `${classes.imageShow}` : ` ${classes.imageDisable}`}
+                <img className={show ? `${classes.imageShow}` : ` ${classes.imageDisable}`}
                     src={language.image} alt="github" width={200} height={200} />
                 <h2 className={show ? `${classes.mainTitleShow}` : ` ${classes.mainTitleDisable}`}>
                     {language.language}</h2>

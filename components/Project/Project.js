@@ -4,10 +4,11 @@ import Btn from '../UI/Btn';
 import { Router, useRouter } from 'next/router';
 import { BsFillEyeFill } from 'react-icons/bs'
 export default function Project({ project }) {
+
     const router = useRouter();
     function goToLink() {
         const fullPath = `projects/${project._id}`
-        router.push(fullPath)
+        router.push(fullPath     )
     }
     const [smallScreen, setSmallScreen] = useState(false);
 

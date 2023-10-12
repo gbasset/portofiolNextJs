@@ -1,0 +1,221 @@
+.titleLanguage {
+    height: 20vh;
+    color: var(--color-primary-700);
+    width: 100%;
+}
+
+.box {
+    background-color: #EBB876;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    height: 400px;
+    margin: 25px auto;
+    transform: translateX(900%);
+    transition: transform 0.7s ease opacity 0.7s ease-in;
+    color: var(--color-primary-700);
+}
+
+.containerLangage {
+    width: 25%;
+}
+
+.box:nth-of-type(even) {
+    transform: translateX(900%);
+    box-shadow: -11px -10px 0px #d5dcf9;
+}
+
+.box:nth-of-type(odd) {
+    transform: translateX(-900%);
+    box-shadow: 11px 10px 1px #d5dcf9;
+}
+
+.box.show {
+    transform: translateX(0);
+    transition: transform 0.7s ease;
+}
+
+.box h2 {
+    font-size: 5rem;
+    color: var(--color-primary-700);
+}
+
+.containerBoxe {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.FirstLanguage {
+    background-color: #f1e7dc;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.3em;
+    opacity: 0;
+    display: inline-block;
+}
+
+.containerLanguage {
+    width: 100%;
+    min-height: 80vh;
+    margin: auto;
+    font-size: 35px;
+}
+
+.containerLanguageShow {
+    font-size: 35px;
+    display: inline-block;
+    opacity: 1;
+    width: 25%;
+    height: 100%;
+}
+
+.containerLanguageShow>p:nth-child(1) {
+    transform: translateX(-100px);
+    animation: apparition 0.2s 1.2s ease forwards;
+}
+
+.containerLanguageShow>p:nth-child(2) {
+    transform: translateX(-100px);
+    animation: apparition 0.2s 1.2s ease forwards;
+}
+
+.containerLanguageShow>p:nth-child(3) {
+    transform: translateX(200px);
+    animation: apparition 0.2s 1.4s ease forwards;
+}
+
+.containerLanguageShow>p:nth-child(4) {
+    transform: translateX(200px);
+    animation: apparition 0.2s 1.4s ease forwards;
+}
+
+.imageShow {
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: apparition 0.4s 0.6s ease-out forwards;
+}
+
+.imageDisable {
+    opacity: 0;
+    transform: translateY(-30px);
+}
+
+.mainTitleShow {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: apparition 0.7s .9s ease-out forwards;
+    font-size: 35px;
+}
+
+.mainTitleDisable {
+    opacity: 0;
+    transform: translateY(-30px);
+}
+
+.SecondLangage {
+    background-color: #f1e7dc;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.3em;
+    position: absolute;
+    left: -2em;
+    top: 2em;
+    opacity: 0;
+    border: 4px solid #EBB876;
+}
+
+.ThirdLangage {
+    background-color: #f1e7dc;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.3em;
+    position: absolute;
+    left: -2.5em;
+    top: 7em;
+    opacity: 0;
+    width: auto;
+    border: 4px solid #EBB876;
+}
+
+.FourthLangage {
+    background-color: #f1e7dc;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.3em;
+    position: absolute;
+    right: -2em;
+    top: 3em;
+    opacity: 0;
+    border: 4px solid #EBB876;
+}
+
+.FithLangage {
+    background-color: #f1e7dc;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.3em;
+    position: absolute;
+    right: -3em;
+    top: 9em;
+    opacity: 0;
+    border: 4px solid #EBB876;
+}
+
+@keyframes apparition {
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .containerLanguageShow {
+        font-size: 20px;
+        display: inline-block;
+        opacity: 1;
+        width: 25%;
+        height: 100%;
+        border: none;
+        background-color: #d5dcf900;
+    }
+    .mainTitleShow {
+        font-size: 17px;
+    }
+    .SecondLangage {
+        position: absolute;
+        left: -2em;
+        top: 2em;
+        opacity: 0;
+        border: 4px solid #EBB876;
+    }
+    .ThirdLangage {
+        left: -2.5em;
+        top: 10em;
+        opacity: 0;
+        width: auto;
+        border: 4px solid #EBB876;
+    }
+    .FourthLangage {
+        position: absolute;
+        right: -2em;
+        top: -1em;
+        opacity: 0;
+        border: 4px solid #EBB876;
+    }
+    .FithLangage {
+        position: absolute;
+        right: -2em;
+        top: 10em;
+        opacity: 0;
+        border: 4px solid #EBB876;
+    }
+    .box h2 {
+        font-size: 2.5rem;
+        color: var(--color-primary-700);
+        text-align: center;
+    }
+}

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import classes from './Footer.module.css';
-import Image from 'next/image';
 export default function Footer() {
     const today = new Date().getFullYear();
     const [smallS, setSmallS] = useState(false);
@@ -30,9 +29,12 @@ export default function Footer() {
             {smallS ?
                 <footer className={classes.footer}>
                     <div className={classes.logosContainer}>
+                        <div>
+                        <a className={classes.link} href="https://blog.gaetan-basset.com" target='_blank'>Mon blog </a>
+                        </div>
                         <div className={classes.image}>
                             <a href="https://www.linkedin.com/in/gaetan-basset-289b9410a/" target="_blank">
-                                <Image src="/logos/iconmonstr-linkedin-2-svg.svg" alt="linkedin" width={60} height={60} />
+                                <img src="/logos/iconmonstr-linkedin-2-svg.svg" alt="linkedin" width={60} height={60} />
                             </a>
                         </div>
                         <div>
@@ -41,7 +43,7 @@ export default function Footer() {
                         </div>
                         <div className={classes.image}>
                             <a href="https://github.com/gbasset" target='_blank'>
-                                <Image src="/logos/iconmonstr-github-1-svg.svg" alt="github" width={60} height={60} />
+                                <img src="/logos/iconmonstr-github-1-svg.svg" alt="github" width={60} height={60} />
                             </a>
                         </div>
                     </div>
@@ -53,15 +55,18 @@ export default function Footer() {
                 </footer>
                 :
                 <footer className={classes.footer}>
+                    <div style={{display: 'flex', marginBottom : '5px',fontSize: '15px',}}>
+                        <a className={classes.link} href="https://blog.gaetan-basset.com" target='_blank'>Mon blog </a>
+                        </div>
                     <div className={classes.logosContainer}>
                         <div className={classes.image}>
                             <a href="https://www.linkedin.com/in/gaetan-basset-289b9410a/" target="_blank">
-                                <Image src="/logos/iconmonstr-linkedin-2-svg.svg" alt="linkedin" width={60} height={60} />
+                                <img src="/logos/iconmonstr-linkedin-2-svg.svg" alt="linkedin" width={60} height={60} />
                             </a>
                         </div>
                         <div className={classes.image}>
                             <a href="https://github.com/gbasset" target='_blank'>
-                                <Image src="/logos/iconmonstr-github-1-svg.svg" alt="github" width={60} height={60} />
+                                <img src="/logos/iconmonstr-github-1-svg.svg" alt="github" width={60} height={60} />
                             </a>
                         </div>
                     </div>

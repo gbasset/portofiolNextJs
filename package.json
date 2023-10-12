@@ -5,13 +5,16 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "export": "next build && next export",
+    "startdev": "next start",
+    "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
     "animate.css": "^4.1.1",
     "axios": "^0.21.1",
     "framer-motion": "^4.1.17",
     "next": "^12.1.6",
+    "next-ssl-redirect-middleware": "^0.1.5",
     "react": "17.0.2",
     "react-animate-on-scroll": "^2.1.5",
     "react-awesome-slider": "^4.1.0",

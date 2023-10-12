@@ -17,6 +17,7 @@
 
 .link {
     margin: auto;
+    color: var(--color-primary-200);
 }
 
 .copy {

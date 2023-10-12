@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { SiJavascript, SiCss3, SiHtml5, SiNodeDotJs, SiReact, SiBootstrap, SiNetlify, SiNextDotJs, SiGraphql,SiRedux,SiAzuredevops,SiEslint } from 'react-icons/si'
 import { FaDatabase } from 'react-icons/fa'
 import { IoLogoGithub } from 'react-icons/io'
+import { AiFillCode } from 'react-icons/ai'
+
 
 function About() {
     const reference = useRef(null);
@@ -52,7 +54,7 @@ function About() {
                     <li>Azure Devops <SiAzuredevops /></li>
                     <li>Es Lint <SiEslint /></li>
                     <li>Git <IoLogoGithub /></li>
-                    <li>Vs Code <img src="https://img.icons8.com/ios-filled/500/000000/visual-studio-logo.png" alt="visual studio icon" />
+                    <li>Vs Code <AiFillCode/>
                     </li>
                 </ul>
             </div>

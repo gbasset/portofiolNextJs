@@ -1,0 +1,8 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+	<title>iconmonstr-linkedin-2-svg</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #f6b93b } 
+	</style>
+	<path id="Layer" fill-rule="evenodd" class="shp0" d="M24 0L24 24L0 24L0 0L24 0ZM8 8L5 8L5 19L8 19L8 8ZM8.25 4.97C8.25 3.99 7.47 3.2 6.5 3.2C5.53 3.2 4.75 3.99 4.75 4.97C4.75 5.94 5.53 6.73 6.5 6.73C7.47 6.73 8.25 5.94 8.25 4.97ZM20 12.24C20 6.99 14.4 7.18 13 9.77L13 8L10 8L10 19L13 19L13 13.4C13 10.28 17 10.03 17 13.4L17 19L20 19L20 12.24Z" />
+</svg>

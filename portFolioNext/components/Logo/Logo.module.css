@@ -1,0 +1,22 @@
+.logoContainer {
+    height: 25%;
+    cursor: pointer;
+    display: flex;
+    color: var(--color-primary-700);
+    margin: auto;
+    align-items: center;
+}
+
+.logo {
+    width: 90px;
+    height: 90px;
+    margin: auto;
+    border-radius: 50%;
+    font-family: 'Pacifico', sans-serif;
+    font-size: var(--size-8);
+    background-color: var(--color-primary-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgb(205 205 210 / 12%) 0px 7px 29px 0px;
+}

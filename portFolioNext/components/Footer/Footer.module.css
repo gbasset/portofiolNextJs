@@ -1,0 +1,36 @@
+.footer {
+    height: 13%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.logosContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.image {
+    width: 30px;
+}
+
+.link {
+    margin: auto;
+}
+
+.copy {
+    font-size: var(--size-3);
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .footer {
+        height: 100px;
+        display: block;
+    }
+    .copy {
+        font-size: var(--size-3);
+        text-align: center;
+    }
+}

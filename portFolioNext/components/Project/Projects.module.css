@@ -1,0 +1,129 @@
+.boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 5px auto;
+    max-height: 250px;
+    min-height: 240px;
+    width: 420px;
+    padding: 10px;
+}
+
+.projectContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+    max-height: 250px;
+    min-height: 240px;
+    width: 420px;
+    padding: 10px;
+}
+
+.projectContainerMobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+    /* max-height: 250px; */
+    height: 240px;
+    width: 100%;
+    padding: 10px;
+}
+
+.projectContainer .pictureProject {
+    min-height: 240px;
+    max-height: 240px;
+    width: 100%;
+}
+
+.projectContainerMobile .pictureProject {
+    height: 200px;
+    width: 100%;
+    opacity: 0.4;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    height: 30px;
+}
+
+.projectContainer:hover .btn {
+    visibility: visible;
+}
+
+.projectContainer:hover .nameProjects {
+    color: rgba(255, 203, 132, 0.9);
+    visibility: visible;
+    font-size: 25px;
+    position: relative;
+    bottom: -145px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.projectContainer:hover .pictureProject {
+    opacity: 0.2;
+    transition: all .6s ease;
+    transform: scale(1.1);
+}
+
+.nameProjects {
+    visibility: hidden;
+    color: rgba(255, 203, 132, 0.9);
+    font-size: 25px;
+    position: relative;
+    bottom: 145px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.projectContainerMobile .nameProjects {
+    color: rgba(255, 203, 132, 0.9);
+    visibility: visible;
+    font-size: 28px;
+    position: relative;
+    bottom: -145px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.projectContainerMobile .btn {
+    visibility: visible;
+    bottom: 112px;
+    height: 46px;
+}
+
+.btn {
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    padding: 5px;
+    background-color: rgba(49, 47, 44, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0);
+    border-radius: 5px;
+    width: 50px;
+    margin: auto;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    bottom: 82px;
+    height: auto;
+}
+
+.btn:hover {
+    border: 1px solid var(--color-secondary-700);
+}
+
+@media (max-width: 900px) {
+    .projectContainer img {
+        width: 320px;
+    }
+}

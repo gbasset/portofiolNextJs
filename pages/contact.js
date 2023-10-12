@@ -53,7 +53,7 @@ function Contact() {
             toast.error('Il manque des informations pour envoyer le message.')
         }
         if (!error) {
-            const toastId = toast.loading('Traitement de l/envoi en cours ...');
+            const toastId = toast.loading("Traitement de l'envoi en cours ...");
             await axios.post(`${apiProjects}message`, informations)
                 .then(val => {
                     setTimeout(() => {
@@ -61,13 +61,16 @@ function Contact() {
                         toast.success('Votre message à été transmis, merci !', {
                             icon: '🥳',
                         });
-                    }, 500);
+                    }, 500)
                     setInformations({
                         subject: '',
                         message: '',
                         from: ''
                     })
-                })
+                }).catch(error => {
+                    toast.dismiss(toastId);
+                    toast.error("Une erreur est survenue")
+                });
 
         } else {
             seterrorsForm({ ...errors })

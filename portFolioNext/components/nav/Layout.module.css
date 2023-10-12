@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.container nav {
+    width: 15%;
+    border-right: 1px solid #393d55;
+}
+
+.container main {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 85%;
+}
+
+.container.small {}
