@@ -2,6 +2,8 @@ import Head from 'next/head';
 import React, { useEffect } from 'react'
 import SkillsShowcase from '../components/Home/SkillsShowcase';
 import ProjectAcordeon from '../components/Home/ProjectAcordeon';
+import HeroRoleTitle from '../components/Home/HeroRoleTitle';
+import HeroIntro from '../components/Home/HeroIntro';
 import axios from 'axios';
 import { apiProjects } from '../utils/data';
 import { motion } from "framer-motion";
@@ -62,24 +64,12 @@ function Home(props) {
         </Head>
 
         <div>
-          <div className="mx-auto w-[min(100%,42rem)] px-4 py-6 text-center italic text-accent sm:w-4/5 md:px-6">
-            <h1 className="mt-6 font-sans text-3xl font-normal not-italic leading-tight text-primary-200 sm:text-4xl md:mt-8 md:text-5xl lg:text-6xl">
-              Bienvenue sur mon portefolio
-            </h1>
-            <p className="mx-auto mt-6 max-w-3xl px-2 py-8 text-base leading-8 text-accent sm:px-8 sm:text-lg md:px-16">
-              “ Développeur front-end JavaScript / React en télétravail. Passionné par l'innovation
-              technique, l'autonomie et la résolution de problèmes complexes en équipe.
-              Je vous invite à parcourir mes réalisations
-              <button
-                type="button"
-                className="cursor-pointer border-0 bg-transparent p-0 [font:inherit] text-surface-snow underline decoration-transparent transition-colors hover:text-accent-bright focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-700"
-                onClick={() => router.replace('/projects')}
-              >
-                {' '}ici{' '}
-              </button>
-              et à me faire vos retours si vous le souhaitez. Bonne visite !
-              ”
-            </p>
+          <div className="mx-auto flex w-[min(92%,52rem)] flex-col items-center px-4 py-6 sm:w-4/5 md:px-8">
+            <HeroRoleTitle />
+            <HeroIntro
+              onProjectsClick={() => router.replace('/projects')}
+              preamble="Développeur front-end JavaScript / React en télétravail."
+            />
           </div>
           <SkillsShowcase items={lang} />
           <div>

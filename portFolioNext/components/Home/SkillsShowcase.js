@@ -1,26 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-
-const gridVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.11,
-      delayChildren: 0.08,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 28, scale: 0.96 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-  },
-};
+import { cardEase, gridVariants, ShowcaseInteractiveCard } from './cardMotion';
 
 export default function SkillsShowcase({ items }) {
   const [ref, inView] = useInView({
@@ -45,7 +26,7 @@ export default function SkillsShowcase({ items }) {
         className="relative overflow-hidden rounded-[24px] border border-primary-200/20 bg-gradient-to-br from-[rgba(31,34,53,0.98)] via-[rgba(51,53,86,0.55)] to-[rgba(31,34,53,0.92)] px-[clamp(1.25rem,3vw,2.75rem)] py-[clamp(1.25rem,3vw,2.75rem)] shadow-[0_28px_90px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(213,220,249,0.08)] sm:rounded-[24px]"
         initial={{ opacity: 0, y: 36 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 36 }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.55, ease: cardEase }}
       >
         <div
           className="pointer-events-none absolute -right-[20%] -top-[40%] h-[90%] w-[55%] rounded-full bg-[radial-gradient(circle,rgba(235,184,118,0.12)_0%,transparent_70%)]"
@@ -64,16 +45,11 @@ export default function SkillsShowcase({ items }) {
             animate={inView ? 'visible' : 'hidden'}
           >
             {items.map((language) => (
-              <motion.article
+              <ShowcaseInteractiveCard
                 key={language.language}
-                className="flex h-full min-h-[280px] flex-col items-center justify-center gap-4 rounded-2xl border border-secondary-700/35 bg-secondary-700/[0.07] px-5 py-6 text-center shadow-inner-soft sm:min-h-[300px]"
-                variants={cardVariants}
-                whileHover={{
-                  y: -5,
-                  transition: { duration: 0.22, ease: 'easeOut' },
-                }}
+                className="origin-center flex h-full min-h-[280px] flex-col rounded-2xl border border-secondary-700/35 bg-secondary-700/[0.07] px-4 py-5 shadow-inner-soft sm:min-h-[300px] sm:px-5"
               >
-                <div className="flex shrink-0 items-center justify-center gap-3">
+                <header className="flex h-20 w-full shrink-0 items-center gap-3 border-b border-primary-200/10">
                   <img
                     className="h-12 w-12 shrink-0 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.35)]"
                     src={language.image}
@@ -81,25 +57,25 @@ export default function SkillsShowcase({ items }) {
                     width={48}
                     height={48}
                   />
-                  <h3 className="text-left font-sans text-[clamp(1.05rem,2.5vw,1.35rem)] font-bold leading-tight text-primary-200">
+                  <h3 className="min-w-0 flex-1 font-sans text-base font-bold leading-snug text-primary-200 sm:text-lg line-clamp-2">
                     {language.language}
                   </h3>
-                </div>
+                </header>
                 <div
-                  className="flex max-w-full flex-wrap justify-center gap-2"
+                  className="flex min-h-0 flex-1 flex-wrap content-start justify-center gap-x-2 gap-y-2 pt-4"
                   role="list"
                 >
                   {language.technos.map((t) => (
                     <span
                       key={t}
-                      className="inline-block rounded-full border border-secondary-700/35 bg-[rgba(241,231,220,0.95)] px-3 py-1.5 font-sans text-2xs font-semibold leading-snug text-primary-700 sm:text-xs"
+                      className="inline-flex items-center rounded-full border border-secondary-700/35 bg-[rgba(241,231,220,0.95)] px-2.5 py-1.5 font-sans text-2xs font-semibold leading-none text-primary-700 sm:px-3 sm:text-xs"
                       role="listitem"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
-              </motion.article>
+              </ShowcaseInteractiveCard>
             ))}
           </motion.div>
         </div>
