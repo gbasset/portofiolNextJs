@@ -1,7 +1,6 @@
-import '../styles/globals.css'
+import '../styles/globals.css';
 import Head from 'next/head';
-import Layout from '../components/nav/Layout'
-import "../styles/globals.css";
+import Layout from '../components/nav/Layout';
 import { AnimatePresence } from "framer-motion";
 function MyApp({ Component, pageProps, router }) {
   return (<>
