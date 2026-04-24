@@ -1,10 +1,9 @@
 import Head from 'next/head';
 import React, { useEffect } from 'react'
-import Language from '../components/Home/Language';
+import SkillsShowcase from '../components/Home/SkillsShowcase';
 import ProjectAcordeon from '../components/Home/ProjectAcordeon';
 import axios from 'axios';
 import { apiProjects } from '../utils/data';
-import Typewriter from 'typewriter-effect';
 import { motion } from "framer-motion";
 import { useRouter } from 'next/router';
 
@@ -23,6 +22,17 @@ function Home(props) {
       language: 'ReactJs',
       technos: ['Context', 'Classes', 'Hooks', 'NextJs', 'Redux',],
       image: '/logos/icons8-react.svg'
+    },
+    {
+      language: 'Performance web',
+      technos: [
+        'Temps de chargement',
+        'Perf navigateur',
+        'Webpack / Vite',
+        'Dépendances & sécurité',
+        'Jest & Cypress',
+      ],
+      image: '/logos/perf-web.svg',
     },
     {
       language: 'Bdd',
@@ -55,23 +65,15 @@ function Home(props) {
           <div className="text-home">
             <h1>Bienvenue sur mon portefolio</h1>
             <p className='blockquote' >
-              “ Ce site recense quelques projets que j'ai entrepris seul mais également avec d'autres developpeurs.
-              Je vous invite donc à les parcourirs
+              “ Développeur front-end JavaScript / React en télétravail. Passionné par l'innovation
+              technique, l'autonomie et la résolution de problèmes complexes en équipe.
+              Je vous invite à parcourir mes réalisations
               <span className='notActive' onClick={() => router.replace('/projects')}
-              > ici </span> et à me faire vos retours si vous le souhaitez .
-              Je vous souhaite une bonne visite !
+              > ici </span> et à me faire vos retours si vous le souhaitez. Bonne visite !
               ”
             </p>
           </div>
-          <div className="container-lang ">
-            <h1>Compétences techniques</h1>
-            {lang.map((language, key) =>
-              <Language
-                key={key}
-                language={language}
-              />
-            )}
-          </div>
+          <SkillsShowcase items={lang} />
           <div>
           {props.projects &&<ProjectAcordeon mainProjects={props.projects} />}
           </div>
