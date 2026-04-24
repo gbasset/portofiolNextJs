@@ -13,17 +13,16 @@
     "animate.css": "^4.1.1",
     "axios": "^0.21.1",
     "framer-motion": "^4.1.17",
-    "next": "^12.1.6",
+    "next": "^12.3.7",
     "next-ssl-redirect-middleware": "^0.1.5",
     "react": "17.0.2",
-    "react-animate-on-scroll": "^2.1.5",
     "react-awesome-slider": "^4.1.0",
     "react-dom": "17.0.2",
     "react-hot-toast": "^2.0.0",
     "react-icons": "^4.2.0",
     "react-intersection-observer": "^8.32.0",
     "react-select": "^4.3.1",
-    "typewriter-effect": "^2.18.0"
+    "typewriter-effect": "^2.22.0"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",

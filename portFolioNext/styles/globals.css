@@ -129,20 +129,6 @@ table {
   z-index: 1000;
 }
 
-.container-lang {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  overflow-x: hidden;
-}
-
-.container-lang h1 {
-  font-size: 3rem;
-  padding: 1em;
-}
-
 .text-home {
   /* padding: 15px 25px; */
   width: 80%;
@@ -645,10 +631,6 @@ cursor: pointer;
     padding: 5px;
     letter-spacing: 2px;
     text-transform: uppercase;
-  }
-  .container-lang h1 {
-    font-size: 2.5rem;
-    text-align: center;
   }
   .typeWriter {
     padding-top: 1em;
