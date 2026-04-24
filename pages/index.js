@@ -2,6 +2,8 @@ import Head from 'next/head';
 import React, { useEffect } from 'react'
 import SkillsShowcase from '../components/Home/SkillsShowcase';
 import ProjectAcordeon from '../components/Home/ProjectAcordeon';
+import HeroRoleTitle from '../components/Home/HeroRoleTitle';
+import HeroIntro from '../components/Home/HeroIntro';
 import axios from 'axios';
 import { apiProjects } from '../utils/data';
 import { motion } from "framer-motion";
@@ -20,7 +22,7 @@ function Home(props) {
     },
     {
       language: 'ReactJs',
-      technos: ['Context', 'Classes', 'Hooks', 'NextJs', 'Redux',],
+      technos: ['Context', 'Classes', 'Hooks', 'NextJs', 'Redux'],
       image: '/logos/icons8-react.svg'
     },
     {
@@ -62,16 +64,9 @@ function Home(props) {
         </Head>
 
         <div>
-          <div className="text-home">
-            <h1>Bienvenue sur mon portefolio</h1>
-            <p className='blockquote' >
-              “ Développeur front-end JavaScript / React en télétravail. Passionné par l'innovation
-              technique, l'autonomie et la résolution de problèmes complexes en équipe.
-              Je vous invite à parcourir mes réalisations
-              <span className='notActive' onClick={() => router.replace('/projects')}
-              > ici </span> et à me faire vos retours si vous le souhaitez. Bonne visite !
-              ”
-            </p>
+          <div className="mx-auto flex w-[min(92%,52rem)] flex-col items-center px-4 py-6 sm:w-4/5 md:px-8">
+            <HeroRoleTitle />
+            <HeroIntro onProjectsClick={() => router.replace('/projects')} />
           </div>
           <SkillsShowcase items={lang} />
           <div>
