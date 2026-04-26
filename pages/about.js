@@ -41,6 +41,20 @@ function About() {
             logoClassName: 'h-8 w-8 rounded-full object-cover',
         },
         {
+
+            label: 'Next.js & React - The Complete Guide',
+            logoSrc: '/logos/udemy_logo_icon_144775.png',
+            logoAlt: 'udemy logo',
+            logoClassName: 'h-8 w-8 rounded-full object-cover',
+        },
+        {
+            label: 'JavaScript Unit Testing - The Practical Guide',
+            logoSrc: '/logos/udemy_logo_icon_144775.png',
+            logoAlt: 'udemy logo',
+            logoClassName: 'h-8 w-8 rounded-full object-cover',
+        },
+
+        {
             label: 'Apprenez à créer votre site web avec HTML5 et CSS3 - OpenClassRooms',
             logoSrc: '/logos/Logo_OpenClassrooms.png',
             logoAlt: 'openClassroom logo',
