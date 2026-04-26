@@ -1,4 +1,4 @@
 .selectContainer {
-    margin: 10px auto;
-    width: 80%;
+    margin: 12px auto 18px;
+    width: min(1080px, 92%);
 }
