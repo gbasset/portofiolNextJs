@@ -16,9 +16,11 @@ function About() {
         { label: 'Html', icon: <SiHtml5 /> },
         { label: 'Css', icon: <SiCss3 /> },
         { label: 'JavaScript', icon: <SiJavascript /> },
+        { label: 'TypeScript', icon: <AiFillCode /> },
         { label: 'Node JS', icon: <SiNodeDotJs /> },
         { label: 'ReactJS', icon: <SiReact /> },
         { label: 'Next JS', icon: <SiNextDotJs /> },
+        { label: 'Vite', icon: <AiFillCode /> },
         { label: 'GraphQl', icon: <SiGraphql /> },
         { label: 'Redux', icon: <SiRedux /> },
         { label: 'Sql', icon: <FaDatabase /> },
@@ -27,6 +29,7 @@ function About() {
         { label: 'Azure Devops', icon: <SiAzuredevops /> },
         { label: 'Es Lint', icon: <SiEslint /> },
         { label: 'Git', icon: <IoLogoGithub /> },
+        { label: 'Cursor', icon: <AiFillCode /> },
         { label: 'Vs Code', icon: <AiFillCode /> },
     ];
 
