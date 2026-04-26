@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import classes from './index.module.css'
 import axios from 'axios';
 import { apiProjects } from '../../utils/data';
 import SelectProject from '../../components/Project/SelectProject';
 import ListOfProjects from '../../components/Project/ListOfProjects';
 import Head from 'next/head';
-import Footer from '../../components/Footer/Footer'
 function Projects({ projects, tags, languages }) {
     const [projectsWithLabels, setprojectsWithLables] = useState();
     const [projectsFilter, setprojectsFilter] = useState([]);
@@ -72,12 +70,16 @@ function Projects({ projects, tags, languages }) {
             <title>Projets de Bassett Gaëtan</title>
             <meta name="description" content="liste des projets de Gaëtan basset" />
         </Head>
-        <div className={classes.containerProject}>
-            <SelectProject
-                listProject={projectsWithLabels}
-                filteredProjects={(listProjectSelected) => getFilteredProject(listProjectSelected)}
-            />
-            <ListOfProjects projectsFilter={projectsFilter} />
+        <div className="min-h-screen w-full pb-8">
+            <section className="mx-auto w-full max-w-content px-3 pt-6 md:px-6 md:pt-8">
+                <div className="mb-6 rounded-ds-xl border border-primary-400/40 bg-primary-700/35 p-3 shadow-glow-primary backdrop-blur-sm md:p-4">
+                    <SelectProject
+                        listProject={projectsWithLabels}
+                        filteredProjects={(listProjectSelected) => getFilteredProject(listProjectSelected)}
+                    />
+                </div>
+                <ListOfProjects projectsFilter={projectsFilter} />
+            </section>
         </div>
     </>
     )

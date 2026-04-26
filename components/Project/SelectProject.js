@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from 'react'
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
-import classes from './SelectProject.module.css'
 
 export default function SelectProject({ listProject, filteredProjects }) {
     const animatedComponents = useMemo(() => makeAnimated(), []);
@@ -107,7 +106,7 @@ export default function SelectProject({ listProject, filteredProjects }) {
     };
 
     return (
-        <div className={classes.selectContainer}>
+        <div className="mx-auto my-1 w-full md:my-2">
             <Select
                 closeMenuOnSelect={true}
                 value={valueProjectSelected && valueProjectSelected}

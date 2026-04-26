@@ -1,12 +1,8 @@
-.slider {
-    height: 70vh;
-    width: 100% !important;
-    overflow: hidden;
-    margin: auto;
-}
-
-.awssld__content>img {
-    height: auto!important;
+.containerProject {
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    margin-bottom: 25px;
 }
 
 .description {
@@ -120,15 +116,6 @@
 }
 
 @media (max-width: 900px) {
-    .awssld__content>img {
-        width: 100% !important;
-        height: 100% !important;
-    }
-    .slider {
-        height: auto;
-        max-height: 200px;
-        overflow: hidden;
-    }
     .containerProject {
         margin-top: 30px;
     }
