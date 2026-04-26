@@ -29,10 +29,12 @@ function About() {
             <div className="propos">
                 <div className="photoProfil" />
                 <div className="rightContainer">
-                    <p>Bonjour à tous, je suis développeur web, je réalise des tâches diverses liées aux différentes parties qui composent la création d'un site web et d'une application web.
-                        Reflexion autour de la conception de la base de donnée, création d'une Api pour faire intéragir les données avec le front-end et le back-end. Passioné par les nouvelles technologies,
-                        j'ai entrepris en 2019 une reconversion dans le web en suivant une formation à la Wild Code School de Paris. Depuis je pratique mes acquis au sein de projet personnels et au sein de l'entreprise qui m'emploi Beyable dans laquelle j'effectue différentes tâches comme de l'intégration et du developpement de nouvelles fonctionnalitées au sein du back office.J'interviens aussi sur la création des outils de la société pour faliciter le travail des intégrateur avec la création du Beyable Studio.
-                        J'accorde beaucoup d'importance à la veille et à l'auto-formation qui ponctue mon parcours de développeur, ce pourquoi je me forme régulièrement sur des sujets divers liés aux enjeux du métier de développeur web.
+                    <p>
+                        Développeur Frontend JavaScript/React, j&apos;accompagne depuis plusieurs années l&apos;évolution d&apos;un SaaS en environnement produit.
+                        Chez Beyable, je travaille sur la maintenance et l&apos;amélioration du back-office, avec un fort focus sur la qualité du code, la performance et l&apos;expérience utilisateur.
+                        J&apos;interviens notamment sur la migration d&apos;un legacy AngularJS vers React/TypeScript, l&apos;ajout de fonctionnalités complexes (SSO, dashboards de data visualisation) et la réduction de la dette technique.
+                        Je participe aussi à la mise en place de pipelines CI/CD et au développement d&apos;outils internes en React/Next.js pour accélérer le travail des équipes.
+                        Titulaire d&apos;un Titre Professionnel (TP) de niveau 5 en Développement Web et Web Mobile obtenu à la Wild Code School, je continue à me former en continu avec la même motivation : construire des interfaces fiables, utiles et durables.
                     </p>
                 </div>
             </div>
@@ -60,7 +62,7 @@ function About() {
             <div>
                 <h2 className="titleAbout">Formations</h2>
                 <ul className="list-tags-format">
-                    <li> Titre Professionnel : Développeur Web et Web Mobile - Wild Code School Paris <img className="wild" src="https://res.cloudinary.com/wildcodeschool/image/upload/c_fill,h_50/v1/static/irjoy97aq0eol8bf6959" alt="wild code school logo" /></li>
+                    <li> Titre Professionnel : Développeur Web et Web Mobile - Wild Code School Paris <img className="wild" src="/logos/codeschool.png" alt="wild code school logo" /></li>
                     <li>Apprenez à créer votre site web avec HTML5 et CSS3 - OpenClassRooms <img className="openClass" src="/logos/Logo_OpenClassrooms.png" alt="openClassroom logo" /></li>
                     <li>JavaScript : ES6  <img className="udemy" src="/logos/udemy_logo_icon_144775.png" alt="udemy logo" /></li>
                     <li>Apprenez à résoudre des algorithmes en JavaScript  <img className="udemy" src="/logos/udemy_logo_icon_144775.png" alt="udemy logo" /></li>
