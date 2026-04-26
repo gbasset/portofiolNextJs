@@ -18,7 +18,7 @@ const NAVIGATION = [
     },
     {
         link: '/about',
-        label: 'Á propos',
+        label: 'Parcours',
         key: '/about',
     },
     {
