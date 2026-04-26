@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
 import Head from 'next/head';
-import { motion } from "framer-motion";
 import { SiJavascript, SiCss3, SiHtml5, SiNodeDotJs, SiReact, SiBootstrap, SiNetlify, SiNextDotJs, SiGraphql,SiRedux,SiAzuredevops,SiEslint } from 'react-icons/si'
 import { FaDatabase } from 'react-icons/fa'
 import { IoLogoGithub } from 'react-icons/io'
@@ -78,20 +77,6 @@ function About() {
                     ref={reference}
                     className="btn-more" target="_blank" src="/gaetancv.pdf" download="/gaetancv.pdf" >Telecharger mon CV</a>
             </div> */}
-            <motion.div
-                className="slide-in"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 0 }}
-                exit={{ scaleX: 1 }}
-                transition={{ duration: 0.2, ease: "easeInOut" }}
-            />
-            <motion.div
-                className="slide-out"
-                initial={{ scaleX: 1 }}
-                animate={{ scaleX: 0 }}
-                exit={{ scaleX: 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-            />
         </>
     )
 }

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import classes from './index.module.css'
-import withTransition from "../../components/HOC/WitchTransition";
 import axios from 'axios';
-import { motion } from "framer-motion";
 import { apiProjects } from '../../utils/data';
 import SelectProject from '../../components/Project/SelectProject';
 import ListOfProjects from '../../components/Project/ListOfProjects';
@@ -81,20 +79,6 @@ function Projects({ projects, tags, languages }) {
             />
             <ListOfProjects projectsFilter={projectsFilter} />
         </div>
-        <motion.div
-            className="slide-in"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 0 }}
-            exit={{ scaleX: 1 }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
-        />
-        <motion.div
-            className="slide-out"
-            initial={{ scaleX: 1 }}
-            animate={{ scaleX: 0 }}
-            exit={{ scaleX: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-        />
     </>
     )
 }

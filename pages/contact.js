@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { apiProjects } from '../utils/data';
-import { motion } from "framer-motion";
 import toast, { Toaster } from 'react-hot-toast';
 import Typewriter from 'typewriter-effect';
 import Head from 'next/head';
@@ -151,20 +150,6 @@ function Contact() {
                 </div>
 
             </form>
-            <motion.div
-                className="slide-in"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 0 }}
-                exit={{ scaleX: 1 }}
-                transition={{ duration: 0.2, ease: "easeInOut" }}
-            />
-            <motion.div
-                className="slide-out"
-                initial={{ scaleX: 1 }}
-                animate={{ scaleX: 0 }}
-                exit={{ scaleX: 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-            />
         </div >
     )
 }

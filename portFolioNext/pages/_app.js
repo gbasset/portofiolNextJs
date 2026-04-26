@@ -1,7 +1,6 @@
 import '../styles/globals.css';
 import Head from 'next/head';
 import Layout from '../components/nav/Layout';
-import { AnimatePresence } from "framer-motion";
 function MyApp({ Component, pageProps, router }) {
   return (<>
     <Layout>
@@ -9,9 +8,7 @@ function MyApp({ Component, pageProps, router }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <div className=''>
-        <AnimatePresence exitBeforeEnter>
-          <Component  {...pageProps} key={router.route} />
-        </AnimatePresence>
+        <Component  {...pageProps} key={router.route} />
       </div>
     </Layout>
   </>
