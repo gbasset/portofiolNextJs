@@ -4,7 +4,8 @@
 }
 
 .container nav {
-    width: 15%;
+    width: 220px;
+    min-width: 220px;
     border-right: 1px solid #393d55;
 }
 
@@ -12,7 +13,7 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 85%;
+    width: calc(100% - 220px);
 }
 
 .container.small {}

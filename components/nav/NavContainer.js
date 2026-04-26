@@ -143,7 +143,9 @@ export default function NavContainer() {
                                 </li>
                             )}
                         </ul>
-                        <Footer />
+                        <div className={classes.footerWrap}>
+                            <Footer />
+                        </div>
                     </nav>
                 </>
             )}
