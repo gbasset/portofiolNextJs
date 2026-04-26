@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import { apiProjects } from '../utils/data';
 import { motion } from "framer-motion";
-import classes from './contact.module.css';
 import toast, { Toaster } from 'react-hot-toast';
 import Typewriter from 'typewriter-effect';
 import Head from 'next/head';
@@ -78,15 +77,15 @@ function Contact() {
     }
 
     return (
-        <div className={classes.containerForm}>
+        <div className="mx-auto w-full max-w-6xl px-4 py-8 md:py-12">
             <Head>
                 <title>Contacter Basset Gaëtan</title>
                 <meta name="description"
                     content="contacter gaëtan basset par mail" />
             </Head>
             <Toaster />
-            <form className={classes.formControl}>
-                <h1 className={classes.titleContact}>
+            <form className="mx-auto flex w-full max-w-3xl flex-col rounded-lg border border-primary-400/20 bg-primary-600/40 px-4 py-6 shadow-glow-primary backdrop-blur-sm md:px-8">
+                <h1 className="mb-6 min-h-[56px] text-center text-2xl italic text-primary-200 md:mb-8 md:min-h-[72px] md:text-5xl">
                     <Typewriter
                         options={{
                             autoStart: true,
@@ -106,44 +105,47 @@ function Contact() {
                         }}
                     />
                 </h1>
-                <div className={classes.labelContainer}>
-                    <label htmlFor="from">Votre Mail </label>
+                <div className="mx-auto mb-4 flex w-full max-w-2xl flex-col">
+                    <label htmlFor="from" className="mb-1 text-left text-lg text-secondary-700 md:text-xl">Votre Mail </label>
                     <input
                         type="email"
                         id="from"
                         name="from"
                         onChange={handleInput}
                         value={informations.from}
+                        className="w-full rounded border-4 border-neutral-100 bg-white p-3 text-sm text-primary-700 outline-none transition-colors duration-200 focus:border-secondary-700"
                         placeholder="jean_de-florette@gmail.com" />
                     {errorsForm.hasOwnProperty("from") &&
                         <p className="information_error_message">{errorsForm.from}</p>}
                 </div>
-                <div className={classes.labelContainer}>
-                    <label htmlFor="subject">Sujet </label>
+                <div className="mx-auto mb-4 flex w-full max-w-2xl flex-col">
+                    <label htmlFor="subject" className="mb-1 text-left text-lg text-secondary-700 md:text-xl">Sujet </label>
                     <input
                         type="text"
                         id="subject"
                         name="subject"
                         onChange={handleInput}
                         value={informations.subject}
+                        className="w-full rounded border-4 border-neutral-100 bg-white p-3 text-sm text-primary-700 outline-none transition-colors duration-200 focus:border-secondary-700"
                         placeholder="Collaboration" />
                 </div>
-                <div className={classes.labelContainer}>
-                    <label htmlFor="subject">Message </label>
+                <div className="mx-auto mb-2 flex w-full max-w-2xl flex-col">
+                    <label htmlFor="message" className="mb-1 text-left text-lg text-secondary-700 md:text-xl">Message </label>
                     <textarea
                         id="message"
                         name="message"
                         onChange={handleInput}
                         placeholder="Votre message ..."
                         value={informations.message}
+                        className="min-h-[160px] w-full rounded border-4 border-transparent bg-white p-3 text-sm text-primary-700 outline-none transition-colors duration-200 focus:border-secondary-700 md:min-h-[250px]"
 
                     />
                 </div>
                 {errorsForm.hasOwnProperty("message") && <p className="information_error_message">{errorsForm.message}</p>}
-                <div className={classes.btnContainer}>
+                <div className="mt-4 flex justify-center">
                     <button
                         type="submit"
-                        className={classes.btnSend}
+                        className="h-14 rounded border border-secondary-700 bg-primary-700 px-6 text-sm font-bold uppercase tracking-[0.2em] text-secondary-700 transition-all duration-300 hover:border-neutral-200 hover:bg-secondary-700 hover:text-primary-700"
                         onClick={handleSubmit} >
                         Envoyer</button>
                 </div>
