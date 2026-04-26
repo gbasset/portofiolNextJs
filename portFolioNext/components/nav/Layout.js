@@ -7,23 +7,17 @@ export default function ({ children }) {
 
     useEffect(() => {
         const mediaQuery = window.matchMedia("(max-width: 900px)");
-        // addlistener c'est comme addeventlisterner pour les medias queries en JS
-        mediaQuery.addListener(handleMediaQueryChange);
+        const handleMediaQueryChange = (event) => {
+            setSmallS(event.matches);
+        };
+
         handleMediaQueryChange(mediaQuery);
+        mediaQuery.addEventListener('change', handleMediaQueryChange);
 
         return () => {
-            mediaQuery.removeListener(handleMediaQueryChange);
+            mediaQuery.removeEventListener('change', handleMediaQueryChange);
         }
-
-    })
-
-    const handleMediaQueryChange = (mediaQuery) => {
-        if (mediaQuery.matches) {
-            setSmallS(true);
-        } else {
-            setSmallS(false);
-        }
-    }
+    }, [])
     return (
         <div className={!smallS ? classes.container : classes.container + classes.small}>
             <nav> <NavContainer /></nav>

@@ -5,17 +5,45 @@ import classes from './Nav.module.css';
 
 import { useRouter } from 'next/router';
 
+const NAVIGATION = [
+    {
+        key: '/home',
+        label: 'Accueil',
+        link: '/',
+    },
+    {
+        link: '/projects',
+        label: 'Projets',
+        key: '/projects',
+    },
+    {
+        link: '/about',
+        label: 'Á propos',
+        key: '/about',
+    },
+    {
+        link: '/contact',
+        label: 'Contact',
+        key: '/contact',
+    },
+];
+
 export default function NavContainer() {
     const router = useRouter();
     const [linkNavigationCurrent, setlinkNavigationCurrent] = useState('');
-
     useEffect(() => {
         if (router.pathname !== "/") {
             setlinkNavigationCurrent(router.pathname);
         } else {
             setlinkNavigationCurrent("/home");
         }
-    }, [])
+    }, [router.pathname])
+
+    useEffect(() => {
+        NAVIGATION.forEach((item) => {
+            router.prefetch(item.link);
+        });
+    }, [router]);
 
     useEffect(() => {
         const handleRouteChange = (url) => {
@@ -33,29 +61,7 @@ export default function NavContainer() {
         return () => {
             router.events.off('routeChangeStart', handleRouteChange)
         }
-    }, [])
-    const navigation = [
-        {
-            key: '/home',
-            label: 'Accueil',
-            link: '/',
-        },
-        {
-            link: '/projects',
-            label: 'Projets',
-            key: '/projects',
-        },
-        {
-            link: '/about',
-            label: 'Á propos',
-            key: '/about',
-        },
-        {
-            link: '/contact',
-            label: 'Contact',
-            key: '/contact',
-        },
-    ];
+    }, [router.events])
 
     const handleChangeNavigation = (link) => {
         if (linkNavigationCurrent === link.key) {
@@ -70,23 +76,17 @@ export default function NavContainer() {
 
     useEffect(() => {
         const mediaQuery = window.matchMedia("(max-width: 900px)");
-        // addlistener c'est comme addeventlisterner pour les medias queries en JS
-        mediaQuery.addListener(handleMediaQueryChange);
+        const handleMediaQueryChange = (event) => {
+            setSmallScreen(event.matches);
+        };
+
         handleMediaQueryChange(mediaQuery);
+        mediaQuery.addEventListener('change', handleMediaQueryChange);
 
         return () => {
-            mediaQuery.removeListener(handleMediaQueryChange);
-        }
-
-    })
-
-    const handleMediaQueryChange = (mediaQuery) => {
-        if (mediaQuery.matches) {
-            setSmallScreen(true);
-        } else {
-            setSmallScreen(false);
-        }
-    }
+            mediaQuery.removeEventListener('change', handleMediaQueryChange);
+        };
+    }, [])
 
     const toggleNavRes = () => {
         showMenu(!menu);
@@ -116,7 +116,7 @@ export default function NavContainer() {
 
                     <div className={classes.smallMen}>
                         <ul>
-                            {navigation.map((link, id) =>
+                            {NAVIGATION.map((link, id) =>
                                 <li key={id}
                                     className={link.key === linkNavigationCurrent ? classes.isCurrentNavActive : classes.notActive}
                                     onClick={() => handleChangeNavigation(link)}>
@@ -134,7 +134,7 @@ export default function NavContainer() {
                             setlinkNavigationCurrent={() => setlinkNavigationCurrent('/home')}
                         />
                         <ul>
-                            {navigation.map((link, id) =>
+                            {NAVIGATION.map((link, id) =>
                                 <li key={id}
                                     className={link.key === linkNavigationCurrent ? classes.isCurrentNavActive : classes.notActive}
                                     onClick={() => handleChangeNavigation(link)}>

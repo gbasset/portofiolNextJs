@@ -5,7 +5,7 @@ export default function Logo({ setlinkNavigationCurrent }) {
     const router = useRouter();
     const handleChangeNavigation = () => {
         setlinkNavigationCurrent()
-        router.replace("/");
+        router.push("/");
     }
 
 
