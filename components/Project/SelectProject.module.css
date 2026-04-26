@@ -2,3 +2,26 @@
     margin: 12px auto 18px;
     width: min(1080px, 92%);
 }
+
+@media screen and (max-width: 768px) {
+    .selectContainer {
+        width: calc(100% - 68px);
+        margin: 10px 12px 14px 56px;
+    }
+
+    .selectContainer :global(.project-select__control) {
+        min-height: 50px !important;
+    }
+
+    .selectContainer :global(.project-select__value-container) {
+        padding: 4px 10px !important;
+    }
+
+    .selectContainer :global(.project-select__placeholder) {
+        font-size: 0.8rem !important;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

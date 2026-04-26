@@ -77,6 +77,10 @@ export default function SelectProject({ listProject, filteredProjects }) {
             ...base,
             color: 'rgba(255, 249, 242, 0.72)',
             fontSize: '0.9rem',
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            maxWidth: '100%',
         }),
         input: (base) => ({
             ...base,
@@ -109,6 +113,7 @@ export default function SelectProject({ listProject, filteredProjects }) {
                 value={valueProjectSelected && valueProjectSelected}
                 components={animatedComponents}
                 styles={customStyles}
+                classNamePrefix="project-select"
                 isMulti
                 options={listProject}
                 isClearable

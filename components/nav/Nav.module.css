@@ -53,16 +53,23 @@
 
 .menuResBtn {
     position: fixed;
-    top: 0px;
-    width: 100%;
-    margin: 0px 0px 4px 0px;
+    top: 14px;
+    left: 14px;
+    width: auto;
+    margin: 0;
+    padding: 4px;
+    border-radius: 8px;
+    background: rgba(31, 34, 53, 0.88);
+    border: 1px solid rgba(235, 184, 118, 0.45);
+    box-shadow: 0 8px 22px -14px rgba(0, 0, 0, 0.9);
     cursor: pointer;
     z-index: 1001;
     color: var(--color-secondary-700);
 }
 
 .menuIco {
-    width: 25px;
+    width: 18px;
+    display: block;
 }
 
 .smallMen {
