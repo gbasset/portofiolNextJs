@@ -35,7 +35,7 @@ export default function SkillsShowcase({ items }) {
         <div className="relative z-[1]">
           <p className="mx-auto mb-8 max-w-xl text-center font-sans text-[clamp(0.95rem,2vw,1.1rem)] leading-relaxed text-primary-200/90">
             Mon quotidien en développement web, du navigateur au serveur, en passant par la persistance
-            des données, en passant par les frameworks et les librairies.
+            des données, les frameworks et les librairies.
           </p>
           <motion.div
             className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"

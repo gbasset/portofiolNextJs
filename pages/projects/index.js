@@ -72,7 +72,7 @@ function Projects({ projects, tags, languages }) {
         </Head>
         <div className="min-h-screen w-full pb-8">
             <section className="mx-auto w-full max-w-content px-3 pt-6 md:px-6 md:pt-8">
-                <div className="mb-6 rounded-ds-xl border border-primary-400/40 bg-primary-700/35 p-3 shadow-glow-primary backdrop-blur-sm md:p-4">
+                <div className="mb-6 backdrop-blur-sm md:p-4">
                     <SelectProject
                         listProject={projectsWithLabels}
                         filteredProjects={(listProjectSelected) => getFilteredProject(listProjectSelected)}
