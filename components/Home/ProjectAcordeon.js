@@ -74,7 +74,10 @@ export default function ProjectAcordeon({ mainProjects }) {
                       src={img.imageHome.url}
                       alt={img.name}
                       className="h-full w-full object-cover"
+                      width={1280}
+                      height={720}
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <p className="line-clamp-4 text-left text-sm leading-relaxed text-primary-200/88 sm:text-base">

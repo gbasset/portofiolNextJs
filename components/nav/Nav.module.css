@@ -51,6 +51,17 @@
     width: 100%;
 }
 
+/* Toujours dans le DOM : la visibilité suit le viewport (évite CLS au hydratation). */
+.menuResHost {
+    display: none;
+}
+
+@media screen and (max-width: 900px) {
+    .menuResHost {
+        display: block;
+    }
+}
+
 .menuResBtn {
     position: fixed;
     top: 14px;
@@ -104,4 +115,18 @@
 .footerWrap {
     margin-top: auto;
     padding: 0.75rem 0 0.25rem;
+}
+
+@media screen and (max-width: 900px) {
+    .nav {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 901px) {
+    .smallMen {
+        display: none !important;
+        visibility: hidden;
+        pointer-events: none;
+    }
 }

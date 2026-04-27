@@ -73,83 +73,78 @@ export default function NavContainer() {
         router.push(link.link);
     }
     const [menu, showMenu] = useState(false);
-    const [smallScreen, setSmallScreen] = useState(false);
-
-    useEffect(() => {
-        const mediaQuery = window.matchMedia("(max-width: 900px)");
-        const handleMediaQueryChange = (event) => {
-            setSmallScreen(event.matches);
-        };
-
-        handleMediaQueryChange(mediaQuery);
-        mediaQuery.addEventListener('change', handleMediaQueryChange);
-
-        return () => {
-            mediaQuery.removeEventListener('change', handleMediaQueryChange);
-        };
-    }, [])
 
     const toggleNavRes = () => {
         showMenu(!menu);
     }
 
-    const hideMenu = () => {
-
-        if (menu === true) {
-            showMenu(!menu);
-        }
-
-    }
     return (
         <>
             <div className={classes.noOverflow}>
 
-                {smallScreen &&
-                    <div className={classes.menuResBtn}>
-                        <img onClick={toggleNavRes}
+                <div className={classes.menuResHost}>
+                    <div
+                        className={classes.menuResBtn}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                toggleNavRes();
+                            }
+                        }}
+                        onClick={toggleNavRes}
+                    >
+                        <img
                             src={!menu ? '/logos/Menuico.svg' : '/logos/Croix.svg'}
                             alt="icone menu responsive"
-                            className={classes.menuIco} />
-
+                            className={classes.menuIco}
+                            width={18}
+                            height={18}
+                        />
                     </div>
-                }
-                {(menu && smallScreen) && (<>
-
+                </div>
+                {menu && (
                     <div className={classes.smallMen}>
                         <ul>
-                            {NAVIGATION.map((link, id) =>
-                                <li key={id}
-                                    className={link.key === linkNavigationCurrent ? classes.isCurrentNavActive : classes.notActive}
-                                    onClick={() => handleChangeNavigation(link)}>
+                            {NAVIGATION.map((link, id) => (
+                                <li
+                                    key={id}
+                                    className={
+                                        link.key === linkNavigationCurrent
+                                            ? classes.isCurrentNavActive
+                                            : classes.notActive
+                                    }
+                                    onClick={() => handleChangeNavigation(link)}
+                                >
                                     {link.label}
                                 </li>
-                            )}
+                            ))}
                         </ul>
-                    </div></>
+                    </div>
                 )}
             </div>
-            {(!smallScreen) && (
-                <>
-                    <nav className={classes.nav}>
-                        <Logo
-                            setlinkNavigationCurrent={() => setlinkNavigationCurrent('/home')}
-                        />
-                        <ul>
-                            {NAVIGATION.map((link, id) =>
-                                <li key={id}
-                                    className={link.key === linkNavigationCurrent ? classes.isCurrentNavActive : classes.notActive}
-                                    onClick={() => handleChangeNavigation(link)}>
-                                    {link.label}
-                                </li>
-                            )}
-                        </ul>
-                        <div className={classes.footerWrap}>
-                            <Footer />
-                        </div>
-                    </nav>
-                </>
-            )}
-
+            <nav className={classes.nav}>
+                <Logo setlinkNavigationCurrent={() => setlinkNavigationCurrent('/home')} />
+                <ul>
+                    {NAVIGATION.map((link, id) => (
+                        <li
+                            key={id}
+                            className={
+                                link.key === linkNavigationCurrent
+                                    ? classes.isCurrentNavActive
+                                    : classes.notActive
+                            }
+                            onClick={() => handleChangeNavigation(link)}
+                        >
+                            {link.label}
+                        </li>
+                    ))}
+                </ul>
+                <div className={classes.footerWrap}>
+                    <Footer />
+                </div>
+            </nav>
         </>
     )
 }

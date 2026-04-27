@@ -34,7 +34,12 @@ export default function Footer() {
                     rel="noreferrer"
                     aria-label="Codewars"
                 >
-                    <img src="https://www.codewars.com/users/gbasset/badges/micro" alt="codewars logo" />
+                    <img
+                        src="https://www.codewars.com/users/gbasset/badges/micro"
+                        alt="codewars logo"
+                        width={181}
+                        height={25}
+                    />
                 </a>
             </div>
 
