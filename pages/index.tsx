@@ -81,6 +81,11 @@ function Home({ projects }: InferGetStaticPropsType<typeof getStaticProps>) {
       technos: ['Html 5', 'Css 3', 'Flexbox', 'Css Grid', 'Librairies Css'],
       image: '/logos/icons8-html-5.svg',
     },
+    {
+      language: 'CI/CD',
+      technos: ['Azure Devops', 'GitHub Actions', 'Netlify', 'Vercel'],
+      image: '/logos/cicd.svg',
+    },
   ];
 
   const router = useRouter();
