@@ -251,6 +251,17 @@
     background: var(--color-secondary-100);
   }
 
+  .btn_gold {
+    color: #1f2235;
+    background: #ebb876;
+  }
+
+  .btn_gold:hover,
+  .btn_gold:focus {
+    color: #1f2235;
+    background: #f3c98f;
+  }
+
   .btn_alert {
     color: rgb(0, 0, 0);
     background: #eb6161;

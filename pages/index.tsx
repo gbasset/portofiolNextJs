@@ -78,7 +78,7 @@ function Home({ projects }: InferGetStaticPropsType<typeof getStaticProps>) {
     },
     {
       language: 'Integration',
-      technos: ['Html 5', 'Css 3', 'Flexbox', 'Css Grid', 'Librairies Css'],
+      technos: ['Html 5', 'Css 3', 'Flexbox', 'Css Grid', 'Tailwind CSS', 'Librairies Css'],
       image: '/logos/icons8-html-5.svg',
     },
     {

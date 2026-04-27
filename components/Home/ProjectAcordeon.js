@@ -83,8 +83,9 @@ export default function ProjectAcordeon({ mainProjects }) {
                   <div className="mt-auto flex justify-center pt-1 sm:justify-start">
                     <Btn
                       onClickFunction={() => goToLink(img._id)}
-                      style="outline"
+                      style=""
                       color="secondary"
+                      className="!border-transparent !bg-[#ebb876] !text-[#1f2235] hover:!bg-[#f3c98f] focus:!bg-[#f3c98f] font-medium"
                       message="Découvrir le projet"
                     />
                   </div>

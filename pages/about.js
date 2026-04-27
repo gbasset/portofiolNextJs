@@ -5,7 +5,7 @@ import { SiJavascript, SiCss3, SiHtml5, SiNodeDotJs, SiReact, SiBootstrap, SiNet
 import { FaDatabase } from 'react-icons/fa'
 import { IoLogoGithub } from 'react-icons/io'
 import { AiFillCode } from 'react-icons/ai'
-
+import { SiTailwindcss } from 'react-icons/si';
 
 function About() {
     useEffect(() => {
@@ -15,6 +15,7 @@ function About() {
     const tools = [
         { label: 'Html', icon: <SiHtml5 /> },
         { label: 'Css', icon: <SiCss3 /> },
+        { label: 'Tailwind CSS', icon: <SiTailwindcss /> },
         { label: 'JavaScript', icon: <SiJavascript /> },
         { label: 'TypeScript', icon: <AiFillCode /> },
         { label: 'Node JS', icon: <SiNodeDotJs /> },

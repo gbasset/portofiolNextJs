@@ -12,7 +12,8 @@ export default function Btn({
     icon,
     iconPosition = 'before',
     disabledBtn,
-    link
+    link,
+    className = ''
 }) {
 
     const cssClass = ['btnUi'];
@@ -34,6 +35,10 @@ export default function Btn({
     if (size) {
         let sizeClass = 'btn_' + size;
         cssClass.push(sizeClass);
+    }
+
+    if (className) {
+        cssClass.push(className);
     }
 
     return (
