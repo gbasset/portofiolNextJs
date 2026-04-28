@@ -1,0 +1,390 @@
+{
+  "skills": [
+    {
+      "id": "javascript",
+      "language": "JavaScript",
+      "image": "/logos/icons8-javascript-logo.svg",
+      "technos": ["EcmaScript 6", "Fetch", "Async/Await", "Gestion du Dom", "Librairies"],
+      "description": "Mon langage principal depuis 6 ans, utilisé quotidiennement pour créer des applications web performantes et maintenables.",
+      "projects": [
+        {
+          "title": "Migration AngularJS → React",
+          "company": "BEYABLE",
+          "period": "2021 - Present",
+          "context": "Migration progressive d'une architecture existante en AngularJS vers un stack moderne basé sur React.",
+          "challenges": [
+            "Maintenir la compatibilité avec le code legacy pendant la migration",
+            "Former l'équipe aux nouveaux patterns React",
+            "Garantir zéro régression sur les fonctionnalités existantes"
+          ],
+          "solutions": [
+            "Approche incrémentale avec react2angular pour le bridge",
+            "Mise en place de nouveaux outils pour la maintenance et l'amélioration du code",
+            "montée de version des librairies et frameworks utilisés"
+          ],
+          "results": [
+            "Performance accrue de 40% sur les pages critiques",
+            "Meilleure maintenabilité du code",
+            "Réduction du temps de développement de nouvelles features",
+            "Réduction de la taille du bundle de l'application"
+          ],
+          "stack": ["JavaScript ES6+", "React", "AngularJS", "Webpack"]
+        },
+        {
+          "title": "Outils internes sur mesure",
+          "company": "BEYABLE",
+          "period": "2021 - Present",
+          "context": "Développement d'outils internes optimisant les processus métiers et améliorant l'efficacité des équipes.",
+          "challenges": [
+            "Créer un espace pour des demonstrations de script pour les commerciaux",
+            "Créer des interfaces pour des développeurs",
+            "Outils d'edition de code complexe"
+          ],
+          "solutions": [
+            "Créetion de script pour les commerciaux",
+            "Prototypage rapide et itérations",
+            "Architecture modulaire pour réutilisation"
+          ],
+          "results": [
+            "Gain de temps significatif pour les commerciaux",
+            "Réduction des erreurs manuelles",
+            "Adoption rapide par les utilisateurs"
+          ],
+          "stack": ["JavaScript", "React", "Node.js"]
+        }
+      ]
+    },
+    {
+      "id": "react",
+      "language": "ReactJs",
+      "image": "/logos/icons8-react.svg",
+      "technos": ["Context", "Classes", "Hooks", "NextJs", "Redux"],
+      "description": "Expert React depuis 5 ans, je maîtrise l'écosystème complet : hooks, context, Redux, et Next.js pour le SSR.",
+      "projects": [
+        {
+          "title": "Back-office SaaS",
+          "company": "BEYABLE",
+          "period": "2021 - Present",
+          "context": "Maintenance et évolution d'un back-office SaaS complet pour la gestion de campagnes marketing.",
+          "challenges": [
+            "Application legacy avec dette technique importante",
+            "Performance dégradée sur les gros volumes de données",
+            "UX complexe à simplifier",
+            "Créations de nombreuses features complexes, écran de datavisualization et outils de CRO "
+          ],
+          "solutions": [
+            "Refactoring progressif vers des hooks custom pour optimiser les performances",
+            "Mise en place de Redux Toolkit pour le state management pour gérer les états complexes",
+            "Création de nombreux composants React pour la gestion des features complexes",
+            "Mise en place d'une nouvelle architecture de code pour la gestion des features complexes"
+          ],
+          "results": [
+            "Temps de chargement réduit de manière significative",
+            "Adoption client de nombreuses features complexes",
+            "Satisfaction utilisateur améliorée",
+            "Développement de nouvelles features 2x plus rapide"
+          ],
+          "stack": ["React", "Redux Toolkit", "TypeScript", "Webpack"]
+        },
+        {
+          "title": "Reporting Data Dynamique",
+          "company": "BEYABLE",
+          "period": "2020 - 2021",
+          "context": "Conception d'une fonctionnalité avancée de reporting permettant aux utilisateurs de visualiser des graphiques personnalisés.",
+          "challenges": [
+            "Données volumineuses à afficher en temps réel",
+            "Filtres interactifs multiples à combiner",
+            "Génération de graphiques complexes"
+          ],
+          "solutions": [
+            "Intégration Highcharts avec configuration dynamique",
+            "Système de filtres avec debouncing",
+            "Cache intelligent des données filtrées"
+          ],
+          "results": [
+            "Visualisation intuitive des KPIs",
+            "Export des rapports en Excel",
+            "Temps de génération < 2 secondes"
+          ],
+          "stack": ["React", "Highcharts", "REST API", "CSS Grid"]
+        },
+        {
+          "title": "Beyable studio",
+          "company": "BEYABLE",
+          "period": "2022 - Present",
+          "context": "Création d'un studio de développement pour la création de nouvelles fonctionnalités et la maintenance des applications internes.",
+          "challenges": [
+            "Création d'un espace pour la création de scripts clients",
+            "Création d'un espace pour des integrateurs pour créer des campagnes clients et nouveaux templates de campagnes",
+            "Outils de configuration de scripts clients"
+          ],
+          "solutions": [
+            "Création d'une application avec React et libraires modernes pour la gestion des scripts clients",
+            "Wisiwyg editor pour la création de scripts clients avec monaco editor",
+            "Création de composants React pour la gestion des scripts clients avec review de code"
+          ],
+          "results": [
+            "Gain de temps pour les équipes internes",
+            "Gain de temps pour les integrateurs",
+            "Scripts clients plus faciles à maintenir"
+          ],
+          "stack": ["React", "Redux Toolkit", "REST API", "CSS Modules"]
+        }
+      ]
+    },
+    {
+      "id": "performance",
+      "language": "Performance web",
+      "image": "/logos/perf-web.svg",
+      "technos": ["Temps de chargement", "Perf navigateur", "Webpack / Vite", "Dependances & securite", "Jest & Cypress"],
+      "description": "Passionné par l'optimisation, j'analyse et améliore les performances des applications pour offrir la meilleure expérience utilisateur.",
+      "projects": [
+        {
+          "title": "Graphique Sunburst D3.js",
+          "company": "BEYABLE",
+          "period": "2023",
+          "context": "Création d'un graphique de visualisation hiérarchique avec D3.js pour afficher des données complexes en mode sunburst.",
+          "challenges": [
+            "Rendering très gourmand avec 3000+ nœuds",
+            "Re-renders inutiles à chaque interaction",
+            "Frame rate < 15 FPS sur les animations"
+          ],
+          "solutions": [
+            "useCallback pour tous les event handlers",
+            "useMemo pour les calculs de paths SVG",
+            "React.memo sur les composants de nœuds",
+            "Virtualisation des nœuds non visibles"
+          ],
+          "results": [
+            "FPS stable et performant",
+            "Temps de render réduit de manière significative",
+            "Interactions fluides",
+            "Outils très efficaces pour la visualisation de données complexes"
+          ],
+          "stack": ["D3.js", "React", "useCallback", "useMemo", "React.memo"]
+        },
+        {
+          "title": "Optimisation Bundle Webpack",
+          "company": "BEYABLE",
+          "period": "2025 - Present",
+          "context": "Le bundle de l'application était devenu trop volumineux",
+          "challenges": [
+            "Bundle volumineux et non optimisé",
+            "Dépendances dupliquées",
+            "Pas de code splitting",
+            "Vielle version de node.js et webpack"
+          ],
+          "solutions": [
+            "Analyse avec webpack-bundle-analyzer",
+            "Tree shaking des imports",
+            "Code splitting par route",
+            "Lazy loading des composants lourds",
+            "Migration sur un noveau webpack 5",
+            "Migration sur un noveau node.js 18"
+          ],
+          "results": [
+            "Bundle réduit de manière significative",
+            "Nouvelle version de packages et librairies utilisées",
+            "Performance sur les pages critiques améliorée"
+          ],
+          "stack": ["Webpack", "Code Splitting", "Tree Shaking", "Lazy Loading"]
+        }
+      ]
+    },
+    {
+      "id": "typescript",
+      "language": "TypeScript",
+      "image": "/logos/ts.svg",
+      "technos": ["TypeScript", "Interfaces", "Classes", "Generics", "Decorators"],
+      "description": "TypeScript est devenu mon standard pour tous les projets React, garantissant robustesse et maintenabilité du code.",
+      "projects": [
+        {
+          "title": "Refonte Architecture TypeScript",
+          "company": "BEYABLE",
+          "period": "2022 - Present",
+          "context": "Migration progressive du codebase JavaScript vers TypeScript pour améliorer la qualité et la maintenabilité.",
+          "challenges": [
+            "Codebase legacy volumineux et complexe",
+            "APIs avec réponses non typées",
+            "Équipe à former sur TypeScript"
+          ],
+          "solutions": [
+            "Migration fichier par fichier",
+            "Création d'interfaces pour toutes les API responses",
+            "Hooks custom avec types génériques"
+          ],
+          "results": [
+            "50% du code migré en TypeScript",
+            "Bugs en production réduits",
+            "Onboarding des nouveaux devs facilité",
+            "Codebase maintenable et scalable"
+          ],
+          "stack": ["TypeScript", "React", "Interfaces", "Generics"]
+        }
+      ]
+    },
+    {
+      "id": "database",
+      "language": "Bdd",
+      "image": "/logos/database.svg",
+      "technos": ["Sql", "Mongodb", "Firebase", "GraphQl", "PhpMyAdmin"],
+      "description": "Expérience avec différents types de bases de données et APIs, du SQL classique aux solutions temps réel.",
+      "projects": [
+        {
+          "title": "Projet handimove",
+          "company": "Projet de certification",
+          "period": "2021",
+          "context": "Ce projet avait pour but de mixer toutes mes connaissances acquises pour mon passage du titre de Développeur Web. L'idée était de regrouper plus de 3760 établissements répartis dans toute la France, accessibles à tous, ainsi que des événements de toutes sortes chaque semaine.",
+          "challenges": [
+            "Exploiter un jeu de données national fourni par la Direction Générale des Entreprises depuis 2014",
+            "Structurer une plateforme avec deux usages distincts : administration et consultation publique",
+            "Garantir une information claire et homogène sur l'accessibilité des sites et équipements touristiques"
+          ],
+          "solutions": [
+            "Mise en place d'une interface admin avec back-office pour gérer les établissements et événements",
+            "Création d'une interface utilisateur simple pour la consultation des données",
+            "Développement d'un backend Node.js et d'un frontend React.js connectés à une base SQL"
+          ],
+          "results": [
+            "Centralisation de plus de 3760 établissements accessibles en France",
+            "Mise en avant de la marque d'État Tourisme & Handicap pour informer les usagers",
+            "Projet complet full-stack validant mes compétences pour le titre Développeur Web"
+          ],
+          "stack": ["Node.js", "React.js", "SQL", "Back-office admin", "Interface utilisateur"]
+        }
+      ]
+    },
+    {
+      "id": "nodejs",
+      "language": "NodeJs",
+      "image": "/logos/nodejs-svg.svg",
+      "technos": ["JWT", "Express", "Passport", "SocketIo", "Handlebars"],
+      "description": "Développement backend avec Node.js et Express, création d'APIs RESTful et gestion de l'authentification.",
+      "projects": [
+        {
+          "title": "Backend Handimove",
+          "company": "Projet personnel",
+          "period": "2020",
+          "context": "Développement du backend Node.js de Handimove pour exposer des routes API et interroger une base SQL contenant les données d'établissements et d'événements accessibles.",
+          "challenges": [
+            "Structurer des routes backend claires pour un projet full-stack",
+            "Sécuriser l'API avec JWT",
+            "Connecter proprement le serveur à la base de données SQL via variables d'environnement"
+          ],
+          "solutions": [
+            "Mise en place d'une API Node.js organisée par routes",
+            "Implémentation d'un système d'authentification par token JWT",
+            "Configuration de la connexion MySQL avec un fichier de configuration et variables .env"
+          ],
+          "results": [
+            "Backend fonctionnel pour alimenter l'application Handimove",
+            "API sécurisée pour les opérations sensibles",
+            "Base technique solide pour l'interface admin et l'interface utilisateur"
+          ],
+          "stack": ["Node.js", "Express", "JWT", "MySQL", "Cypress"]
+        },
+        {
+          "title": "Serveur de versions de campagnes en temps réel",
+          "company": "BEYABLE",
+          "period": "2023",
+          "context": "Développement d'un serveur Node.js permettant de suivre les versions de campagnes enregistrées et de collaborer en temps réel entre plusieurs utilisateurs.",
+          "challenges": [
+            "Synchroniser les mises à jour de versions entre plusieurs personnes connectées",
+            "Maintenir une latence faible pour l'affichage en temps réel",
+            "Sécuriser et stabiliser les échanges WebSocket côté serveur"
+          ],
+          "solutions": [
+            "Mise en place d'un serveur WebSocket Node.js pour diffuser les changements en direct",
+            "Organisation des événements de versions par campagnes et clients connectés"
+          ],
+          "results": [
+            "Visibilité instantanée des versions de campagnes enregistrées",
+            "Collaboration multi-utilisateur fluide sur les campagnes",
+            "Réduction des conflits et des erreurs liées aux modifications simultanées"
+          ],
+          "stack": ["Node.js", "WebSocket", "Express", "Cypress", "Temps réel"]
+        }
+      ]
+    },
+
+    {
+      "id": "integration",
+      "language": "Integration",
+      "image": "/logos/icons8-html-5.svg",
+      "technos": ["Html 5", "Css 3", "Flexbox", "Css Grid", "Tailwind CSS", "Librairies Css"],
+      "description": "Création d'interfaces graphiques intuitives et responsives, avec une attention particulière à l'accessibilité.",
+      "projects": [
+        {
+          "title": "Design System Interne",
+          "company": "BEYABLE",
+          "period": "2022 - Present",
+          "context": "Création d'un design system pour unifier l'apparence et l'UX de toutes les applications internes.",
+          "challenges": [
+            "Inconsistances visuelles entre les applications",
+            "Duplication de code CSS",
+            "Accessibilité non respectée"
+          ],
+          "solutions": [
+            "Bibliothèque de composants React réutilisables",
+            "Tokens CSS pour les couleurs, espacements, typographie",
+            "Documentation Storybook avec guidelines"
+          ],
+          "results": [
+            "Cohérence visuelle sur toutes les apps",
+            "Développement UI 3x plus rapide"
+          ],
+          "stack": ["CSS Modules", "Tailwind CSS", "Flexbox", "CSS Grid"]
+        }
+      ]
+    },
+    {
+      "id": "cicd",
+      "language": "CI/CD",
+      "image": "/logos/cicd.svg",
+      "technos": ["Azure Devops", "GitHub Actions", "Netlify", "Vercel"],
+      "description": "Mise en place de pipelines CI/CD pour des déploiements fiables et automatisés.",
+      "projects": [
+        {
+          "title": "Pipeline Azure DevOps",
+          "company": "BEYABLE",
+          "period": "2021 - Present",
+          "context": "Livraison continue de nouvelles fonctionnalités dans un environnement agile.",
+          "challenges": [
+            "Déploiements manuels risqués",
+            "Pas de tests automatisés dans la pipeline"
+          ],
+          "solutions": [
+            "Pipeline multi-stages (build, test, deploy)"
+          ],
+          "results": [
+            "CI / CD automatisé sur une branche main",
+            "Rollback en < 5 minutes si nécessaire"
+          ],
+          "stack": ["Azure DevOps", "CI/CD", "Git", "Agile/Scrum"]
+        },
+        {
+          "title": "CI/CD Vercel & Netlify",
+          "company": "Projet portfolio",
+          "period": "2023 - Present",
+          "context": "Mise en place d'un pipeline CI/CD moderne pour déployer automatiquement les projets front-end avec prévisualisation des branches.",
+          "challenges": [
+            "Standardiser les déploiements entre plusieurs projets front-end",
+            "Avoir des previews fiables pour valider rapidement les changements",
+            "Réduire le temps entre merge et mise en production"
+          ],
+          "solutions": [
+            "Configuration des builds automatiques sur Vercel et Netlify",
+            "Connexion des repositories GitHub pour déclencher les déploiements à chaque push",
+            "Mise en place d'environnements de preview et de production séparés"
+          ],
+          "results": [
+            "Déploiements continus sans intervention manuelle",
+            "Validation produit/design plus rapide via URLs de preview",
+            "Mises en ligne plus fréquentes et plus fiables"
+          ],
+          "stack": ["Vercel", "Netlify", "GitHub", "CI/CD", "Preview Deployments"]
+        }
+      ]
+    }
+  ]
+}

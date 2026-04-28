@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-/** Courbe partagée (entrée grille + hover cartes) */
 export const cardEase = [0.22, 1, 0.36, 1];
 
 export const gridVariants = {
@@ -27,15 +26,25 @@ export const cardEntryVariants = {
 
 const hoverTween = { duration: 0.35, ease: cardEase, delay: 0 };
 
-/**
- * Carte vitrine : entrée sur la couche externe (variants), survol sur la couche interne.
- * À l’entrée souris → lift + scale ; à la sortie → retour animé au repos (même ease / durée).
- */
-export function ShowcaseInteractiveCard({ className, children }) {
+export function ShowcaseInteractiveCard({ 
+  className, 
+  children, 
+  onClick, 
+  role, 
+  tabIndex, 
+  onKeyDown, 
+  'aria-label': ariaLabel,
+  ...rest 
+}) {
   return (
     <motion.article variants={cardEntryVariants} className="h-full origin-center">
       <motion.div
         className={className}
+        onClick={onClick}
+        role={role}
+        tabIndex={tabIndex}
+        onKeyDown={onKeyDown}
+        aria-label={ariaLabel}
         whileHover={{
           y: -10,
           scale: 1.03,
@@ -46,6 +55,7 @@ export function ShowcaseInteractiveCard({ className, children }) {
           transition: { duration: 0.15, ease: cardEase, delay: 0 },
         }}
         transition={hoverTween}
+        {...rest}
       >
         {children}
       </motion.div>
