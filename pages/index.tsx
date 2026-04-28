@@ -8,11 +8,26 @@ import ProjectAcordeon from '../components/Home/ProjectAcordeon';
 import HeroRoleTitle from '../components/Home/HeroRoleTitle';
 import HeroIntro from '../components/Home/HeroIntro';
 import { apiProjects } from '../utils/data';
+import skillsData from '../data/skillsData.json';
 
-interface SkillLanguage {
+interface SkillProject {
+  title: string;
+  company: string;
+  period: string;
+  context: string;
+  challenges: string[];
+  solutions: string[];
+  results: string[];
+  stack: string[];
+}
+
+interface Skill {
+  id: string;
   language: string;
-  technos: string[];
   image: string;
+  technos: string[];
+  description: string;
+  projects: SkillProject[];
 }
 
 interface MainProject {
@@ -33,60 +48,7 @@ function Home({ projects }: InferGetStaticPropsType<typeof getStaticProps>) {
     document.documentElement.scrollTop = 0;
   }, []);
 
-  const lang: SkillLanguage[] = [
-    {
-      language: 'JavaScript',
-      technos: ['EcmaScript 6', 'Fetch', 'Async/Await', 'Gestion du Dom', 'Librairies'],
-      image: '/logos/icons8-javascript-logo.svg',
-    },
-    {
-      language: 'ReactJs',
-      technos: ['Context', 'Classes', 'Hooks', 'NextJs', 'Redux'],
-      image: '/logos/icons8-react.svg',
-    },
-    {
-      language: 'Performance web',
-      technos: [
-        'Temps de chargement',
-        'Perf navigateur',
-        'Webpack / Vite',
-        'Dependances & securite',
-        'Jest & Cypress',
-      ],
-      image: '/logos/perf-web.svg',
-    },
-    {
-      language: 'TypeScript',
-      technos: ['TypeScript', 'Interfaces', 'Classes', 'Generics', 'Decorators'],
-      image: '/logos/ts.svg',
-    },
-    {
-      language: 'Bdd',
-      technos: ['Sql', 'Mongodb', 'Firebase', 'GraphQl', 'PhpMyAdmin'],
-      image: '/logos/database.svg',
-    },
-    {
-      language: 'NodeJs',
-      technos: ['JWT', 'Express', 'Passport', 'SocketIo', 'Handlebars'],
-      image: '/logos/nodejs-svg.svg',
-    },
-    {
-      language: 'Unit testing',
-      technos: ['Jest', 'Cypress', 'Testing Library', 'React Testing Library'],
-      image: '/logos/testing.svg',
-
-    },
-    {
-      language: 'Integration',
-      technos: ['Html 5', 'Css 3', 'Flexbox', 'Css Grid', 'Tailwind CSS', 'Librairies Css'],
-      image: '/logos/icons8-html-5.svg',
-    },
-    {
-      language: 'CI/CD',
-      technos: ['Azure Devops', 'GitHub Actions', 'Netlify', 'Vercel'],
-      image: '/logos/cicd.svg',
-    },
-  ];
+  const skills: Skill[] = skillsData.skills;
 
   const router = useRouter();
 
@@ -106,7 +68,7 @@ function Home({ projects }: InferGetStaticPropsType<typeof getStaticProps>) {
           <HeroRoleTitle />
           <HeroIntro onProjectsClick={() => router.replace('/projects')} />
         </div>
-        <SkillsShowcase items={lang} />
+        <SkillsShowcase items={skills} />
         <div>{projects && <ProjectAcordeon mainProjects={projects} />}</div>
       </div>
     </>
