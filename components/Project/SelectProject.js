@@ -1,15 +1,49 @@
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 
 export default function SelectProject({ listProject, filteredProjects }) {
     const animatedComponents = useMemo(() => makeAnimated(), []);
     const [valueProjectSelected, setvalueProjectSelected] = useState([]);
+    const storageKey = 'projects:selected-tags';
+
+    useEffect(() => {
+        if (typeof window === 'undefined' || !Array.isArray(listProject) || listProject.length === 0) {
+            return;
+        }
+
+        try {
+            const raw = window.localStorage.getItem(storageKey);
+            if (!raw) return;
+
+            const savedValues = JSON.parse(raw);
+            if (!Array.isArray(savedValues)) return;
+
+            const restoredSelection = listProject.filter((option) => savedValues.includes(option.value));
+            setvalueProjectSelected(restoredSelection);
+            filteredProjects(restoredSelection);
+        } catch (error) {
+            console.error('Impossible de restaurer les tags projets', error);
+        }
+    }, [listProject, filteredProjects]);
 
     const handleSelectChange = (selectedValues) => {
         const nextSelection = selectedValues ? [...selectedValues] : [];
         setvalueProjectSelected(nextSelection)
         filteredProjects(nextSelection)
+
+        if (typeof window === 'undefined') return;
+        try {
+            if (nextSelection.length === 0) {
+                window.localStorage.removeItem(storageKey);
+                return;
+            }
+
+            const valuesToStore = nextSelection.map((item) => item.value);
+            window.localStorage.setItem(storageKey, JSON.stringify(valuesToStore));
+        } catch (error) {
+            console.error('Impossible de sauvegarder les tags projets', error);
+        }
     }
 
     const customStyles = {
