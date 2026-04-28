@@ -1,12 +1,19 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { cardEase, gridVariants, ShowcaseInteractiveCard } from './cardMotion';
 import SkillModal from '../Skills/SkillModal';
 
+const showcaseVariants = {
+  hidden: { opacity: 0, y: 36 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export default function SkillsShowcase({ items }) {
   const [selectedSkill, setSelectedSkill] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [hasAnimatedIn, setHasAnimatedIn] = useState(false);
+  const closeTimeoutRef = useRef(null);
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -14,14 +21,38 @@ export default function SkillsShowcase({ items }) {
     rootMargin: '0px 0px -80px 0px',
   });
 
+  useEffect(() => {
+    if (inView) {
+      setHasAnimatedIn(true);
+    }
+  }, [inView]);
+
   const handleSkillClick = useCallback((skill) => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
     setSelectedSkill(skill);
     setIsModalOpen(true);
   }, []);
 
   const handleCloseModal = useCallback(() => {
     setIsModalOpen(false);
-    setTimeout(() => setSelectedSkill(null), 200);
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+    }
+    closeTimeoutRef.current = setTimeout(() => {
+      setSelectedSkill(null);
+      closeTimeoutRef.current = null;
+    }, 200);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
+    };
   }, []);
 
   return (
@@ -39,8 +70,9 @@ export default function SkillsShowcase({ items }) {
         <motion.div
           ref={ref}
           className="relative overflow-hidden rounded-[24px] border border-primary-200/20 bg-gradient-to-br from-[rgba(31,34,53,0.98)] via-[rgba(51,53,86,0.55)] to-[rgba(31,34,53,0.92)] px-[clamp(1.25rem,3vw,2.75rem)] py-[clamp(1.25rem,3vw,2.75rem)] shadow-[0_28px_90px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(213,220,249,0.08)] sm:rounded-[24px]"
-          initial={{ opacity: 0, y: 36 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 36 }}
+          variants={showcaseVariants}
+          initial="hidden"
+          animate={hasAnimatedIn ? 'visible' : 'hidden'}
           transition={{ duration: 0.55, ease: cardEase }}
         >
           <div
@@ -56,7 +88,7 @@ export default function SkillsShowcase({ items }) {
               className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
               variants={gridVariants}
               initial="hidden"
-              animate={inView ? 'visible' : 'hidden'}
+              animate={hasAnimatedIn ? 'visible' : 'hidden'}
             >
               {items.map((skill) => (
                 <ShowcaseInteractiveCard
