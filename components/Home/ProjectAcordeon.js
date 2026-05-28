@@ -3,8 +3,11 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useRouter } from 'next/router';
-import Btn from '../UI/Btn';
+import { BsArrowRight } from 'react-icons/bs';
 import { cardEase, gridVariants, ShowcaseInteractiveCard } from './cardMotion';
+
+const projectCardClassName =
+  'group origin-center flex h-full min-h-[320px] cursor-pointer flex-col rounded-2xl border border-secondary-700/35 bg-secondary-700/[0.07] px-5 py-6 shadow-inner-soft transition-all duration-300 hover:border-secondary-700/60 hover:bg-secondary-700/[0.12] hover:shadow-[0_8px_32px_rgba(235,184,118,0.12)] sm:min-h-[340px] sm:px-6 sm:py-7';
 
 export default function ProjectAcordeon({ mainProjects }) {
   const router = useRouter();
@@ -23,18 +26,18 @@ export default function ProjectAcordeon({ mainProjects }) {
     return null;
   }
 
-  function goToLink(projectId) {
+  const goToLink = (projectId) => {
     router.push(`projects/${projectId}`);
-  }
+  };
 
   return (
     <section
-      className="mb-16 w-[92%] max-w-5xl px-3 sm:px-4 md:px-5 mx-auto"
+      className="mx-auto mb-16 w-[92%] max-w-5xl px-3 sm:px-4 md:px-5"
       aria-labelledby="projects-selection-heading"
     >
       <h2
         id="projects-selection-heading"
-        className="py-4 text-center font-sans text-[clamp(1.75rem,4vw,3rem)] font-semibold text-primary-200"
+        className="pb-6 pt-4 text-center font-sans text-[clamp(1.75rem,4vw,3rem)] font-semibold text-primary-200"
       >
         Sélection de projets
       </h2>
@@ -50,48 +53,63 @@ export default function ProjectAcordeon({ mainProjects }) {
           aria-hidden
         />
         <div className="relative z-[1]">
-          <p className="mx-auto mb-8 max-w-xl text-center font-sans text-[clamp(0.95rem,2vw,1.1rem)] leading-relaxed text-primary-200/90">
-            Quelques réalisations de projets.
+          <p className="mx-auto mb-10 max-w-xl text-center font-sans text-[clamp(0.95rem,2vw,1.1rem)] leading-relaxed text-primary-200/90">
+            Quelques réalisations mises en avant —{' '}
+            <span className="font-medium text-secondary-700">
+              cliquez sur une carte pour voir le détail.
+            </span>
           </p>
           <motion.div
-            className="grid grid-cols-1 gap-5 sm:grid-cols-2"
+            className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-7"
             variants={gridVariants}
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
           >
-            {projects.map((img) => (
+            {projects.map((project) => (
               <ShowcaseInteractiveCard
-                key={img._id}
-                className="origin-center flex h-full min-h-[280px] flex-col rounded-2xl border border-secondary-700/35 bg-secondary-700/[0.07] px-4 py-5 shadow-inner-soft sm:min-h-[300px] sm:px-5"
+                key={project._id}
+                className={projectCardClassName}
+                onClick={() => goToLink(project._id)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    goToLink(project._id);
+                  }
+                }}
+                aria-label={`Découvrir ${project.name}`}
               >
-                <header className="flex h-20 w-full shrink-0 items-center gap-3 border-b border-primary-200/10">
-                  <h3 className="min-w-0 flex-1 font-sans text-base font-bold leading-snug text-primary-200 sm:text-lg line-clamp-2">
-                    {img.name}
+                <header className="flex w-full shrink-0 items-center border-b border-primary-200/10 pb-5">
+                  <h3 className="min-w-0 flex-1 text-center font-sans text-base font-bold leading-snug text-primary-200 line-clamp-2 sm:text-lg">
+                    {project.name}
                   </h3>
                 </header>
-                <div className="flex min-h-0 flex-1 flex-col gap-3 pt-4">
+
+                <div className="flex min-h-0 flex-1 flex-col gap-5 py-5 sm:py-6">
                   <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-primary-200/10 bg-primary-700/40">
                     <Image
-                      src={img.imageHome.url}
-                      alt={img.name}
+                      src={project.imageHome.url}
+                      alt={project.name}
                       width={640}
                       height={360}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                       sizes="(max-width: 640px) 100vw, 50vw"
                     />
                   </div>
-                  <p className="line-clamp-4 text-left text-sm leading-relaxed text-primary-200/88 sm:text-base">
-                    {img.description}
+                  <p className="line-clamp-4 text-center text-sm leading-relaxed text-primary-200/88 sm:text-base">
+                    {project.description}
                   </p>
-                  <div className="mt-auto flex justify-center pt-1 sm:justify-start">
-                    <Btn
-                      onClickFunction={() => goToLink(img._id)}
-                      style=""
-                      color="secondary"
-                      className="!border-transparent !bg-[#ebb876] !text-[#1f2235] hover:!bg-[#f3c98f] focus:!bg-[#f3c98f] font-medium"
-                      message="Découvrir le projet"
+                </div>
+
+                <div className="mt-auto shrink-0 border-t border-primary-200/10 pt-5 pb-1 text-center">
+                  <span className="inline-flex min-h-[44px] items-center justify-center gap-2 px-3 text-xs font-medium text-secondary-700 sm:text-sm">
+                    Découvrir la fiche
+                    <BsArrowRight
+                      className="transition-transform duration-300 group-hover:translate-x-0.5"
+                      aria-hidden
                     />
-                  </div>
+                  </span>
                 </div>
               </ShowcaseInteractiveCard>
             ))}

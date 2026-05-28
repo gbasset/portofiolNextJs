@@ -21,7 +21,7 @@ function ProjectCard({ project, index, isVisible }) {
       <header className="relative mb-4">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <h4 className="font-display text-lg font-bold text-primary-200 sm:text-xl">
+            <h4 className="font-sans text-lg font-semibold leading-snug text-surface-cream sm:text-xl">
               {project.title}
             </h4>
             <p className="mt-1 text-xs font-medium text-secondary-700 sm:text-sm">
@@ -222,7 +222,7 @@ export default function SkillModal({ skill, isOpen, onClose }) {
               <div>
                 <h3
                   id="modal-title"
-                  className="font-display text-2xl font-bold text-primary-200 sm:text-3xl lg:text-4xl"
+                  className="font-sans text-2xl font-bold text-primary-200 sm:text-3xl"
                 >
                   {skill.language}
                 </h3>
@@ -257,27 +257,41 @@ export default function SkillModal({ skill, isOpen, onClose }) {
                 transitionDelay: isOpen ? '200ms' : '0ms',
               }}
             >
-              <h4 className="mb-5 flex items-center gap-3 font-display text-lg font-bold text-secondary-700 sm:text-xl">
-                <span
-                  className={`inline-block h-px flex-1 bg-gradient-to-r from-secondary-700/50 to-transparent origin-left ${
-                    isOpen ? 'scale-x-100' : 'scale-x-0'
+              <div className="mb-6">
+                <div
+                  className={`mb-3 flex items-center gap-3 ${
+                    isOpen ? 'opacity-100' : 'opacity-0'
                   }`}
                   style={{
-                    transition: 'transform 1000ms cubic-bezier(0.16, 1, 0.3, 1)',
+                    transition: 'opacity 700ms cubic-bezier(0.16, 1, 0.3, 1)',
                     transitionDelay: isOpen ? '280ms' : '0ms',
                   }}
-                />
-                <span>Réalisations</span>
-                <span
-                  className={`inline-block h-px flex-1 bg-gradient-to-l from-secondary-700/50 to-transparent origin-right ${
-                    isOpen ? 'scale-x-100' : 'scale-x-0'
-                  }`}
-                  style={{
-                    transition: 'transform 1000ms cubic-bezier(0.16, 1, 0.3, 1)',
-                    transitionDelay: isOpen ? '280ms' : '0ms',
-                  }}
-                />
-              </h4>
+                >
+                  <span
+                    className={`inline-block h-px flex-1 origin-left bg-gradient-to-r from-secondary-700/50 to-transparent ${
+                      isOpen ? 'scale-x-100' : 'scale-x-0'
+                    }`}
+                    style={{
+                      transition: 'transform 1000ms cubic-bezier(0.16, 1, 0.3, 1)',
+                      transitionDelay: isOpen ? '280ms' : '0ms',
+                    }}
+                    aria-hidden
+                  />
+                  <p className="shrink-0 font-sans text-xs font-semibold uppercase tracking-[0.22em] text-secondary-700 sm:text-sm">
+                    Réalisations
+                  </p>
+                  <span
+                    className={`inline-block h-px flex-1 origin-right bg-gradient-to-l from-secondary-700/50 to-transparent ${
+                      isOpen ? 'scale-x-100' : 'scale-x-0'
+                    }`}
+                    style={{
+                      transition: 'transform 1000ms cubic-bezier(0.16, 1, 0.3, 1)',
+                      transitionDelay: isOpen ? '280ms' : '0ms',
+                    }}
+                    aria-hidden
+                  />
+                </div>
+              </div>
 
               {/* Project cards */}
               <div className="space-y-5">
