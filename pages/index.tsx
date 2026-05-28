@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
@@ -9,6 +8,8 @@ import HeroRoleTitle from '../components/Home/HeroRoleTitle';
 import HeroIntro from '../components/Home/HeroIntro';
 import { apiProjects } from '../utils/data';
 import skillsData from '../data/skillsData.json';
+import SeoHead from '../components/SEO/SeoHead';
+import { PAGE_SEO, buildPersonJsonLd, buildWebSiteJsonLd } from '../utils/seo';
 
 interface SkillProject {
   title: string;
@@ -54,14 +55,12 @@ function Home({ projects }: InferGetStaticPropsType<typeof getStaticProps>) {
 
   return (
     <>
-      <Head>
-        <title>Accueil du portfolio de Basset Gaetan </title>
-        <meta
-          name="description"
-          content="Accueil du portfolio de Gaetan Basset Developpeur web, ReactJs , NodeJs et Css. Creation de site web, site vitrine et e-commerce et application web SASS. "
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <SeoHead
+        title={PAGE_SEO.home.title}
+        description={PAGE_SEO.home.description}
+        path={PAGE_SEO.home.path}
+        jsonLd={[buildWebSiteJsonLd(), buildPersonJsonLd()]}
+      />
 
       <div>
         <div className="mx-auto flex w-[min(92%,52rem)] flex-col items-center px-4 py-6 sm:w-4/5 md:px-8">

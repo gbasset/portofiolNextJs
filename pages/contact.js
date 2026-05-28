@@ -3,7 +3,10 @@ import axios from 'axios';
 import { apiProjects } from '../utils/data';
 import toast, { Toaster } from 'react-hot-toast';
 import Typewriter from 'typewriter-effect';
-import Head from 'next/head';
+import SeoHead from '../components/SEO/SeoHead';
+import Breadcrumb from '../components/SEO/Breadcrumb';
+import { PAGE_SEO } from '../utils/seo';
+import { buildBreadcrumbJsonLd, getContactBreadcrumbs } from '../utils/breadcrumbs';
 function Contact() {
 
     const [informations, setInformations] = useState({
@@ -75,16 +78,31 @@ function Contact() {
         }
     }
 
+    const breadcrumbItems = getContactBreadcrumbs();
+
     return (
         <div className="mx-auto w-full max-w-6xl px-4 py-8 md:py-12">
-            <Head>
-                <title>Contacter Basset Gaëtan</title>
-                <meta name="description"
-                    content="contacter gaëtan basset par mail" />
-            </Head>
+            <SeoHead
+                title={PAGE_SEO.contact.title}
+                description={PAGE_SEO.contact.description}
+                path={PAGE_SEO.contact.path}
+                jsonLd={buildBreadcrumbJsonLd(breadcrumbItems)}
+            />
             <Toaster />
+            <Breadcrumb items={breadcrumbItems} className="mb-6" />
+            <header className="mb-8 text-center">
+                <h1 className="font-display text-3xl uppercase tracking-wide text-secondary-700 md:text-5xl">
+                    Me contacter
+                </h1>
+                <p className="mx-auto mt-3 max-w-2xl text-sm text-primary-200/80 md:text-base">
+                    Une collaboration, une mission ou un simple échange : écrivez-moi.
+                </p>
+            </header>
             <form className="mx-auto flex w-full max-w-3xl flex-col rounded-lg border border-primary-400/20 bg-primary-600/40 px-4 py-6 shadow-glow-primary backdrop-blur-sm md:px-8">
-                <h1 className="mb-6 min-h-[56px] text-center text-2xl italic text-primary-200 md:mb-8 md:min-h-[72px] md:text-5xl">
+                <p
+                    className="mb-6 min-h-[56px] text-center text-2xl italic text-primary-200 md:mb-8 md:min-h-[72px] md:text-5xl"
+                    aria-hidden="true"
+                >
                     <Typewriter
                         options={{
                             autoStart: true,
@@ -103,7 +121,7 @@ function Contact() {
                                 .start()
                         }}
                     />
-                </h1>
+                </p>
                 <div className="mx-auto mb-4 flex w-full max-w-2xl flex-col">
                     <label htmlFor="from" className="mb-1 text-left text-lg text-secondary-700 md:text-xl">Votre Mail </label>
                     <input

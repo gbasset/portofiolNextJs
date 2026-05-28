@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react'
-import Head from 'next/head';
+import SeoHead from '../components/SEO/SeoHead';
+import Breadcrumb from '../components/SEO/Breadcrumb';
+import { PAGE_SEO, buildPersonJsonLd } from '../utils/seo';
+import { buildBreadcrumbJsonLd, getAboutBreadcrumbs } from '../utils/breadcrumbs';
 import { motion } from 'framer-motion';
 import { SiJavascript, SiCss3, SiHtml5, SiNodeDotJs, SiReact, SiBootstrap, SiNetlify, SiNextDotJs, SiGraphql,SiRedux,SiAzuredevops,SiEslint } from 'react-icons/si'
 import { FaDatabase } from 'react-icons/fa'
@@ -129,20 +132,24 @@ function About() {
         },
     };
 
+    const breadcrumbItems = getAboutBreadcrumbs();
+
     return (
         <>
-            <Head>
-                <title>Parcours </title>
-                <meta name="description" content="Parcours professionnel de Gaëtan Basset. Développeur web ReactJs, NodeJs et CSS." />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+            <SeoHead
+                title={PAGE_SEO.about.title}
+                description={PAGE_SEO.about.description}
+                path={PAGE_SEO.about.path}
+                jsonLd={[buildPersonJsonLd(), buildBreadcrumbJsonLd(breadcrumbItems)]}
+            />
             <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-4 py-10 md:px-8">
+                <Breadcrumb items={breadcrumbItems} />
                 <motion.section
                     variants={sectionVariants}
                     initial="hidden"
                     animate="visible"
                 >
-                    <h2 className="mb-6 text-center text-3xl font-bold text-secondary-700 md:text-4xl">Gaëtan Basset</h2>
+                    <h1 className="mb-6 text-center text-3xl font-bold text-secondary-700 md:text-4xl">Gaëtan Basset</h1>
                     <div className="rounded-2xl border border-primary-400/20 bg-primary-600/40 p-6 shadow-glow-primary backdrop-blur-sm md:p-8">
                         <div className="photoProfil mx-auto mb-6 md:float-left md:mb-3 md:mr-8 md:mt-1 md:[shape-outside:circle(50%)]" />
                         <motion.p

@@ -3,7 +3,10 @@ import axios from 'axios';
 import { apiProjects } from '../../utils/data';
 import SelectProject from '../../components/Project/SelectProject';
 import ListOfProjects from '../../components/Project/ListOfProjects';
-import Head from 'next/head';
+import SeoHead from '../../components/SEO/SeoHead';
+import Breadcrumb from '../../components/SEO/Breadcrumb';
+import { PAGE_SEO } from '../../utils/seo';
+import { buildBreadcrumbJsonLd, getProjectsBreadcrumbs } from '../../utils/breadcrumbs';
 function Projects({ projects, tags, languages }) {
     const [projectsWithLabels, setprojectsWithLables] = useState();
     const [projectsFilter, setprojectsFilter] = useState([]);
@@ -65,13 +68,26 @@ function Projects({ projects, tags, languages }) {
             setprojectsFilter(listProjectSelect());
         }
     }
+    const breadcrumbItems = getProjectsBreadcrumbs();
+
     return (<>
-        <Head>
-            <title>Projets de Bassett Gaëtan</title>
-            <meta name="description" content="liste des projets de Gaëtan basset" />
-        </Head>
+        <SeoHead
+            title={PAGE_SEO.projects.title}
+            description={PAGE_SEO.projects.description}
+            path={PAGE_SEO.projects.path}
+            jsonLd={buildBreadcrumbJsonLd(breadcrumbItems)}
+        />
         <div className="min-h-screen w-full pb-8">
             <section className="mx-auto w-full max-w-content px-3 pt-6 md:px-6 md:pt-8">
+                <Breadcrumb items={breadcrumbItems} className="mb-6" />
+                <header className="mb-8 text-center">
+                    <h1 className="font-display text-3xl uppercase tracking-wide text-primary-200 md:text-5xl">
+                        Projets web
+                    </h1>
+                    <p className="mx-auto mt-3 max-w-2xl text-sm text-primary-200/80 md:text-base">
+                        Applications React, back-office, e-commerce et expériences interactives.
+                    </p>
+                </header>
                 <div className="mb-6 backdrop-blur-sm md:p-4">
                     <SelectProject
                         listProject={projectsWithLabels}

@@ -39,6 +39,13 @@ export default function HeroRoleTitle() {
     >
       <motion.span
         variants={rise}
+        className="mb-2 block text-[clamp(0.95rem,2.4vw,1.2rem)] font-medium uppercase tracking-[0.28em] text-secondary-700/90"
+      >
+        Gaëtan Basset
+      </motion.span>
+
+      <motion.span
+        variants={rise}
         className="block text-[clamp(1.65rem,4.8vw,2.85rem)] font-semibold leading-[1.15] tracking-tight text-primary-200 md:text-[clamp(1.85rem,4.2vw,3.35rem)]"
       >
         Développeur front-end

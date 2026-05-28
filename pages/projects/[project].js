@@ -5,11 +5,16 @@ import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import withAutoplay from 'react-awesome-slider/dist/autoplay';
 import { FaMobileAlt, FaDesktop } from 'react-icons/fa';
-import Head from 'next/head';
-import Link from 'next/link';
+import SeoHead from '../../components/SEO/SeoHead';
+import Breadcrumb from '../../components/SEO/Breadcrumb';
+import {
+    buildBreadcrumbJsonLd,
+    getProjectDetailBreadcrumbs,
+} from '../../utils/breadcrumbs';
 
 function Project({ project }) {
     const proj = project[0];
+    const breadcrumbItems = getProjectDetailBreadcrumbs(proj.name, proj._id);
     const AutoplaySlider = withAutoplay(AwesomeSlider);
     useEffect(() => {
         document.documentElement.scrollTop = 0
@@ -17,10 +22,25 @@ function Project({ project }) {
 
     return (
         <div className="relative isolate">
-            <Head>
-                <title>{project[0].name}</title>
-                <meta name="description" content={project[0].description} />
-            </Head>
+            <SeoHead
+                title={proj.name}
+                description={proj.description}
+                path={`/projects/${proj._id}`}
+                ogType="article"
+                jsonLd={[
+                    {
+                        '@context': 'https://schema.org',
+                        '@type': 'CreativeWork',
+                        name: proj.name,
+                        description: proj.description,
+                        author: {
+                            '@type': 'Person',
+                            name: 'Gaëtan Basset',
+                        },
+                    },
+                    buildBreadcrumbJsonLd(breadcrumbItems),
+                ]}
+            />
             <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[420px] bg-[radial-gradient(circle_at_top,rgba(235,184,118,0.2)_0%,rgba(31,34,53,0)_70%)]" />
             <div className="min-h-screen pb-12">
             <section className="mx-auto w-[min(96%,78rem)] pt-4 md:pt-8">
@@ -46,16 +66,8 @@ function Project({ project }) {
             </section>
 
             <main className="mx-auto w-full max-w-content px-4 pb-14 pt-6 md:px-6">
+                <Breadcrumb items={breadcrumbItems} className="mb-6" />
                 <section className="space-y-7 rounded-2xl border border-primary-400/35 bg-gradient-to-br from-primary-700/55 via-primary-700/35 to-primary-700/20 p-5 shadow-[0_18px_60px_rgba(0,0,0,0.35)] backdrop-blur-sm md:space-y-8 md:p-8">
-                    <div className="flex justify-center md:justify-start">
-                        <Link href="/projects">
-                            <a className="inline-flex items-center gap-2 rounded-xl border border-primary-200/25 bg-primary-700/45 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-primary-200 transition-all duration-300 hover:border-secondary-700/60 hover:bg-secondary-700/20 hover:text-secondary-100">
-                                <span aria-hidden>←</span>
-                                Retour aux projets
-                            </a>
-                        </Link>
-                    </div>
-
                     <header className="space-y-4 border-b border-primary-200/10 pb-6 text-center">
                         <h1 className="font-display text-3xl uppercase tracking-wide text-secondary-100 sm:text-4xl md:text-5xl">
                             {proj.name.toUpperCase()}
