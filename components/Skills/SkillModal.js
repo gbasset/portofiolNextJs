@@ -267,7 +267,7 @@ export default function SkillModal({ skill, isOpen, onClose }) {
                     transitionDelay: isOpen ? '280ms' : '0ms',
                   }}
                 />
-                <span>Projets réalisés</span>
+                <span>Réalisations</span>
                 <span
                   className={`inline-block h-px flex-1 bg-gradient-to-l from-secondary-700/50 to-transparent origin-right ${
                     isOpen ? 'scale-x-100' : 'scale-x-0'

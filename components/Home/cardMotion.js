@@ -46,8 +46,8 @@ export function ShowcaseInteractiveCard({
         onKeyDown={onKeyDown}
         aria-label={ariaLabel}
         whileHover={{
-          y: -10,
-          scale: 1.03,
+          y: -4,
+          scale: 1.01,
           transition: hoverTween,
         }}
         whileTap={{
