@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react'
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { BsFillEyeFill } from 'react-icons/bs'
 export default function Project({ project }) {
@@ -22,12 +23,15 @@ export default function Project({ project }) {
             }}
         >
             <div className="relative h-40 w-full overflow-hidden md:h-44">
-                <img
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                <Image
                     src={project.imageHome.url}
                     alt={`Capture du projet ${project.name}`}
+                    width={560}
+                    height={352}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 240px, 280px"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-700 via-primary-700/35 to-transparent" />
+                <div className="absolute inset-0 z-[1] bg-gradient-to-t from-primary-700 via-primary-700/35 to-transparent" />
             </div>
             <div className="space-y-4 p-4">
                 <h3 className="line-clamp-1 text-lg font-semibold tracking-wide text-surface-cream">{project.name}</h3>

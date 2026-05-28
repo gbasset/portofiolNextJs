@@ -345,11 +345,6 @@
     width: 240px;
     height: 240px;
     border-radius: 50%;
-    padding-top: 1rem;
-    background: url('/images/téléchargement.png');
-    background-repeat: no-repeat;
-    background-position: 43% 0px;
-    background-size: cover;
     position: relative;
     margin: 2rem;
   }
@@ -574,9 +569,6 @@
       width: 150px;
       height: 150px;
       border-radius: 50%;
-      background-repeat: no-repeat;
-      background-position: 43% 0px;
-      background-size: cover;
       position: relative;
       margin: 15px auto 2px auto;
     }

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import Image from 'next/image';
 import SeoHead from '../components/SEO/SeoHead';
 import Breadcrumb from '../components/SEO/Breadcrumb';
 import { PAGE_SEO, buildPersonJsonLd } from '../utils/seo';
@@ -151,7 +152,17 @@ function About() {
                 >
                     <h1 className="mb-6 text-center text-3xl font-bold text-secondary-700 md:text-4xl">Gaëtan Basset</h1>
                     <div className="rounded-2xl border border-primary-400/20 bg-primary-600/40 p-6 shadow-glow-primary backdrop-blur-sm md:p-8">
-                        <div className="photoProfil mx-auto mb-6 md:float-left md:mb-3 md:mr-8 md:mt-1 md:[shape-outside:circle(50%)]" />
+                        <div className="photoProfil mx-auto mb-6 overflow-hidden md:float-left md:mb-3 md:mr-8 md:mt-1 md:[shape-outside:circle(50%)]">
+                            <Image
+                                src="/images/téléchargement.png"
+                                alt="Portrait de Gaëtan Basset"
+                                width={240}
+                                height={240}
+                                className="h-full w-full rounded-full object-cover object-[43%_0px]"
+                                sizes="(max-width: 768px) 150px, 240px"
+                                priority
+                            />
+                        </div>
                         <motion.p
                             initial={{ opacity: 0, y: 14 }}
                             animate={{ opacity: 1, y: 0 }}

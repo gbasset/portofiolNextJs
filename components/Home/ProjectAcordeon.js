@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useRouter } from 'next/router';
@@ -70,14 +71,13 @@ export default function ProjectAcordeon({ mainProjects }) {
                 </header>
                 <div className="flex min-h-0 flex-1 flex-col gap-3 pt-4">
                   <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-primary-200/10 bg-primary-700/40">
-                    <img
+                    <Image
                       src={img.imageHome.url}
                       alt={img.name}
+                      width={640}
+                      height={360}
                       className="h-full w-full object-cover"
-                      width={1280}
-                      height={720}
-                      loading="lazy"
-                      decoding="async"
+                      sizes="(max-width: 640px) 100vw, 50vw"
                     />
                   </div>
                   <p className="line-clamp-4 text-left text-sm leading-relaxed text-primary-200/88 sm:text-base">
