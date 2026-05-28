@@ -7,7 +7,8 @@
     "build": "next build",
     "export": "next build && next export",
     "startdev": "next start",
-    "start": "NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node server.js",
+    "build:favicon": "npx sharp-cli resize 32 32 -i public/favicon.svg -o public/favicon-32.png && npx sharp-cli resize 16 16 -i public/favicon.svg -o public/favicon-16.png && npx sharp-cli resize 180 180 -i public/apple-touch-icon.svg -o public/apple-touch-icon.png && node scripts/build-favicon-ico.mjs"
   },
   "dependencies": {
     "animate.css": "^4.1.1",

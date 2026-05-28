@@ -27,7 +27,9 @@ export default function SeoHead({
       <title>{pageTitle}</title>
       <meta name="description" content={description} />
       <meta name="author" content={AUTHOR_NAME} />
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+      <link rel="icon" href="/favicon.ico" sizes="any" />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       <link rel="canonical" href={canonical} />
 
       <meta property="og:type" content={ogType} />
