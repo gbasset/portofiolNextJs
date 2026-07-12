@@ -1,23 +1,29 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
+import type { Skill, SkillProject } from '../../types/skills.types';
 
-function ProjectCard({ project, index, isVisible }) {
+interface ProjectCardProps {
+  project: SkillProject;
+  index: number;
+  isVisible: boolean;
+}
+
+function ProjectCard({ project, index, isVisible }: ProjectCardProps) {
   const delayMs = 350 + index * 150;
-  
+
   return (
     <article
       className={`group relative overflow-hidden rounded-2xl border border-primary-200/10 bg-gradient-to-br from-primary-700/40 via-primary-700/20 to-transparent p-5 sm:p-6 hover:border-secondary-700/40 hover:shadow-[0_8px_32px_rgba(235,184,118,0.15)] ${
-        isVisible
-          ? 'opacity-100 translate-y-0'
-          : 'opacity-0 translate-y-5'
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
       }`}
       style={{
-        transition: 'opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1), border-color 300ms, box-shadow 300ms',
+        transition:
+          'opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1), border-color 300ms, box-shadow 300ms',
         transitionDelay: isVisible ? `${delayMs}ms` : '0ms',
       }}
     >
       <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-secondary-700/5 blur-3xl transition-all duration-500 group-hover:bg-secondary-700/10" />
-      
+
       <header className="relative mb-4">
         <div className="flex items-start justify-between gap-3">
           <div>
@@ -46,10 +52,7 @@ function ProjectCard({ project, index, isVisible }) {
           </h5>
           <ul className="space-y-1.5">
             {project.challenges.map((challenge, i) => (
-              <li
-                key={i}
-                className="text-xs leading-snug text-primary-200/70 sm:text-sm"
-              >
+              <li key={i} className="text-xs leading-snug text-primary-200/70 sm:text-sm">
                 {challenge}
               </li>
             ))}
@@ -63,10 +66,7 @@ function ProjectCard({ project, index, isVisible }) {
           </h5>
           <ul className="space-y-1.5">
             {project.solutions.map((solution, i) => (
-              <li
-                key={i}
-                className="text-xs leading-snug text-primary-200/70 sm:text-sm"
-              >
+              <li key={i} className="text-xs leading-snug text-primary-200/70 sm:text-sm">
                 {solution}
               </li>
             ))}
@@ -80,10 +80,7 @@ function ProjectCard({ project, index, isVisible }) {
           </h5>
           <ul className="space-y-1.5">
             {project.results.map((result, i) => (
-              <li
-                key={i}
-                className="text-xs leading-snug text-primary-200/70 sm:text-sm"
-              >
+              <li key={i} className="text-xs leading-snug text-primary-200/70 sm:text-sm">
                 {result}
               </li>
             ))}
@@ -105,9 +102,15 @@ function ProjectCard({ project, index, isVisible }) {
   );
 }
 
-export default function SkillModal({ skill, isOpen, onClose }) {
-  const modalRef = useRef(null);
-  const scrollbarWidthRef = useRef(0);
+interface SkillModalProps {
+  skill: Skill | null;
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export default function SkillModal({ skill, isOpen, onClose }: SkillModalProps) {
+  const modalRef = useRef<HTMLDivElement>(null);
+  const scrollbarWidthRef = useRef<number>(0);
 
   const lockScroll = useCallback(() => {
     scrollbarWidthRef.current = window.innerWidth - document.documentElement.clientWidth;
@@ -123,7 +126,7 @@ export default function SkillModal({ skill, isOpen, onClose }) {
   }, []);
 
   useEffect(() => {
-    const handleEscape = (e) => {
+    const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
 
@@ -145,9 +148,12 @@ export default function SkillModal({ skill, isOpen, onClose }) {
     };
   }, [unlockScroll]);
 
-  const handleBackdropClick = useCallback((e) => {
-    if (e.target === e.currentTarget) onClose();
-  }, [onClose]);
+  const handleBackdropClick = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (e.target === e.currentTarget) onClose();
+    },
+    [onClose],
+  );
 
   if (typeof window === 'undefined') return null;
 
@@ -159,7 +165,9 @@ export default function SkillModal({ skill, isOpen, onClose }) {
           : 'invisible bg-black/0 backdrop-blur-none opacity-0 pointer-events-none'
       }`}
       style={{
-        transition: 'opacity 500ms cubic-bezier(0.16, 1, 0.3, 1), background-color 500ms cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 500ms cubic-bezier(0.16, 1, 0.3, 1), visibility 0ms linear ' + (isOpen ? '0ms' : '500ms'),
+        transition:
+          'opacity 500ms cubic-bezier(0.16, 1, 0.3, 1), background-color 500ms cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 500ms cubic-bezier(0.16, 1, 0.3, 1), visibility 0ms linear ' +
+          (isOpen ? '0ms' : '500ms'),
       }}
       onClick={handleBackdropClick}
       aria-hidden={!isOpen}
@@ -167,12 +175,11 @@ export default function SkillModal({ skill, isOpen, onClose }) {
       <div
         ref={modalRef}
         className={`relative w-full max-w-4xl rounded-3xl border border-primary-200/15 bg-gradient-to-br from-[rgba(31,34,53,0.98)] via-[rgba(41,44,66,0.95)] to-[rgba(31,34,53,0.98)] shadow-[0_32px_100px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.05)] ${
-          isOpen
-            ? 'opacity-100 scale-100 translate-y-0'
-            : 'opacity-0 scale-[0.97] translate-y-4'
+          isOpen ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-[0.97] translate-y-4'
         }`}
         style={{
-          transition: 'opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1)',
+          transition:
+            'opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1)',
         }}
         role="dialog"
         aria-modal="true"
@@ -187,7 +194,8 @@ export default function SkillModal({ skill, isOpen, onClose }) {
             isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
           }`}
           style={{
-            transition: 'opacity 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1), background-color 300ms, border-color 300ms',
+            transition:
+              'opacity 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1), background-color 300ms, border-color 300ms',
             transitionDelay: isOpen ? '150ms' : '0ms',
           }}
           aria-label="Fermer la modal"
@@ -201,11 +209,7 @@ export default function SkillModal({ skill, isOpen, onClose }) {
             stroke="currentColor"
             className="h-5 w-5"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
 
@@ -226,9 +230,7 @@ export default function SkillModal({ skill, isOpen, onClose }) {
                 >
                   {skill.language}
                 </h3>
-                <p className="mt-1 text-sm text-primary-200/70 sm:text-base">
-                  {skill.description}
-                </p>
+                <p className="mt-1 text-sm text-primary-200/70 sm:text-base">{skill.description}</p>
               </div>
             </header>
 
@@ -245,15 +247,11 @@ export default function SkillModal({ skill, isOpen, onClose }) {
               </div>
             </div>
 
-            {/* Projects section with smooth animations */}
             <div
-              className={`${
-                isOpen
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-3'
-              }`}
+              className={`${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}
               style={{
-                transition: 'opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1)',
+                transition:
+                  'opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1)',
                 transitionDelay: isOpen ? '200ms' : '0ms',
               }}
             >
@@ -279,7 +277,6 @@ export default function SkillModal({ skill, isOpen, onClose }) {
                 />
               </h4>
 
-              {/* Project cards */}
               <div className="space-y-5">
                 {skill.projects.map((project, index) => (
                   <ProjectCard
@@ -295,6 +292,6 @@ export default function SkillModal({ skill, isOpen, onClose }) {
         )}
       </div>
     </div>,
-    document.body
+    document.body,
   );
 }

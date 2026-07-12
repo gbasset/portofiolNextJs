@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
 import axios from 'axios';
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useRouter } from 'next/router';
 import SkillsShowcase from '../components/Home/SkillsShowcase';
 import ProjectAcordeon from '../components/Home/ProjectAcordeon';
@@ -9,35 +9,8 @@ import HeroRoleTitle from '../components/Home/HeroRoleTitle';
 import HeroIntro from '../components/Home/HeroIntro';
 import { apiProjects } from '../utils/data';
 import skillsData from '../data/skillsData.json';
-
-interface SkillProject {
-  title: string;
-  company: string;
-  period: string;
-  context: string;
-  challenges: string[];
-  solutions: string[];
-  results: string[];
-  stack: string[];
-}
-
-interface Skill {
-  id: string;
-  language: string;
-  image: string;
-  technos: string[];
-  description: string;
-  projects: SkillProject[];
-}
-
-interface MainProject {
-  _id: string;
-  name: string;
-  description: string;
-  imageHome: {
-    url: string;
-  };
-}
+import type { MainProject } from '../types/api.types';
+import type { Skill } from '../types/skills.types';
 
 interface HomeProps {
   projects: MainProject[] | null;
@@ -48,8 +21,7 @@ function Home({ projects }: InferGetStaticPropsType<typeof getStaticProps>) {
     document.documentElement.scrollTop = 0;
   }, []);
 
-  const skills: Skill[] = skillsData.skills;
-
+  const skills = skillsData.skills as Skill[];
   const router = useRouter();
 
   return (
@@ -80,8 +52,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
     .get<MainProject[]>(`${apiProjects}projectMain`)
     .then((res) => res.data)
     .catch((error: unknown) => {
-      console.log('Error in getStaticProps', error);
-      console.error('Une erreur est survenue pendant la recuperation des languages');
+      console.error('Erreur dans getStaticProps', error);
       return null;
     });
 
