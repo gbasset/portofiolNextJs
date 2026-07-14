@@ -7,7 +7,7 @@ import type { LinkNavigation } from '../../types/navigation.types';
 
 const NAVIGATION: LinkNavigation[] = [
   { key: '/home', label: 'Accueil', link: '/' },
-  { key: '/projects', label: 'Projets', link: '/#projects-showcase' },
+  // { key: '/projects', label: 'Projets', link: '/#projects-showcase' },
   { key: '/about', label: 'Parcours', link: '/about' },
   { key: '/contact', label: 'Contact', link: '/contact' },
 ];

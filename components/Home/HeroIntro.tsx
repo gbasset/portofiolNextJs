@@ -22,15 +22,7 @@ export default function HeroIntro({ onProjectsClick, preamble }: HeroIntroProps)
           problèmes complexes en équipe.
         </p>
         <p className="mt-5 font-sans text-base italic leading-[1.75] tracking-[0.01em] text-accent sm:text-[1.0625rem] sm:leading-[1.8] text-pretty">
-          Je vous invite à parcourir mes réalisations{' '}
-          <button
-            type="button"
-            className="inline cursor-pointer rounded-sm border-0 bg-transparent px-1 py-0.5 [font:inherit] text-surface-snow underline decoration-secondary-700/60 underline-offset-4 transition-colors hover:text-accent-bright hover:decoration-accent-bright focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-700"
-            onClick={onProjectsClick}
-          >
-            ici
-          </button>{' '}
-          et à me faire vos retours si vous le souhaitez. Bonne visite !
+         Je vous invite a parcourir mon portfolio et me faire vos retours si vous le souhaitez. Bonne visite !
         </p>
       </blockquote>
     </div>

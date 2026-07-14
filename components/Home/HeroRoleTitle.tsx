@@ -41,7 +41,7 @@ export default function HeroRoleTitle() {
         variants={rise}
         className="block text-[clamp(1.65rem,4.8vw,2.85rem)] font-semibold leading-[1.15] tracking-tight text-primary-200 md:text-[clamp(1.85rem,4.2vw,3.35rem)]"
       >
-        Développeur front-end
+        Développeur fullstack 
       </motion.span>
 
       <motion.div
