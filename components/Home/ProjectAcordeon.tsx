@@ -1,30 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useRouter } from 'next/router';
 import Btn from '../UI/Btn';
 import { cardEase, gridVariants, ShowcaseInteractiveCard } from './cardMotion';
-import type { MainProject } from '../../types/api.types';
+import type { ProjectData } from '../../data/projectsData';
 
 interface ProjectAcordeonProps {
-  mainProjects: MainProject[];
+  projects: ProjectData[];
 }
 
-export default function ProjectAcordeon({ mainProjects }: ProjectAcordeonProps) {
+export default function ProjectAcordeon({ projects }: ProjectAcordeonProps) {
   const router = useRouter();
-  const [projects, setProjects] = useState<MainProject[]>(mainProjects);
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.08,
     rootMargin: '0px 0px -80px 0px',
   });
 
-  useEffect(() => {
-    setProjects(mainProjects);
-  }, [mainProjects]);
-
-  const goToLink = (projectId: string) => {
-    router.push(`projects/${projectId}`);
+  const goToProjects = () => {
+    router.push('/projects');
   };
 
   if (!projects?.length) {
@@ -55,7 +50,7 @@ export default function ProjectAcordeon({ mainProjects }: ProjectAcordeonProps) 
         />
         <div className="relative z-[1]">
           <p className="mx-auto mb-8 max-w-xl text-center font-sans text-[clamp(0.95rem,2vw,1.1rem)] leading-relaxed text-primary-200/90">
-            Quelques réalisations de projets.
+            Quelques réalisations respectant les standards Clean Code et SOLID.
           </p>
           <motion.div
             className="grid grid-cols-1 gap-5 sm:grid-cols-2"
@@ -65,7 +60,7 @@ export default function ProjectAcordeon({ mainProjects }: ProjectAcordeonProps) 
           >
             {projects.map((project) => (
               <ShowcaseInteractiveCard
-                key={project._id}
+                key={project.id}
                 className="origin-center flex h-full min-h-[280px] flex-col rounded-2xl border border-secondary-700/35 bg-secondary-700/[0.07] px-4 py-5 shadow-inner-soft sm:min-h-[300px] sm:px-5"
               >
                 <header className="flex h-20 w-full shrink-0 items-center gap-3 border-b border-primary-200/10">
@@ -76,7 +71,7 @@ export default function ProjectAcordeon({ mainProjects }: ProjectAcordeonProps) 
                 <div className="flex min-h-0 flex-1 flex-col gap-3 pt-4">
                   <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-primary-200/10 bg-primary-700/40">
                     <img
-                      src={project.imageHome.url}
+                      src={project.coverImage}
                       alt={project.name}
                       className="h-full w-full object-cover"
                       width={1280}
@@ -90,7 +85,7 @@ export default function ProjectAcordeon({ mainProjects }: ProjectAcordeonProps) 
                   </p>
                   <div className="mt-auto flex justify-center pt-1 sm:justify-start">
                     <Btn
-                      onClickFunction={() => goToLink(project._id)}
+                      onClickFunction={goToProjects}
                       color="secondary"
                       className="!border-transparent !bg-[#ebb876] !text-[#1f2235] hover:!bg-[#f3c98f] focus:!bg-[#f3c98f] font-medium"
                       message="Découvrir le projet"
