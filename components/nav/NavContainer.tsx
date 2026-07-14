@@ -7,7 +7,7 @@ import type { LinkNavigation } from '../../types/navigation.types';
 
 const NAVIGATION: LinkNavigation[] = [
   { key: '/home', label: 'Accueil', link: '/' },
-  { key: '/projects', label: 'Projets', link: '/projects' },
+  { key: '/projects', label: 'Projets', link: '/#projects-showcase' },
   { key: '/about', label: 'Parcours', link: '/about' },
   { key: '/contact', label: 'Contact', link: '/contact' },
 ];
@@ -18,8 +18,13 @@ export default function NavContainer() {
   const [menu, setMenu] = useState<boolean>(false);
 
   useEffect(() => {
+    if (router.asPath.includes('#projects-showcase') || router.asPath.includes('#project-')) {
+      setLinkNavigationCurrent('/projects');
+      return;
+    }
+
     setLinkNavigationCurrent(router.pathname === '/' ? '/home' : router.pathname);
-  }, [router.pathname]);
+  }, [router.asPath, router.pathname]);
 
   useEffect(() => {
     NAVIGATION.forEach((item) => {
@@ -29,7 +34,7 @@ export default function NavContainer() {
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
-      if (url === '/projects') {
+      if (url === '/projects' || url.includes('#projects-showcase') || url.includes('#project-')) {
         setLinkNavigationCurrent('/projects');
       } else if (url.includes('/projects/')) {
         setLinkNavigationCurrent('');

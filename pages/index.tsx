@@ -5,6 +5,7 @@ import SkillsShowcase from '../components/Home/SkillsShowcase';
 import ProjectAcordeon from '../components/Home/ProjectAcordeon';
 import HeroRoleTitle from '../components/Home/HeroRoleTitle';
 import HeroIntro from '../components/Home/HeroIntro';
+import ProjectsFullPage from '../components/Project/ProjectsFullPage';
 import { projectsData } from '../data/projectsData';
 import skillsData from '../data/skillsData.json';
 import type { Skill } from '../types/skills.types';
@@ -31,10 +32,11 @@ function Home() {
       <div>
         <div className="mx-auto flex w-[min(92%,52rem)] flex-col items-center px-4 py-6 sm:w-4/5 md:px-8">
           <HeroRoleTitle />
-          <HeroIntro onProjectsClick={() => router.replace('/projects')} />
+          <HeroIntro onProjectsClick={() => router.replace('/#projects-showcase')} />
         </div>
         <SkillsShowcase items={skills} />
-        <ProjectAcordeon projects={projectsData} />
+        {/* <ProjectAcordeon projects={projectsData} /> */}
+        <ProjectsFullPage embedded />
       </div>
     </>
   );

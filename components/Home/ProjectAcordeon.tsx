@@ -18,8 +18,8 @@ export default function ProjectAcordeon({ projects }: ProjectAcordeonProps) {
     rootMargin: '0px 0px -80px 0px',
   });
 
-  const goToProjects = () => {
-    router.push('/projects');
+  const goToProjectDetails = (projectId: string) => {
+    router.push(`/#project-${projectId}`);
   };
 
   if (!projects?.length) {
@@ -85,7 +85,7 @@ export default function ProjectAcordeon({ projects }: ProjectAcordeonProps) {
                   </p>
                   <div className="mt-auto flex justify-center pt-1 sm:justify-start">
                     <Btn
-                      onClickFunction={goToProjects}
+                      onClickFunction={() => goToProjectDetails(project.id)}
                       color="secondary"
                       className="!border-transparent !bg-[#ebb876] !text-[#1f2235] hover:!bg-[#f3c98f] focus:!bg-[#f3c98f] font-medium"
                       message="Découvrir le projet"

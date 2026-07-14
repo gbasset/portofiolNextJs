@@ -6,9 +6,10 @@ interface ProjectSectionProps {
   project: ProjectData;
   index: number;
   sectionRef: React.RefObject<HTMLElement>;
+  embedded?: boolean;
 }
 
-export default function ProjectSection({ project, index, sectionRef }: ProjectSectionProps) {
+export default function ProjectSection({ project, index, sectionRef, embedded = false }: ProjectSectionProps) {
   const formattedIndex = String(index + 1).padStart(2, '0');
   const previewImage = project.images[0] ?? project.coverImage;
 
@@ -16,8 +17,10 @@ export default function ProjectSection({ project, index, sectionRef }: ProjectSe
     <section
       ref={sectionRef}
       id={`project-${project.id}`}
-      className="relative overflow-hidden bg-primary-700"
-      style={{ height: '100vh', scrollSnapAlign: 'start' }}
+      className={`relative overflow-hidden bg-primary-700 ${embedded ? 'mb-8 last:mb-0 rounded-[32px]' : ''}`}
+      style={embedded
+        ? { minHeight: '48rem', scrollMarginTop: '5rem' }
+        : { height: '100vh', scrollSnapAlign: 'start' }}
       aria-label={`Projet ${project.name}`}
     >
       <div className="absolute inset-0" aria-hidden>

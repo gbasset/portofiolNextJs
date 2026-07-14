@@ -1,22 +1,23 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head';
-import ProjectsFullPage from '../../components/Project/ProjectsFullPage';
+import { useRouter } from 'next/router';
 
 export default function Projects() {
+  const router = useRouter();
+
   useEffect(() => {
-    document.documentElement.scrollTop = 0;
-  }, []);
+    router.replace('/#projects-showcase');
+  }, [router]);
 
   return (
     <>
       <Head>
-        <title>Projets de Basset Gaëtan</title>
+        <title>Redirection projets</title>
         <meta
           name="description"
-          content="Sélection de projets de Gaëtan Basset, développeur web React / TypeScript. Projets respectant les standards Clean Code et SOLID."
+          content="Redirection vers la section projets de l'accueil."
         />
       </Head>
-      <ProjectsFullPage />
     </>
   );
 }
