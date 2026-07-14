@@ -3,17 +3,22 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { cardEase, gridVariants, ShowcaseInteractiveCard } from './cardMotion';
 import SkillModal from '../Skills/SkillModal';
+import type { Skill } from '../../types/skills.types';
+
+interface SkillsShowcaseProps {
+  items: Skill[];
+}
 
 const showcaseVariants = {
   hidden: { opacity: 0, y: 36 },
   visible: { opacity: 1, y: 0 },
 };
 
-export default function SkillsShowcase({ items }) {
-  const [selectedSkill, setSelectedSkill] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [hasAnimatedIn, setHasAnimatedIn] = useState(false);
-  const closeTimeoutRef = useRef(null);
+export default function SkillsShowcase({ items }: SkillsShowcaseProps) {
+  const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [hasAnimatedIn, setHasAnimatedIn] = useState<boolean>(false);
+  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -27,7 +32,7 @@ export default function SkillsShowcase({ items }) {
     }
   }, [inView]);
 
-  const handleSkillClick = useCallback((skill) => {
+  const handleSkillClick = useCallback((skill: Skill) => {
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current);
       closeTimeoutRef.current = null;
@@ -82,7 +87,8 @@ export default function SkillsShowcase({ items }) {
           <div className="relative z-[1]">
             <p className="mx-auto mb-8 max-w-xl text-center font-sans text-[clamp(0.95rem,2vw,1.1rem)] leading-relaxed text-primary-200/90">
               Mon quotidien en développement web, du navigateur au serveur, en passant par la persistance
-              des données, les frameworks et les librairies. <span className="text-secondary-700 font-medium">Cliquez pour voir mes projets.</span>
+              des données, les frameworks et les librairies.{' '}
+              <span className="text-secondary-700 font-medium">Cliquez pour voir mes projets.</span>
             </p>
             <motion.div
               className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
@@ -172,11 +178,7 @@ export default function SkillsShowcase({ items }) {
         </motion.div>
       </section>
 
-      <SkillModal
-        skill={selectedSkill}
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-      />
+      <SkillModal skill={selectedSkill} isOpen={isModalOpen} onClose={handleCloseModal} />
     </>
   );
 }

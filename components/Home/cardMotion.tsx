@@ -1,9 +1,10 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import type { ReactNode, MouseEvent, KeyboardEvent } from 'react';
+import { motion, Variants } from 'framer-motion';
 
-export const cardEase = [0.22, 1, 0.36, 1];
+export const cardEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-export const gridVariants = {
+export const gridVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -13,8 +14,7 @@ export const gridVariants = {
   },
 };
 
-/** Entrée seulement — pilotée par le parent (stagger). */
-export const cardEntryVariants = {
+export const cardEntryVariants: Variants = {
   hidden: { opacity: 0, y: 28, scale: 0.96 },
   visible: {
     opacity: 1,
@@ -26,16 +26,25 @@ export const cardEntryVariants = {
 
 const hoverTween = { duration: 0.35, ease: cardEase, delay: 0 };
 
-export function ShowcaseInteractiveCard({ 
-  className, 
-  children, 
-  onClick, 
-  role, 
-  tabIndex, 
-  onKeyDown, 
+interface ShowcaseInteractiveCardProps {
+  className?: string;
+  children: ReactNode;
+  onClick?: (e: MouseEvent<HTMLDivElement>) => void;
+  role?: string;
+  tabIndex?: number;
+  onKeyDown?: (e: KeyboardEvent<HTMLDivElement>) => void;
+  'aria-label'?: string;
+}
+
+export function ShowcaseInteractiveCard({
+  className,
+  children,
+  onClick,
+  role,
+  tabIndex,
+  onKeyDown,
   'aria-label': ariaLabel,
-  ...rest 
-}) {
+}: ShowcaseInteractiveCardProps) {
   return (
     <motion.article variants={cardEntryVariants} className="h-full origin-center">
       <motion.div
@@ -55,7 +64,6 @@ export function ShowcaseInteractiveCard({
           transition: { duration: 0.15, ease: cardEase, delay: 0 },
         }}
         transition={hoverTween}
-        {...rest}
       >
         {children}
       </motion.div>

@@ -1,64 +1,30 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
-import axios from 'axios';
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { useRouter } from 'next/router';
 import SkillsShowcase from '../components/Home/SkillsShowcase';
 import ProjectAcordeon from '../components/Home/ProjectAcordeon';
 import HeroRoleTitle from '../components/Home/HeroRoleTitle';
 import HeroIntro from '../components/Home/HeroIntro';
-import { apiProjects } from '../utils/data';
+import ProjectsFullPage from '../components/Project/ProjectsFullPage';
+import { projectsData } from '../data/projectsData';
 import skillsData from '../data/skillsData.json';
+import type { Skill } from '../types/skills.types';
 
-interface SkillProject {
-  title: string;
-  company: string;
-  period: string;
-  context: string;
-  challenges: string[];
-  solutions: string[];
-  results: string[];
-  stack: string[];
-}
-
-interface Skill {
-  id: string;
-  language: string;
-  image: string;
-  technos: string[];
-  description: string;
-  projects: SkillProject[];
-}
-
-interface MainProject {
-  _id: string;
-  name: string;
-  description: string;
-  imageHome: {
-    url: string;
-  };
-}
-
-interface HomeProps {
-  projects: MainProject[] | null;
-}
-
-function Home({ projects }: InferGetStaticPropsType<typeof getStaticProps>) {
+function Home() {
   useEffect(() => {
     document.documentElement.scrollTop = 0;
   }, []);
 
-  const skills: Skill[] = skillsData.skills;
-
+  const skills = skillsData.skills as Skill[];
   const router = useRouter();
 
   return (
     <>
       <Head>
-        <title>Accueil du portfolio de Basset Gaetan </title>
+        <title>Accueil du portfolio de Basset Gaetan</title>
         <meta
           name="description"
-          content="Accueil du portfolio de Gaetan Basset Developpeur web, ReactJs , NodeJs et Css. Creation de site web, site vitrine et e-commerce et application web SASS. "
+          content="Portfolio de Gaëtan Basset, développeur web React / TypeScript. Projets respectant les standards Clean Code et SOLID."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -66,30 +32,14 @@ function Home({ projects }: InferGetStaticPropsType<typeof getStaticProps>) {
       <div>
         <div className="mx-auto flex w-[min(92%,52rem)] flex-col items-center px-4 py-6 sm:w-4/5 md:px-8">
           <HeroRoleTitle />
-          <HeroIntro onProjectsClick={() => router.replace('/projects')} />
+          <HeroIntro onProjectsClick={() => router.replace('/#projects-showcase')} />
         </div>
         <SkillsShowcase items={skills} />
-        <div>{projects && <ProjectAcordeon mainProjects={projects} />}</div>
+        {/* <ProjectAcordeon projects={projectsData} /> */}
+        <ProjectsFullPage embedded />
       </div>
     </>
   );
 }
-
-export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const mainProject = await axios
-    .get<MainProject[]>(`${apiProjects}projectMain`)
-    .then((res) => res.data)
-    .catch((error: unknown) => {
-      console.log('Error in getStaticProps', error);
-      console.error('Une erreur est survenue pendant la recuperation des languages');
-      return null;
-    });
-
-  return {
-    props: {
-      projects: mainProject ?? null,
-    },
-  };
-};
 
 export default Home;
