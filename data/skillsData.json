@@ -192,6 +192,37 @@
       ]
     },
     {
+      "id": "testing",
+      "language": "Testing",
+      "image": "/logos/testing.svg",
+      "technos": ["React Testing Library", "Jest", "Playwright", "Tests unitaires", "Tests E2E"],
+      "description": "J'intègre les tests dans mes projets front pour sécuriser les refactors, fiabiliser les parcours critiques et améliorer la qualité globale de livraison.",
+      "projects": [
+        {
+          "title": "Mise en place de tests front-end",
+          "company": "BEYABLE",
+          "period": "2024 - Present",
+          "context": "Structuration progressive d'une stratégie de tests sur des interfaces React complexes afin de limiter les régressions et de sécuriser les évolutions.",
+          "challenges": [
+            "Couverture faible sur les composants critiques",
+            "Refactors risqués sur des écrans métier complexes",
+            "Besoin de fiabiliser les parcours utilisateurs importants"
+          ],
+          "solutions": [
+            "Tests unitaires et d'intégration avec Jest et React Testing Library",
+            "Tests end-to-end sur les parcours critiques avec Playwright",
+            "Ciblage prioritaire des composants et flows les plus sensibles"
+          ],
+          "results": [
+            "Réduction du risque de régression sur les écrans critiques",
+            "Refactors plus sereins et plus rapides",
+            "Base plus fiable pour industrialiser les validations avant mise en production"
+          ],
+          "stack": ["React Testing Library", "Jest", "Playwright", "React", "TypeScript"]
+        }
+      ]
+    },
+    {
       "id": "typescript",
       "language": "TypeScript",
       "image": "/logos/ts.svg",
