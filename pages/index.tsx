@@ -2,11 +2,9 @@ import Head from 'next/head';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import SkillsShowcase from '../components/Home/SkillsShowcase';
-import ProjectAcordeon from '../components/Home/ProjectAcordeon';
 import HeroRoleTitle from '../components/Home/HeroRoleTitle';
 import HeroIntro from '../components/Home/HeroIntro';
 import ProjectsFullPage from '../components/Project/ProjectsFullPage';
-import { projectsData } from '../data/projectsData';
 import skillsData from '../data/skillsData.json';
 import type { Skill } from '../types/skills.types';
 

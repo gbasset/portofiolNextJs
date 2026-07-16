@@ -51,4 +51,19 @@ export const projectsData: ProjectData[] = [
     ],
     highlight: 'Architecture modulaire · PokeAPI · context + hooks de logique',
   },
+  {
+    id: 'portfolio-v2-dashboard',
+    name: 'Portfolio Dashboard',
+    tagline: 'Un back-office full-stack pour administrer dynamiquement le contenu d un portfolio.',
+    description:
+      'Application full-stack orientee administration de contenu avec un serveur Node.js / Express, une base MongoDB via Mongoose et un client React embarque dans le meme repository. Le projet couvre la gestion des projets, tags, langages, images et authentification, avec une organisation backend claire en `controllers/`, `models/`, `routes/`, `auth/` et `utils/`. On y retrouve aussi l integration Cloudinary pour les medias, JWT / Passport pour la securisation et une vraie interface d administration cote client.',
+    coverImage: '/images/backoffice/pvypd0fmqei3br27igdp.png',
+    images: ['/images/backoffice/pvypd0fmqei3br27igdp.png'],
+    stack: ['Node.js', 'Express', 'MongoDB', 'Mongoose', 'JWT', 'Passport', 'React', 'Cloudinary'],
+    devices: ['desktop'],
+    links: [
+      { label: 'Voir le code', url: 'https://github.com/gbasset/portfolioV2' },
+    ],
+    highlight: 'API REST · back-office admin · auth JWT · gestion medias Cloudinary',
+  },
 ];

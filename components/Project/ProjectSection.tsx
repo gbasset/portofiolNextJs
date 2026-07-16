@@ -47,7 +47,7 @@ export default function ProjectSection({ project, index, sectionRef, embedded = 
           <div className="relative overflow-hidden rounded-[32px] border border-primary-200/12 bg-[linear-gradient(180deg,rgba(31,34,53,0.92),rgba(17,20,35,0.90))] p-5 shadow-[0_28px_90px_rgba(0,0,0,0.45)] backdrop-blur-md sm:p-7 lg:p-8">
             <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-secondary-700/45 to-transparent" />
 
-            <div className="relative z-10 grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(20rem,0.95fr)] lg:items-start">
+            <div className="relative z-10 grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(20rem,0.95fr)] lg:items-center">
               <div className="min-w-0">
                 <p className="mb-2 text-2xs font-semibold uppercase tracking-[0.28em] text-secondary-700/80">
                   Projet selectionne
@@ -137,15 +137,15 @@ export default function ProjectSection({ project, index, sectionRef, embedded = 
                 </div>
               </div>
 
-              <div className="min-w-0">
-                <p className="mb-3 text-2xs font-semibold uppercase tracking-[0.24em] text-primary-200/52">
+              <div className="flex min-w-0 flex-col justify-center self-center lg:pl-4">
+                <p className="mb-3 text-center text-2xs font-semibold uppercase tracking-[0.24em] text-primary-200/52">
                   Apercu
                 </p>
-                <figure className="overflow-hidden rounded-[24px] border border-primary-200/12 bg-[#0d1020] shadow-[0_20px_50px_rgba(0,0,0,0.30)]">
+                <figure className="mx-auto w-full max-w-[34rem] overflow-hidden rounded-[24px] border border-primary-200/12 bg-[#0d1020] shadow-[0_20px_50px_rgba(0,0,0,0.30)]">
                   <img
                     src={previewImage}
                     alt={`Apercu du projet ${project.name}`}
-                    className="aspect-[16/10] w-full object-cover object-top"
+                    className="aspect-[16/10] w-full object-cover object-center"
                     loading="lazy"
                     decoding="async"
                   />
